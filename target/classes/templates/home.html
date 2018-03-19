@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>User Page</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default" style="background-color: darkgray">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand brand_pic" href="#"></a>
+			<a class="navbar-brand" href="#"></a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+			<ul class="nav navbar-nav navbar-right">
+				<form class="navbar-form navbar-left">
+					<div th:action="@{/search}" action="#" method="post" class="form-group">
+						<input type="text" class="form-control" placeholder="Search" name="searchBox"/>
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<li ><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
+				<li ><a href="/logout"class="glyphicon glyphicon-off"></a></li>
+				<!--<li><a href="#">Link</a></li>-->
+				<!--<li class="dropdown">-->
+				<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+				<!--<ul class="dropdown-menu">-->
+				<!--<li><a href="#">Action</a></li>-->
+				<!--<li><a href="#">Another action</a></li>-->
+				<!--<li><a href="#">Something else here</a></li>-->
+				<!--<li role="separator" class="divider"></li>-->
+				<!--<li><a href="#">Separated link</a></li>-->
+				<!--</ul>-->
+				<!--</li>-->
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+
+		</div>
+	</div>
+</div>
+
+<div th:if="${userMessage}">
+	<nav class="navbar navbar-default sidebar" role="navigation" style="background-color: darkgray;height: 1000px;">
+		<div class="container-fluid">
+			<div  class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="#" class="navbar-brand">MyDrive</span></a></li>
+					<li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+					<!--<li ><a href="imageView">Uploaded Images<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>-->
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+							<li><a href="imageView">Uploaded Images<span class="badge"th:text="${numberImage}"></span></a></li>
+							<li><a href="#">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
+							<li><a href="#">Uploaded Videos<span class="badge"th:text="${numberVideo}"></span></a></li>
+						</ul>
+					</li>
+					<li ><a href="uploadForm">Upload Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+					<li ><a href="viewMetadata.html">Metadata of Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li><li ><a href="/editProfile">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container" style="background: linear-gradient(to bottom right, lightgrey, lightyellow);width: 84%;margin-left: 280px;">
+		<div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px">
+			<div class="panel-group" style="margin-top:40px;margin-left: 30px;">
+				<div class="panel panel-primary"style="height: fit-content;">
+					<div th:if="${userMessage}">
+						<!--<h2 th:text="${adminmessage}"/>-->
+						<p class="admin-message-text text-center" th:utext="${userMessage}"></p>
+					</div>
+					<div class="panel-heading">
+						<span th:utext="${userName}"></span>
+					</div>
+					<div class="panel-body">
+						<img th:src="@{/images/welcone.jpg}" class="img-responsive center-block" width="400" height="400" alt="Beer" />
+					</div>
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-top: -1250px;">
+						What is Metadata?
+					</button>
+					<div class="collapse" id="collapseExample" style="margin-top: -600px;">
+						<div class="well">
+							<div>Metadata is data about file</div>
+							<div>It Contains data of a file such as </div>
+							<ul>
+								<li>Name</li>
+								<li>Aurhor</li>
+								<li>Last Modified Date</li>
+								<li>File Size</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div th:if="${adminMessage}">
+	<nav class="navbar navbar-default sidebar" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="#" class="navbar-brand">MyDrive</span></a></li>
+					<li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+					<li ><a href="#">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+					<li ><a href="#">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
+					<!--</li><li ><a href="editAccount.php">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
+				</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container">
+
+
+		<div class="panel-group" style="margin-top:40px;margin-left: 300px">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<span th:utext="${userName}"></span>
+				</div>
+				<div class="panel-body">
+					<img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400" alt="Beer" />
+				</div>
+				<div th:if="${adminMessage}">
+					<!--<h2 th:text="${adminmessage}"/>-->
+					<p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+				</div>
+				<div th:if="${userMessage}">
+					<!--<h2 th:text="${adminmessage}"/>-->
+					<p class="admin-message-text text-center" th:utext="${userMessage}"></p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/test2.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Raleway);
+        /* Colors */
+        * {
+            margin: 0;
+            padding: 0;
+             -moz-box-sizing: border-box;
+             -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: Raleway, sans-serif;
+            background-color: #fff;
+        }
+
+        footer {
+            width: 100%;
+            display: inline-block;
+            /*margin: 2em 0;*/
+            height: 70px;
+            background-color: #999;
+        }
+        footer .copyright {
+            width: 50%;
+            float: left;
+        }
+        @media (max-width: 600px) {
+            footer .copyright {
+                width: 100%;
+            }
+        }
+        footer .copyright p {
+            padding-left: 10%;
+            color: white;
+            font-size: 0.7em;
+            line-height: 70px;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 600px) {
+            footer .copyright p {
+                text-align: center;
+                padding: 0;
+            }
+        }
+        footer .social {
+            width: 50%;
+            float: right;
+        }
+        @media (max-width: 600px) {
+            footer .social {
+                width: 100%;
+            }
+        }
+        footer .social a {
+            float: left;
+            line-height: 70px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+             -moz-transition: all, 0.3s;
+             -o-transition: all, 0.3s;
+             -webkit-transition: all, 0.3s;
+            transition: all, 0.3s;
+        }
+        footer .social a:hover {
+            background-color: #222;
+             -moz-transition: all, 0.3s;
+             -o-transition: all, 0.3s;
+             -webkit-transition: all, 0.3s;
+            transition: all, 0.3s;
+        }
+
+        .linked {
+            background-color: #1E83AE;
+            font-size: 1.2em;
+            width: 20%;
+        }
+
+        .face {
+            background-color: #3D5B94;
+            font-size: 1.2em;
+            width: 20%;
+        }
+
+        .tweet {
+            background-color: #3DACDD;
+            font-size: 1.2em;
+            width: 20%;
+        }
+
+        .support {
+            background-color: #6dcd9a;
+            font-size: 0.8em;
+            width: 40%;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default" style="background-color: darkgray">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">MyDrive</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <form th:action="@{/search}" action="#" method="post" class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" name="searchBox"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <li ><a href="/logout">LogOut</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<nav class="navbar navbar-default sidebar" role="navigation" style="background-color: darkgray;height: 100%;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#" class="navbar-brand">MyDrive</span></a></li>
+                <li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                <!--<li ><a href="imageView">Uploaded Images<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>-->
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="imageView">Uploaded Images<span class="badge"th:text="${numberImage}"></span></a></li>
+                        <li><a href="#">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
+                        <li><a href="#">Uploaded Videos<span class="badge"th:text="${numberVideo}"></span></a></li>
+                    </ul>
+                </li>
+                <li ><a href="uploadForm">Upload Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                <li ><a href="viewMetadata.html">Metadata of Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li><li ><a href="/editProfile">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!---->
+    <!--<h1>Hello, world!</h1>-->
+    <!--<p>...</p>-->
+    <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
+    <!--</div>-->
+    <!--<div>-->
+
+
+    <!--&lt;!&ndash;<div class="js-img"><img src="//placehold.it/500x300" width="50" height="300" alt="" /></div>&ndash;&gt;-->
+    <!--<div class="row">-->
+    <!--<div th:each="file : ${files}">-->
+
+    <!--<div class="col-xs-3 col-md-3  col-sm-3  col-lg-3" style="margin: 75px 0px 0px 75px;">-->
+    <!--<a href="#" class="thumbnail" style="width: 100px;padding-left: 20px;">-->
+    <!--<img th:src="@{/images/jpg_image.png}" alt="..." style="height: 100px;width: 100px;">-->
+    <!--</a>-->
+
+    <!--<br>-->
+    <!--&lt;!&ndash;<a th:href="${file}" th:text="${file[10]}" ></a><br><br>&ndash;&gt;-->
+    <!--&lt;!&ndash;<div th:unless="${brickset.imageNames == null}">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div th:for="image = ${#strings.arraySplit(file, '/')[1]}">&ndash;&gt;-->
+    <!--<a href="#" th:href="${file}" th:text="${#strings.arraySplit(file, '/')[1]}">-->
+    <!--&lt;!&ndash;<img src="#" th:src="${imageBaseUrl + image}" height="64" th:remove="${status.index} > 0 ? tag"/>&ndash;&gt;-->
+    <!--</a>-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<a th:href="" th:text="${file}" ></a><br><br>&ndash;&gt;-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+<div class="content">
+
+        <div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px;width: 84%;margin-left: 280px;height: 100%;">
+            <div class="item"style="margin-top: -200px">
+                <img src="https://media.giphy.com/media/LQ7rWiHvys2bK/giphy.gif" alt="..." style="width: 100%;height: 200px"/>
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <h3 style="align-content: center;margin-top: 80px;"> <span class="label label-default">Users can Upload</span><span class="label label-primary">JPG</span>
+                <span class="label label-primary">MP3</span>
+                <span class="label label-primary">MP4</span></h3>
+            <div th:if="${message}">
+                <h2 th:text="${message}"/>
+            </div>
+            <br><br><br><br><br><br>
+
+            <div class="zone"style="margin: 370px 0px 0px 300px;">
+
+                <div id="dropZ">
+                    <i class="fa fa-cloud-upload"></i>
+                    <img src="https://media.giphy.com/media/Weq8u4s3Ymsww/giphy.gif"style="width: 200px;height: 200px;opacity: 0.5;"/>
+                    <form method="POST" enctype="multipart/form-data" action="/aa" style="margin-left: 450px;">
+                        <table>
+                            <tr><td>File to upload:</td><td><input type="file" name="file" class="btn btn-primary" /></td></tr>
+                            <tr><td></td></tr>
+                            <tr><td></td><td><input type="submit" value="Upload" class="btn btn-primary" /></td></tr>
+                        </table>
+                    </form>
+                </div>
+
+            </div>
+            <!--<div class="panel-group" style="margin-top:275px;margin-left: 30px;">-->
+                <!--<div class="panel panel-primary">-->
+                    <!--<div class="panel-heading">-->
+                        <!--<span th:utext="${userName}"></span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+</div>
+
+<!-- /.container -->
+<footer>
+    <div class="copyright">
+        <p>&copy 2013 - Organisation</p>
+    </div>
+    <div class="social">
+        <a href="#" class="support">Contact Us</a>
+        <a href="#" class="face">f</a>
+        <a href="#" class="tweet">t</a>
+        <a href="#" class="linked">in</a>
+    </div>
+</footer>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">-->
+<!--</script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">-->
+<!--</script>-->
+
+<!--<th:block layout:fragment="scripts">-->
+
+<!--</th:block>-->
+</body>
+
+</html>

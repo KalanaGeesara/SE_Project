@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>MyTube Media Library</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+
+		@import url(https://fonts.googleapis.com/css?family=Raleway);
+		/* Colors */
+		* {
+			margin: 0;
+			padding: 0;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		html, body {
+			font-family: Raleway, sans-serif;
+			background-color: #fff;
+		}
+		.background{
+			background-image: url('../resources/static/images/beer.jpg');
+			/*background-color: #1E83AE;*/
+			height: 185px;
+		}
+		footer {
+			width: 100%;
+			display: inline-block;
+			/*margin: 2em 0;*/
+			height: 70px;
+			background-color: #999;
+		}
+		footer .copyright {
+			width: 50%;
+			float: left;
+		}
+		@media (max-width: 600px) {
+			footer .copyright {
+				width: 100%;
+			}
+		}
+		footer .copyright p {
+			padding-left: 10%;
+			color: white;
+			font-size: 0.7em;
+			line-height: 70px;
+			text-transform: capitalize;
+			letter-spacing: 1px;
+		}
+		@media (max-width: 600px) {
+			footer .copyright p {
+				text-align: center;
+				padding: 0;
+			}
+		}
+		footer .social {
+			width: 50%;
+			float: right;
+		}
+		@media (max-width: 600px) {
+			footer .social {
+				width: 100%;
+			}
+		}
+		footer .social a {
+			float: left;
+			line-height: 70px;
+			text-decoration: none;
+			color: white;
+			text-align: center;
+			font-weight: bold;
+			-moz-transition: all, 0.3s;
+			-o-transition: all, 0.3s;
+			-webkit-transition: all, 0.3s;
+			transition: all, 0.3s;
+		}
+		footer .social a:hover {
+			background-color: #222;
+			-moz-transition: all, 0.3s;
+			-o-transition: all, 0.3s;
+			-webkit-transition: all, 0.3s;
+			transition: all, 0.3s;
+		}
+
+		.linked {
+			background-color: #1E83AE;
+			font-size: 1.2em;
+			width: 20%;
+		}
+
+		.face {
+			background-color: #3D5B94;
+			font-size: 1.2em;
+			width: 20%;
+		}
+
+		.tweet {
+			background-color: #3DACDD;
+			font-size: 1.2em;
+			width: 20%;
+		}
+
+		.support {
+			background-color: #6dcd9a;
+			font-size: 0.8em;
+			width: 40%;
+		}
+		.alert {
+			padding: 20px;
+			background-color: aqua;
+			color: #222222;
+			margin-left: 40px;
+			width: 60%;
+		}
+
+		.closebtn {
+			margin-left: 15px;
+			color: white;
+			font-weight: bold;
+			float: right;
+			font-size: 22px;
+			line-height: 20px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		.closebtn:hover {
+			color: black;
+	</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-default" style="background-color: darkgray">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">MyDrive</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="/">Home </a></li>
+				<li  class="active"><a href="#">Registration<span class="sr-only">(current)</span></a></li>
+				<li><a href="/login">Login</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<form th:action="@{/search}" action="#" method="post"class="navbar-form navbar-left">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search" name="searchBox"/>
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+<!--<div th:if!="${message}">-->
+	<!--<form th:action="@{/}" method="get">-->
+		<!--<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>-->
+	<!--</form>-->
+	<!--<h2 th:text="${message}"/>-->
+<!--</div>-->
+
+<div style="background-image: url('../static/images/index2.jpg')">
+	<div class="container" style="background: linear-gradient(to bottom right, lightgrey, lightyellow);">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<form autocomplete="off" action="#" th:action="@{/registration}"
+					th:object="${user}" method="post" class="form-horizontal"
+					role="form">
+					<h2>Registration Form</h2>
+					<div class="form-group">
+						<div class="col-sm-9">
+						<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+								class="validation-message"></label>
+						<input type="text" th:field="*{name}" placeholder="Name"
+								class="form-control" /> 
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-9">
+						<label	th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+								class="validation-message"></label>
+							<input type="text" th:field="*{lastName}"
+								placeholder="Last Name" class="form-control" /> 
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-9">
+							<input type="text" th:field="*{email}" placeholder="Email"
+								class="form-control" /> <label
+								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+								class="validation-message"></label>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-9">
+							<input type="password" th:field="*{password}"
+								placeholder="Password" class="form-control" /> <label
+								th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+								class="validation-message"></label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-9">
+							<button type="submit" class="btn btn-primary btn-block">Register User</button>
+						</div>
+					</div>
+					
+					<span th:utext="${successMessage}"></span>
+					
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="background"></div>
+<footer>
+	<div class="copyright">
+		<p>&copy 2013 - Organisation</p>
+	</div>
+	<div class="social">
+		<a href="#" class="support">Contact Us</a>
+		<a th:href="@{http://www.facebook.com}"  class="face">f</a>
+		<a th:href="@{http://www.twitter.com}"  class="tweet">t</a>
+		<a th:href="@{http://www.linkedin.com}" class="linked">in</a>
+	</div>
+</footer>
+</body>
+</html>
