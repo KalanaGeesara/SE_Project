@@ -88,8 +88,9 @@ public ModelAndView serveFile2(@PathVariable String filename){
     if(file.get(0).getType().equals(".jpg")){
         System.out.println(file.get(0).getType());
         modelAndView.addObject("JPG","True");
-        modelAndView.addObject("filename",filename);
+
     }
+    modelAndView.addObject("filename",filename);
     List<String> metas= Arrays.asList(file.get(0).getMetadata().split(","));
     System.out.println(metas);
     modelAndView.addObject("metadatas",metas);

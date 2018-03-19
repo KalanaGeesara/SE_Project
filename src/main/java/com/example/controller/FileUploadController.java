@@ -141,10 +141,12 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
         String currentAuthor = file.get(0).getAuthor();
         String originalFileName = file.get(0).getFileName();
         String currentFileName = file.get(0).getName();
+        String keywords = file.get(0).getKeywords();
         modelAndView.addObject("file",new File());
         modelAndView.addObject("filename",originalFileName);
         modelAndView.addObject("newfilename",currentFileName);
         modelAndView.addObject("fileauthor",currentAuthor);
+        modelAndView.addObject("keywords",keywords);
         List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
         List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
         List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
@@ -156,7 +158,7 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
     }
 
     @RequestMapping(value = {"/saveEditFileChanges"},method = RequestMethod.POST)
-    public ModelAndView saveEditChanges(@RequestParam String originalname, String name, String author, @Valid File file, BindingResult bindingResult){
+    public ModelAndView saveEditChanges(@RequestParam String originalname, String name, String author,String keywords, @Valid File file, BindingResult bindingResult){
         ModelAndView modelAndView = new ModelAndView();
         System.out.println(originalname);
         System.out.println(name);
@@ -175,11 +177,16 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
             modelAndView.addObject("filename",originalname);
             modelAndView.addObject("newfilename",name);
             modelAndView.addObject("fileauthor",author);
+            modelAndView.addObject("keywords",keywords);
             modelAndView.setViewName("editFile");
         }
         else {
-            fileService.editFile(originalname, name, author);
+            fileService.editFile(originalname, name, author, keywords);
             modelAndView.addObject("file", new File());
+            modelAndView.addObject("filename",originalname);
+            modelAndView.addObject("newfilename",name);
+            modelAndView.addObject("fileauthor",author);
+            modelAndView.addObject("keywords",keywords);
             modelAndView.addObject("successMessage", "Changes added Successfully");
             modelAndView.setViewName("editFile");
 

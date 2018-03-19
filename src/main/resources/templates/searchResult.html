@@ -129,6 +129,57 @@
     .closebtn:hover {
         color: black;
     }
+    img {
+        border: 1px solid #ddd; /* Gray border */
+        border-radius: 4px;  /* Rounded border */
+        padding: 5px; /* Some padding */
+        width: 150px; /* Set a small width */
+        height: 100px;
+    }
+
+    /* Add a hover effect (blue shadow) */
+    img:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+    .detail{
+
+        /*width: 800px;*/
+        border-radius: 5px;
+        background-color: #ffffff;
+
+        opacity: 0.8;
+        filter: alpha(opacity=60);
+        /* background-color: #2be3c5;*/
+
+        height: auto ;
+        -webkit-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+        box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+
+        margin-left: 80px
+
+    }
+    .detail li{
+        margin: 0;
+        font-weight: bold;
+        /*font-size: large;*/
+        padding: 10px 0px 10px 0px;
+    }
+    .detail input{
+        font-size: 1rem;
+        color: red;
+
+    }
+    .form-text{
+        font-style: oblique;
+        font-weight: bold;
+
+    }
+    .detail button{
+        /* background-color: #ffd740;*/
+        float: right;
+        padding-right: 15px;
+    }
 </style>
 <body>
 
@@ -158,8 +209,8 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <!--<div th:if="${message}">-->
-                <li th:if="${message}"><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
-                <li th:if="${message}"><a href="/logout"class="glyphicon glyphicon-off"></a></li>
+                <li th:if="${message}" data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
+                <li th:if="${message}" data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout"class="glyphicon glyphicon-off"></a></li>
                 <!--</div>-->
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -206,45 +257,38 @@
 <div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px;height: 100%;">
     <!--<div class="js-img"><img src="//placehold.it/500x300" width="50" height="300" alt="" /></div>-->
     <div class="row">
-        <div th:each="file : ${files}">
-
-            <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 75px 0px 0px 75px;">
-                <a href="#" class="thumbnail" style="width: 100px;padding-left: 20px;">
-                    <img th:src="@{/images/jpg_image.png}" alt="..." style="height: 100px;width: 100px;">
+        <div th:each="file : ${imagefiles}">
+            <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;">
+                <a th:href="${file}">
+                    <img th:src="@{'images/'+${#strings.arraySplit(file, '/')[1]}+'/raw'}" alt="..." style="width: 150px;"/>
                 </a>
+                <a href="#" th:href="${file}" th:text="${#strings.arraySplit(file, '/')[1]}"></a>
+            </div>
+        </div>
 
-                <br>
-                <!--<a th:href="${file}" th:text="${file[10]}" ></a><br><br>-->
-                <!--<div th:unless="${brickset.imageNames == null}">-->
-                <!--<div th:for="image = ${#strings.arraySplit(file, '/')[1]}">-->
+        <div th:each="file : ${audiofiles}">
+            <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;">
+                <a th:href="${file}">
+                    <img th:src="@{/images/mp3_image.jpg}" alt="..."/>
+                </a>
                 <a href="#" th:href="${file}" th:text="${#strings.arraySplit(file, '/')[1]}">
-                    <!--<img src="#" th:src="${imageBaseUrl + image}" height="64" th:remove="${status.index} > 0 ? tag"/>-->
                 </a>
-                <br>
-                <!--<a th:href="@{/viewMetadata/file}">Metadata</a>-->
-                <!--</div>-->
+            </div>
+        </div>
 
-                <!--<a th:href="" th:text="${file}" ></a><br><br>-->
-
+        <div th:each="file : ${videofiles}">
+            <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;">
+                <a th:href="${file}">
+                    <img th:src="@{/images/mp3_image.jpg}" alt="..."/>
+                </a>
+                <a href="#" th:href="${file}" th:text="${#strings.arraySplit(file, '/')[1]}">
+                </a>
             </div>
         </div>
 
     </div>
-
-
-
-    <!--<div class="panel-group" style="margin-top:40px">-->
-        <!--<div class="panel panel-primary">-->
-            <!--<div class="panel-heading">-->
-                <!--<span th:utext="${userName}"></span>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
-
 </div>
 
-</div>
 <!--<div class="content">-->
     <!--<div layout:fragment="page_content"></div>-->
 <!--</div>-->

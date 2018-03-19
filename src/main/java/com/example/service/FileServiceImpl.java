@@ -106,7 +106,7 @@ public class FileServiceImpl implements FileService {
 
     }
     @Override
-    public void editFile(String OriginalName,String newName, String author){
+    public void editFile(String OriginalName,String newName, String author, String keywords){
         List<File> originalFile = fileRepository.findByFileName(OriginalName);
         File file = new File();
         file.setFile_id(originalFile.get(0).getFile_id());
@@ -117,9 +117,10 @@ public class FileServiceImpl implements FileService {
         file.setType(originalFile.get(0).getType());
         file.setName(newName);
         file.setAuthor(author);
+        file.setKeywords(keywords);
         fileRepository.save(file);
         String meta = originalFile.get(0).getMetadata();
-        meta+= newName+" "+author+" ";
+        meta+= newName+" "+author+" "+keywords+" ";
         SolrSearch newProduct = new SolrSearch();
         newProduct.setId(originalFile.get(0).getFile_id());
         newProduct.setName(meta);

@@ -50,13 +50,29 @@ public class SolrController {
 //                path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
 //                        "serveFile", path.getFileName().toString()).build().toString())
 //                .collect(Collectors.toList()));
-        List<String> productNames = new ArrayList<String>();
+        List<String> productImageNames = new ArrayList<String>();
+        List<String> productAudioNames = new ArrayList<String>();
+        List<String> productVideoNames = new ArrayList<String>();
         System.out.println("Products found by findAll():");
         System.out.println("----------------------------");
         for (SolrSearch solrSearch : this.productRepository.findByName( myString)){
 //            List<File> file = fileRepository.findByFileName(product);
 //            productNames.add(file.get(0).getFileName().toString());
-            productNames.add(solrSearch.getOriginalName());
+            String extension = "";
+
+            int i = solrSearch.getOriginalName().lastIndexOf('.');
+            if (i > 0) {
+                extension = solrSearch.getOriginalName().substring(i+1);
+            }
+            extension.toLowerCase();
+            if(extension.equals("jpg")){
+                productImageNames.add(solrSearch.getOriginalName());
+            }else if(extension.equals("mp3")){
+                productAudioNames.add(solrSearch.getOriginalName());
+            }else if(extension.equals("mp4")){
+                productVideoNames.add(solrSearch.getOriginalName());
+            }
+
             System.out.println(solrSearch.getOriginalName());
             System.out.println(solrSearch);
         }
@@ -64,7 +80,13 @@ public class SolrController {
 //        for(File i:fileService.findFileByuser_id()){
 //            fileNames.add(i.getFileName());
 //        }
-        model.addAttribute("files", storageService.loadAll2(productNames).map(
+        model.addAttribute("imagefiles", storageService.loadAll2(productImageNames).map(
+                path -> "files/"+path.getFileName().toString())
+                .collect(Collectors.toList()));
+        model.addAttribute("audiofiles", storageService.loadAll2(productAudioNames).map(
+                path -> "files/"+path.getFileName().toString())
+                .collect(Collectors.toList()));
+        model.addAttribute("videofiles", storageService.loadAll2(productVideoNames).map(
                 path -> "files/"+path.getFileName().toString())
                 .collect(Collectors.toList()));
 
@@ -72,15 +94,16 @@ public class SolrController {
         User user = userService.findUserByEmail(auth.getName());
         if(user!= null) {
             model.addAttribute("message", "logged_in");
+            List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
+            List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
+            List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
+            model.addAttribute("numberImage",imageFile.size());
+            model.addAttribute("numberAudio",audioFile.size());
+            model.addAttribute("numberVideo",videoFile.size());
         }
 System.out.println("bhbhbhjbhjbhjbhjbhjbhbhjbh");
 System.out.println(myString);
-        List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-        List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-        List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-        model.addAttribute("numberImage",imageFile.size());
-        model.addAttribute("numberAudio",audioFile.size());
-        model.addAttribute("numberVideo",videoFile.size());
+
         return "searchResult";
     }
 }

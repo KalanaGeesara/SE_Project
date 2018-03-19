@@ -26,7 +26,8 @@ public class File {
     @Column(name="author")
     private String author;
 
-
+    @Column(name="keywords")
+    private String keywords;
 
     @Column(name = "type")
     private String type;
@@ -95,5 +96,13 @@ public class File {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
     }
 }

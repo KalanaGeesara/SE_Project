@@ -178,31 +178,31 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Profile Info</h4>
             </div>
-            <div class="modal-body detaildetail"style="margin: 50px 50px 50px 50px;">
+            <div class="modal-body detail"style="margin: 50px 50px 50px 50px;">
                 <form >
                     <li>
                         <label for="first_name">First Name : </label>
-                        <input type="text"  placeholder="First Name" class="form-control" name="firstname" id="first_name"th:value="${firstname}"/>
+                        <input type="text"  placeholder="First Name" class="form-control" name="firstname" id="first_name"readonly th:value="${firstname}"/>
                         <!--<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>-->
                     </li>
                     <li>
                         <label for="last_name"> Last Name : </label>
-                        <input type="text"  placeholder="Last Name" class="form-control" name="lastname" id="last_name"th:value="${lastname}"/>
+                        <input type="text"  placeholder="Last Name" class="form-control" name="lastname" id="last_name"readonly th:value="${lastname}"/>
                         <!--<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>-->
                     </li>
                     <li>
                         <label for="email"> Email : </label>
-                        <input type="text"  placeholder="Email" class="form-control" name="email" id="email"th:value="${email}"/>
+                        <input type="text"  placeholder="Email" class="form-control" name="email" id="email"readonly th:value="${email}"/>
                         <!--<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>-->
                     </li>
                     <li>
                         <label for="file_number"> Number of Files Uploaded : </label>
-                        <input type="text"  placeholder="No: of files Uploaded" class="form-control" name="filenumber" id="file_number"th:value="${filenumber}"/>
+                        <input type="text"  placeholder="No: of files Uploaded" class="form-control" name="filenumber" id="file_number"readonly th:value="${filenumber}"/>
                         <!--<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>-->
                     </li>
                 </form>
 
-</div>
+
 
             </div>
             <div class="modal-footer">

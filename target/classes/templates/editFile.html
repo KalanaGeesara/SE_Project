@@ -8,6 +8,180 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Raleway);
+        /* Colors */
+        * {
+            margin: 0;
+            padding: 0;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: Raleway, sans-serif;
+            background-color: #fff;
+        }
+
+        footer {
+            width: 100%;
+            display: inline-block;
+            /*margin: 2em 0;*/
+            height: 70px;
+            background-color: #999;
+        }
+        footer .copyright {
+            width: 50%;
+            float: left;
+        }
+        @media (max-width: 600px) {
+            footer .copyright {
+                width: 100%;
+            }
+        }
+        footer .copyright p {
+            padding-left: 10%;
+            color: white;
+            font-size: 0.7em;
+            line-height: 70px;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 600px) {
+            footer .copyright p {
+                text-align: center;
+                padding: 0;
+            }
+        }
+        footer .social {
+            width: 50%;
+            float: right;
+        }
+        @media (max-width: 600px) {
+            footer .social {
+                width: 100%;
+            }
+        }
+        footer .social a {
+            float: left;
+            line-height: 70px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            -moz-transition: all, 0.3s;
+            -o-transition: all, 0.3s;
+            -webkit-transition: all, 0.3s;
+            transition: all, 0.3s;
+        }
+        footer .social a:hover {
+            background-color: #222;
+            -moz-transition: all, 0.3s;
+            -o-transition: all, 0.3s;
+            -webkit-transition: all, 0.3s;
+            transition: all, 0.3s;
+        }
+
+        .linked {
+            background-color: #1E83AE;
+            font-size: 1.2em;
+            width: 20%;
+        }
+
+        .face {
+            background-color: #3D5B94;
+            font-size: 1.2em;
+            width: 20%;
+        }
+
+        .tweet {
+            background-color: #3DACDD;
+            font-size: 1.2em;
+            width: 20%;
+        }
+
+        .support {
+            background-color: #6dcd9a;
+            font-size: 0.8em;
+            width: 40%;
+        }
+        .alert {
+            padding: 20px;
+            background-color: aqua;
+            color: #222222;
+            margin-left: 40px;
+            width: 60%;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+        img {
+            border: 1px solid #ddd; /* Gray border */
+            border-radius: 4px;  /* Rounded border */
+            padding: 5px; /* Some padding */
+            width: 150px; /* Set a small width */
+            height: 100px;
+        }
+
+        /* Add a hover effect (blue shadow) */
+        img:hover {
+            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+        }
+        .detail{
+
+            /*width: 800px;*/
+            border-radius: 5px;
+            background-color: #ffffff;
+
+            opacity: 0.8;
+            filter: alpha(opacity=60);
+            /* background-color: #2be3c5;*/
+
+            height: auto ;
+            -webkit-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+            -moz-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+            box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+
+            margin-left: 80px
+
+        }
+        .detail ul{
+            margin: 0;
+            font-weight: bold;
+            /*font-size: large;*/
+            padding: 20px 0px 20px 0px;
+
+        }
+        .detail input{
+            font-size: 15px;
+            color: #222222;
+
+        }
+        .form-text{
+            font-style: oblique;
+            font-weight: bold;
+
+        }
+        .detail button{
+            /* background-color: #ffd740;*/
+            float: right;
+            padding-right: 15px;
+        }
+
+    </style>
 </head>
 <div>
 
@@ -30,14 +204,14 @@
                 <ul class="nav navbar-nav">
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <form class="navbar-form navbar-left">
-                        <div th:action="@{/search}" action="#" method="post" class="form-group">
+                    <form th:action="@{/search}" action="#" method="post"  class="navbar-form navbar-left">
+                        <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search" name="searchBox"/>
                         </div>
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
-                    <li ><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
-                    <li ><a href="/logout"class="glyphicon glyphicon-off"></a></li>
+                    <li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
+                    <li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout"class="glyphicon glyphicon-off"></a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -50,7 +224,7 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-default sidebar" role="navigation" style="background-color: darkgray; height: 100%;">
+    <nav class="navbar navbar-default sidebar" role="navigation" style="background-color: darkgray;">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -78,48 +252,113 @@
             </div>
         </div>
     </nav>
+    <ol class="breadcrumb"style="margin-top: -20px;">
+        <li ><a href="/home">Home</a></li>
+        <li><a href="/imageView">Images</a></li>
+        <li class="active" th:text="${filename}"></li>
+        <!--<li class="active">Data</li>-->
+    </ol>
+    <div class="container" style="background: linear-gradient(to bottom right, lightgrey, lightyellow);width: 100%;margin-top: -20px;">
+        <!--<div class="row">-->
+            <!--<div class="col-md-6 col-md-offset-3">-->
+                <!--<form autocomplete="off" action="#" th:action="@{/saveEditFileChanges}"-->
+                      <!--th:object="${file}"method="post" class="form-horizontal"-->
+                      <!--role="form">-->
+                    <!--<h2>Update Metadata</h2>-->
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-sm-9">-->
+                            <!--&lt;!&ndash;<label th:if="${#fields.hasErrors('filename')}" th:errors="*{filename}"&ndash;&gt;-->
+                                   <!--&lt;!&ndash;class="validation-message"></label>&ndash;&gt;-->
+                            <!--<input type="text"  placeholder="Name" class="form-control" name="originalname" readonly  th:value="${filename}"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-    <div class="container" style="background: linear-gradient(to bottom right, lightgrey, lightyellow);">
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-sm-9">-->
+                            <!--<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"-->
+                            <!--class="validation-message"></label>-->
+                            <!--<input type="text"  placeholder="Name" class="form-control" name="name"  th:value="${newfilename}"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-sm-9">-->
+                            <!--<label	th:if="${#fields.hasErrors('author')}" th:errors="*{author}"-->
+                                      <!--class="validation-message"></label>-->
+                            <!--<input type="text" placeholder="Author" class="form-control" name="author" th:value="${fileauthor}" />-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-sm-9">-->
+                            <!--<label	th:if="${#fields.hasErrors('keywords')}" th:errors="*{keywords}"-->
+                                      <!--class="validation-message"></label>-->
+                            <!--<input type="text" placeholder="Key Words" class="form-control" name="keywords" th:value="${keywords}" />-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-sm-9">-->
+                            <!--<button type="submit" class="btn btn-primary btn-block">Save Changes</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div th:if="${successMessage}">-->
+                        <!--<div class="alert">-->
+                            <!--<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>-->
+                            <!--<strong>Success!</strong> <span th:text="${successMessage}"></span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <form autocomplete="off" action="#" th:action="@{/saveEditFileChanges}"
-                      th:object="${file}"method="post" class="form-horizontal"
-                      role="form">
-                    <h2>Update Metadata</h2>
-                    <div class="form-group">
-                        <div class="col-sm-9">
-                            <!--<label th:if="${#fields.hasErrors('filename')}" th:errors="*{filename}"-->
-                                   <!--class="validation-message"></label>-->
-                            <input type="text"  placeholder="Name" class="form-control" name="originalname" readonly  th:value="${filename}"/>
-                        </div>
+            <div class="col-md-6 col-md-offset-3"style="width: 800px;margin-left: -10px;">
+        <div class="detail"style="margin: 50px 50px 50px 50px;">
+
+            <form autocomplete="off" action="#" th:action="@{/saveEditFileChanges}"
+                th:object="${file}"method="post"style="height: 550px" >
+          <ul >
+              <label for="originalname">Original Name : </label>
+
+              <input type="text"  placeholder="Original Name" class="form-control" name="originalname" id="originalname"readonly th:value="${filename}"/>
+              <!--<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>-->
+                </ul>
+                <ul>
+                    <label for="name">Name : </label>
+                    <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                           class="validation-message"></label>
+                    <input type="text"  placeholder="Name" class="form-control" name="name" id="name"th:value="${newfilename}"/>
+                    <!--<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>-->
+                </ul>
+                <ul>
+                    <label for="author"> Author : </label>
+                    <label	th:if="${#fields.hasErrors('author')}" th:errors="*{author}"
+                              class="validation-message"></label>
+                    <input type="text"  placeholder="Author" class="form-control" name="author" id="author"th:value="${fileauthor}"/>
+                    <!--<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>-->
+                </ul>
+                <ul>
+                    <label for="keywords"> Number of Files Uploaded : </label>
+                    <label	th:if="${#fields.hasErrors('keywords')}" th:errors="*{keywords}"
+                              class="validation-message"></label>
+                    <input type="text"  placeholder="Key Words" class="form-control" name="keywords" id="keywords"th:value="${keywords}"/>
+                    <!--<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>-->
+                </ul>
+                <div style="padding: 20px 20px 20px 60px;height: 70px;">
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
                     </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-9">
-                            <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-                            class="validation-message"></label>
-                            <input type="text"  placeholder="Name" class="form-control" name="name"  th:value="${newfilename}"/>
-                        </div>
+                </div>
+                <div th:if="${successMessage}">
+                    <div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        <strong>Success!</strong> <span th:text="${successMessage}"></span>
                     </div>
+                </div>
+            </form>
 
-                    <div class="form-group">
-                        <div class="col-sm-9">
-                            <label	th:if="${#fields.hasErrors('author')}" th:errors="*{author}"
-                                      class="validation-message"></label>
-                            <input type="text" placeholder="Author" class="form-control" name="author" th:value="${fileauthor}" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-9">
-                            <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
-                        </div>
-                    </div>
-
-                    <span th:utext="${successMessage}"></span>
-
-
-                </form>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -129,18 +368,18 @@
 
 
     </div>
-    <div class="panel-group" style="margin-top:40px">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <span th:utext="${userName}"></span>
-            </div>
-        </div>
+</div>
+<footer>
+    <div class="copyright">
+        <p>&copy 2013 - Organisation</p>
     </div>
-</div>
-<div class="content">
-    <div layout:fragment="page_content"></div>
-</div>
-
+    <div class="social">
+        <a href="#" class="support">Contact Us</a>
+        <a href="#" class="face">f</a>
+        <a href="#" class="tweet">t</a>
+        <a href="#" class="linked">in</a>
+    </div>
+</footer>
 <!-- /.container -->
 
 

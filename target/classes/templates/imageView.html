@@ -144,6 +144,45 @@
         img:hover {
             box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
         }
+        .detail{
+
+            /*width: 800px;*/
+            border-radius: 5px;
+            background-color: #ffffff;
+
+            opacity: 0.8;
+            filter: alpha(opacity=60);
+            /* background-color: #2be3c5;*/
+
+            height: auto ;
+            -webkit-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+            -moz-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+            box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+
+            margin-left: 80px
+
+        }
+        .detail li{
+            margin: 0;
+            font-weight: bold;
+            /*font-size: large;*/
+            padding: 10px 0px 10px 0px;
+        }
+        .detail input{
+            font-size: 1rem;
+            color: red;
+
+        }
+        .form-text{
+            font-style: oblique;
+            font-weight: bold;
+
+        }
+        .detail button{
+            /* background-color: #ffd740;*/
+            float: right;
+            padding-right: 15px;
+        }
     </style>
 </head>
 <body>
@@ -173,8 +212,8 @@
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
-                <li ><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
-                <li ><a href="/logout"class="glyphicon glyphicon-off"></a></li>
+                <li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
+                <li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout"class="glyphicon glyphicon-off"></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -203,7 +242,7 @@
                 <li><a href="home.html">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                        <li><a href="#">Uploaded Images<span class="badge"></span></a></li>
+                        <li class="active"><a href="#">Uploaded Images<span class="badge"></span></a></li>
                         <li><a href="#">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
                         <li><a href="#">Uploaded Videos<span class="badge"th:text="${numberVideo}"></span></a></li>
                     </ul>
@@ -215,14 +254,18 @@
         </div>
     </div>
 </nav>
-
+<ol class="breadcrumb"style="margin-top: -20px;">
+    <li ><a href="/home">Home</a></li>
+    <li class="active">Images</li>
+    <!--<li class="active">Data</li>-->
+</ol>
 <div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px;width: 84%;margin-left: 280px;">
     <!--<div class="js-img"><img src="//placehold.it/500x300" width="50" height="300" alt="" /></div>-->
 
     <!--<div class="item"style="margin-top: -200px;">-->
         <!--<img src="https://media.giphy.com/media/zB5kxbQPkXOrC/giphy.gif" alt="..." style="width: 100%;height: 200px;opacity: .2;">-->
 
-        <img src="https://media.giphy.com/media/eFdhBeYJb62Wc/giphy.gif" alt="..." style="width: 100%;height: 200px;opacity: .6;margin-top: -1300px;">
+        <img src="https://media.giphy.com/media/eFdhBeYJb62Wc/giphy.gif" alt="..." style="width: 100%;height: 160px;opacity: .6;margin-top: -1260px;">
 
     <!--</div>-->
     <div class="row"style="margin-top: -590px;">
