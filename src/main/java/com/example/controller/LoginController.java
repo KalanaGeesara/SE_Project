@@ -51,9 +51,9 @@ public class LoginController {
 
 		System.out.println("Products found by findAll():");
 		System.out.println("----------------------------");
-		for (SolrSearch product : this.productRepository.findByName( "File")) {
-			System.out.println(product.getOriginalName());
-		}
+//		for (SolrSearch product : this.productRepository.findByName( "File")) {
+//			System.out.println(product.getOriginalName());
+//		}
 		int d = Integer.MIN_VALUE;
 		System.out.println(d);
 		return modelAndView;

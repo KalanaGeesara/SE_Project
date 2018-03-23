@@ -4,7 +4,7 @@ import org.apache.solr.client.solrj.beans.Field;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
-//@SolrDocument(solrCoreName = "test")
+@SolrDocument(solrCoreName = "mydrive")
 public class SolrSearch {
 
     @Id
