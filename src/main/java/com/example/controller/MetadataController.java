@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,47 +29,70 @@ public class MetadataController {
 
     @Autowired
     private StorageService storageService;
-//    @RequestMapping(value = "/metadata", method = RequestMethod.GET)
-    @GetMapping("/viewMetadata")
-    public String listUploadedFiles(Model model) throws IOException {
-
-//        model.addAttribute("files", storageService.loadAll().map(
-//                path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
-//                        "serveFile", path.getFileName().toString()).build().toString())
-//                .collect(Collectors.toList()));
+    @RequestMapping(value = {"/viewMetadataTest"},method = RequestMethod.GET)
+    public ModelAndView viewMetaTest(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("files", storageService.loadAll().map(
+                path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
+                        "serveFile", path.getFileName().toString()).build().toString())
+                .collect(Collectors.toList()));
         List<String> imagefileNames = new ArrayList<String>();
         List<String> audiofileNames = new ArrayList<String>();
         List<String> videofileNames = new ArrayList<String>();
-        for(File i:fileService.findFileByuser_id()){
-            if(i.getType().equals(".jpg")){
-                imagefileNames.add(i.getFileName());
-            }
-            if(i.getType().equals(".mp3")){
-                audiofileNames.add(i.getFileName());
-            }
-            if(i.getType().equals(".mp4")){
-                videofileNames.add(i.getFileName());
-            }
-        }
-        model.addAttribute("imagefiles", storageService.loadAll2(imagefileNames).map(
-                path -> "metadata/"+path.getFileName().toString())
-                .collect(Collectors.toList()));
 
-        model.addAttribute("audiofiles", storageService.loadAll2(audiofileNames).map(
+        List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
+        List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
+        List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
+        modelAndView.addObject("numberImage",imageFile.size());
+        modelAndView.addObject("numberAudio",audioFile.size());
+        modelAndView.addObject("numberVideo",videoFile.size());
+        modelAndView.setViewName("viewMetadata");
+        return modelAndView;
+    }
+@RequestMapping(value = {"/viewMetadata"},method = RequestMethod.GET)
+public ModelAndView viewM(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("files", storageService.loadAll().map(
+                path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
+                        "serveFile", path.getFileName().toString()).build().toString())
+                    .collect(Collectors.toList()));
+        List<String> imagefileNames = new ArrayList<String>();
+        List<String> audiofileNames = new ArrayList<String>();
+        List<String> videofileNames = new ArrayList<String>();
+            for(File i:fileService.findFileByuser_id()){
+                if(i.getType().equals(".jpg")){
+                    imagefileNames.add(i.getFileName());
+                }
+                if(i.getType().equals(".mp3")){
+                    audiofileNames.add(i.getFileName());
+                }
+                if(i.getType().equals(".mp4")){
+                    videofileNames.add(i.getFileName());
+                }
+            }
+        modelAndView.addObject("imagefiles", storageService.loadAll2(imagefileNames).map(
                 path -> "metadata/"+path.getFileName().toString())
                 .collect(Collectors.toList()));
-        model.addAttribute("vidoefiles", storageService.loadAll2(videofileNames).map(
+            System.out.println("memwrwmrwmrkwmrwemmkemkmkmkdmgdkmgdm");
+            System.out.println(storageService.loadAll2(imagefileNames).map(
+                path -> "metadata/"+path.getFileName().toString())
+                .collect(Collectors.toList()));
+            System.out.println("memwrwmrwmrkwmrwemmkemkmkmkdmgdkmgdm");
+        modelAndView.addObject("audiofiles", storageService.loadAll2(audiofileNames).map(
+                path -> "metadata/"+path.getFileName().toString())
+                .collect(Collectors.toList()));
+        modelAndView.addObject("vidoefiles", storageService.loadAll2(videofileNames).map(
                 path -> "metadata/"+path.getFileName().toString())
                 .collect(Collectors.toList()));
         List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
         List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
         List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-        model.addAttribute("numberImage",imageFile.size());
-        model.addAttribute("numberAudio",audioFile.size());
-        model.addAttribute("numberVideo",videoFile.size());
-        return "viewMetadata";
-    }
-
+        modelAndView.addObject("numberImage",imageFile.size());
+        modelAndView.addObject("numberAudio",audioFile.size());
+        modelAndView.addObject("numberVideo",videoFile.size());
+        modelAndView.setViewName("viewMetadata");
+        return modelAndView;
+}
 //    @GetMapping("/metadata/{filename:.+}")
 //    @ResponseBody
 //    public String viewMetadata(@PathVariable String filename, Model model){
@@ -82,9 +106,9 @@ public ModelAndView serveFile2(@PathVariable String filename){
 
     ModelAndView modelAndView = new ModelAndView();
     List<File> file = fileService.fildFileByfile_name_metadata(filename);
-    System.out.println(filename);
-    System.out.println(file.get(0).getMetadata());
-
+//    System.out.println(filename);
+//    System.out.println(file.get(0).getMetadata());
+//
     if(file.get(0).getType().equals(".jpg")){
         System.out.println(file.get(0).getType());
         modelAndView.addObject("JPG","True");

@@ -69,8 +69,7 @@ public class LoginController {
 	public ModelAndView profileInfo(){
 		ModelAndView modelAndView = new ModelAndView();
 
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
+		User user = userService.getCurrentUser();
 
 		modelAndView.addObject("firstname",user.getName());
 		modelAndView.addObject("lastname",user.getLastName());
@@ -112,10 +111,9 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/editProfile", method = RequestMethod.GET)
-	public ModelAndView editProfle(){
+	public ModelAndView editProfile(){
 		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
+		User user = userService.getCurrentUser();
 		modelAndView.addObject("firstname",user.getName());
 		modelAndView.addObject("lastname",user.getLastName());
 		modelAndView.addObject("email",user.getEmail());
@@ -138,8 +136,7 @@ public class LoginController {
 	public ModelAndView saveEditProfile(@RequestParam String name,String lastname,String currentpassword,String password, @Valid User user,BindingResult bindingResult){
 		ModelAndView modelAndView = new ModelAndView();
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User currentUser = userService.findUserByEmail(auth.getName());
+		User currentUser = userService.getCurrentUser();
 		modelAndView.addObject("email",currentUser.getEmail());
 //		if(newpassword.length()<=5){
 //			bindingResult.rejectValue("newpassword","error.user","Password must be a least 6 characters long");
@@ -165,8 +162,7 @@ public class LoginController {
 	@RequestMapping(value="/admin/home", method = RequestMethod.GET)
 	public ModelAndView adminHome(){
 		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
+		User user = userService.getCurrentUser();
 		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
 		modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
 
@@ -176,8 +172,7 @@ public class LoginController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView userHome(){
 		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
+		User user = userService.getCurrentUser();
 		if(user.getRoleID()==1) {
 			modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
 			modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");
@@ -192,15 +187,14 @@ public class LoginController {
 			modelAndView.addObject("numberAudio",audioFile.size());
 			modelAndView.addObject("numberVideo",videoFile.size());
 		}
-		modelAndView.setViewName("/home");
+		modelAndView.setViewName("home");
 		return modelAndView;
 	}
 
 @GetMapping("test")
 	public ModelAndView test(){
 		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
+		User user = userService.getCurrentUser();
 		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
 		modelAndView.setViewName("test");
 		return modelAndView;

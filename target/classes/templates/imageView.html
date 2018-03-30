@@ -136,8 +136,8 @@
             border: 1px solid #ddd; /* Gray border */
             border-radius: 4px;  /* Rounded border */
             padding: 5px; /* Some padding */
-            width: 150px; /* Set a small width */
-            height: 100px;
+            width: 250px; /* Set a small width */
+            height: 150px;
         }
 
         /* Add a hover effect (blue shadow) */
@@ -226,6 +226,13 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="myModalInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
 
 <nav class="navbar navbar-default sidebar" role="navigation" style="background-color: darkgray">
     <div class="container-fluid">
@@ -260,16 +267,16 @@
     <li class="active">Images</li>
     <!--<li class="active">Data</li>-->
 </ol>
-<div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px;margin-left: 280px;">
+<div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -60px;margin-left: 280px;">
     <!--<div class="js-img"><img src="//placehold.it/500x300" width="50" height="300" alt="" /></div>-->
 
     <!--<div class="item"style="margin-top: -200px;">-->
         <!--<img src="https://media.giphy.com/media/zB5kxbQPkXOrC/giphy.gif" alt="..." style="width: 100%;height: 200px;opacity: .2;">-->
 
-        <img src="https://media.giphy.com/media/eFdhBeYJb62Wc/giphy.gif" alt="..." style="width: 100%;height: 160px;opacity: .6;margin-top: -1260px;">
+        <!--<img src="https://media.giphy.com/media/eFdhBeYJb62Wc/giphy.gif" alt="..." style="width: 100%;height: 160px;opacity: .6;margin-top: -1285px;">-->
 
     <!--</div>-->
-    <div class="row"style="margin-top: -590px;">
+    <div class="row" style="margin-top: 50px; margin-left: 0px;margin-right: 0px;">
         <div th:each="file : ${files}">
 
             <div class="col-xs-2 col-md-2  col-sm-2  col-lg-2" style="margin: 20px 20px 20px 20px;">
@@ -282,15 +289,30 @@
                 <!--<a th:href="${file}" th:text="${file[10]}" ></a><br><br>-->
                 <!--<div th:unless="${brickset.imageNames == null}">-->
                 <!--<div th:for="image = ${#strings.arraySplit(file, '/')[1]}">-->
-                <a href="#" th:href="${file[0]}" th:text="${#strings.arraySplit(file[0], '/')[1]}">
+                <a href="#" th:href="${file[0]}" th:text="${#strings.arraySplit(file[0], '/')[1]}" data-toggle="tooltip" data-placement="bottom" title="Download">
                     <!--<img src="#" th:src="${imageBaseUrl + image}" height="64" th:remove="${status.index} > 0 ? tag"/>-->
                 </a>
                 &nbsp;
-                <a href="#" th:href="${file[1]}" th:text="${#strings.arraySplit(file[1], '/')[0]}">
+                <a href="#" th:href="${file[1]}" class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="bottom" title="Edit" >
                     <!--<img src="#" th:src="${imageBaseUrl + image}" height="64" th:remove="${status.index} > 0 ? tag"/>-->
                 </a>
-                <!--<li th:text="${file[1]}"></li>-->
 
+                &nbsp;
+                <a href="#" th:href="${file[2]}" class="glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#myModalInfo" >
+
+                </a>
+                <!--<li th:text="${file[1]}"></li>-->
+                &nbsp;
+                <a href="#" th:href="${file[3]}" class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="bottom" title="Delete" onclick="return confirm_click();">
+                    <!--<img src="#" th:src="${imageBaseUrl + image}" height="64" th:remove="${status.index} > 0 ? tag"/>-->
+                </a>
+                <script type="text/javascript">
+                    function confirm_click()
+                    {
+                        return confirm("Are you sure ?");
+                    }
+
+                </script>
                 <br>
                 <!--<a th:href="@{/viewMetadata/file}">Metadata</a>-->
                 <!--</div>-->

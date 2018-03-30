@@ -1,28 +1,21 @@
-package com.example.service;
+package com.example.repository;
 
 import com.example.model.SolrSearch;
 import com.example.repository.ProductRepository;
-//import com.example.utils.RequiresSolrServer;
-//import com.example.utils.SolrTestConfiguration;
-import org.junit.Assert;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.solr.repository.SolrCrudRepository;
 import org.springframework.test.context.junit4.SpringRunner;
 import static org.assertj.core.api.Assertions.*;
-import org.junit.Assert;
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class FileImplSolrTest {
+public class SolrTest {
     @Autowired
     ProductRepository productRepository;
 
     @Test
-    public void editSolrTest(){
+    public void saveSolrTest(){
         SolrSearch solrSearch1 = getSolrObject(1000,"metadataoffiles1","kalana1");
         SolrSearch solrSearch2 = getSolrObject(1001,"metadataoffiles2","kalana2");
         SolrSearch solrSearch3 = getSolrObject(1002,"metadataoffiles3","kalana3");
@@ -36,8 +29,25 @@ public class FileImplSolrTest {
         System.out.println("4 elements added");
 
     }
+
     @Test
-    public void findByNameTset() {
+    public void editSolrTest(){
+        SolrSearch solrSearch1 = getSolrObject(1000,"editmetadataoffiles1","kalana1");
+
+        productRepository.save(solrSearch1);
+
+        assertThat(productRepository.findByName("editmetadataoffiles1").get(0).getName()).isEqualTo(solrSearch1.getName());
+        assertThat(productRepository.findByName("editmetadataoffiles1").get(0).getOriginalName()).isEqualTo(solrSearch1.getOriginalName());
+    }
+
+    @Test
+    public void deleteFromSolrTest(){
+        productRepository.delete(1000);
+        assertThat(productRepository.findByName("editmetadataoffiles1")).isEmpty();
+    }
+
+    @Test
+    public void findByNameTest() {
         SolrSearch solrSearch1 = getSolrObject(1000,"metadataoffiles1","kalana1");
 //        Assert.assertTrue(
 //                productRepository.findByName("metadataoffiles1").get(0).getName().equals("metadataoffiles1")

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
-
+      xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8"/>
     <title>Uploaded Files</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <!--<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
     <!--<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
@@ -212,8 +212,8 @@
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
-                <li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
-                <li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout"class="glyphicon glyphicon-off"></a></li>
+                <li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
+                <li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout" class="glyphicon glyphicon-off"></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -238,23 +238,23 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#" class="navbar-brand">MyDrive</span></a></li>
+                <li><a href="#" class="navbar-brand">MyDrive</a></li>
                 <li><a href="home.html">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                        <li><a href="/imageView">Uploaded Images<span class="badge"th:text="${numberImage}"></span></a></li>
-                        <li><a href="#">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
-                        <li><a href="#">Uploaded Videos<span class="badge"th:text="${numberVideo}"></span></a></li>
+                        <li><a href="imageView">Uploaded Images<span class="badge" th:text="${numberImage}"></span></a></li>
+                        <li><a href="#">Uploaded Audios<span class="badge" th:text="${numberAudio}"></span></a></li>
+                        <li><a href="#">Uploaded Videos<span class="badge" th:text="${numberVideo}"></span></a></li>
                     </ul>
                 </li>
                 <li ><a href="uploadForm">Upload Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
                 <li class="active"><a href="viewMetadata.html">Metadata of Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-                </li><li ><a href="/editProfile">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                <li ><a href="/editProfile">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
             </ul>
         </div>
     </div>
 </nav>
-<ol class="breadcrumb"style="margin-top: -20px;">
+<ol class="breadcrumb" style="margin-top: -20px;">
     <li ><a href="/home">Home</a></li>
     <li class="active">Metadata</li>
     <!--<li class="active">Data</li>-->
@@ -264,7 +264,7 @@
     <!--<span class="label label-default">Default</span>-->
     <!--<span class="label label-primary">Primary</span>-->
     <!--<span class="label label-success">Success</span>-->
-    <br>
+    <br/>
     <div class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <strong>Metadata of Image Files</strong>
@@ -277,13 +277,13 @@
                 Button with data-target
             </button>
             <div class="collapse" id="collapseExample">
-                <div class="well"style="margin-right: 30px;">
+                <div class="well" style="margin-right: 30px;">
                     <!--<span class="label label-info" style="padding-top: 50px;margin-left: 300px;">Info</span>-->
                     <div th:each="file : ${imagefiles}">
 
                         <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;">
                             <a th:href="${file}">
-                                <img th:src="@{'images/'+${#strings.arraySplit(file, '/')[1]}+'/raw'}" alt="..." style="width: 150px;">
+                                <img th:src="@{'images/'+${#strings.arraySplit(file, '/')[1]}+'/raw'}" alt="..." style="width: 150px;"/>
                             </a>
 
                             <!--<a th:href="${file}" th:text="${file[10]}" ></a><br><br>-->
@@ -314,7 +314,7 @@
             Button with data-target
         </button>
         <div class="collapse" id="collapseExample1">
-            <div class="well"style="margin-right: 30px;">
+            <div class="well" style="margin-right: 30px;">
                 <div th:each="file : ${audiofiles}">
                     <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;">
                         <a th:href="${file}">
@@ -348,7 +348,7 @@
 <!--</div>-->
     <footer>
         <div class="copyright">
-            <p>&copy 2013 - Organisation</p>
+            <p>copy 2013 - Organisation</p>
         </div>
         <div class="social">
             <a href="#" class="support">Contact Us</a>

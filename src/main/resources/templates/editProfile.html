@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <meta charset="UTF-8"/>
     <title>Uploaded Files</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">-->
@@ -198,8 +199,8 @@
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
-                <li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
-                <li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout"class="glyphicon glyphicon-off"></a></li>
+                <li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"/></li>
+                <li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout" class="glyphicon glyphicon-off"></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -224,13 +225,13 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#" class="navbar-brand">MyDrive</span></a></li>
+                <li><a href="#" class="navbar-brand">MyDrive</a></li>
                 <li><a href="home.html">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                        <li><a href="/imageView">Uploaded Images<span class="badge"th:text="${numberImage}"></span></a></li>
-                        <li><a href="#">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
-                        <li><a href="#">Uploaded Videos<span class="badge"th:text="${numberVideo}"></span></a></li>
+                        <li><a href="/imageView">Uploaded Images<span class="badge" th:text="${numberImage}"></span></a></li>
+                        <li><a href="#">Uploaded Audios<span class="badge" th:text="${numberAudio}"></span></a></li>
+                        <li><a href="#">Uploaded Videos<span class="badge" th:text="${numberVideo}"></span></a></li>
                     </ul>
                 </li>
                 <li ><a href="uploadForm">Upload Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
@@ -240,7 +241,7 @@
         </div>
     </div>
 </nav>
-<ol class="breadcrumb"style="margin-top: -20px;">
+<ol class="breadcrumb" style="margin-top: -20px;">
     <li ><a href="/home">Home</a></li>
     <li class="active">Edit Profile</li>
     <!--<li class="active">Data</li>-->
@@ -248,26 +249,26 @@
 <div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px;width: 100%;">
     <div class="container" style="background: linear-gradient(to bottom right, lightgrey, lightyellow);width: 100%;">
         <div class="row">
-            <div class="col-md-12 col-md-offset-3"style="background-color: #eeeeee;margin-top:100px;margin-left:-15px;padding-right: 300px;width: 79%">
+            <div class="col-md-12 col-md-offset-3" style="background-color: #eeeeee;margin-top:100px;margin-left:-15px;padding-right: 300px;width: 79%">
                 <!--<div th:style="'background:url(' +@{/images/sky.jpg}+ ');background-repeat:no-repeat;width:100%;'"style="width: 600px;background:no-repeat;margin:-350px 0px 0px -50px;">-->
                 <form autocomplete="off" action="#" th:action="@{/saveEditProfileChanges}"
-                    th:object="${user}"method="post" class="form-horizontal"
-                    role="form"style="opacity: 0.9;">
+                    th:object="${user}" method="post" class="form-horizontal"
+                    role="form" style="opacity: 0.9;">
                     <h2>Edit Profile</h2>
                         <div class="form-group">
                             <div class="col-sm-9">
                                 <!--<label	th:if="${#fields.hasErrors('email')}" th:errors="*{email}"-->
                                           <!--class="validation-message"></label>-->
                             <label for="email" class="col-sm-4 control-label">Email</label>
-                            <div class="col-sm-8">
-                                <input type="text" placeholder="Email" class="form-control" name="email" id="email" readonly th:value="${email}" />
-                            </div>
+                                <div class="col-sm-8">
+                                    <input type="text" placeholder="Email" class="form-control" name="email" id="email"  th:readonly="readonly" th:value="${email}" />
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-9">
                                 <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-                                class="validation-message"style="color: red;"></label>
+                                class="validation-message" style="color: red;"></label>
                             <label for="firstname" class="col-sm-4 control-label">First Name</label>
                             <div class="col-sm-8">
                                 <input type="text"  placeholder=" First Name" class="form-control" name="firstname"  id="firstname"  th:field="*{name}"/>
@@ -278,17 +279,17 @@
                         <div class="form-group">
                             <div class="col-sm-9">
                                 <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-                                class="validation-message"style="color: red;"th:onchange="lastname"></label>
+                                class="validation-message" style="color: red;" th:onchange="lastname"></label>
                                 <label for="lastname" class="col-sm-4 control-label">Last Name</label>
                                 <div class="col-sm-8">
-                                    <input type="text"  placeholder="Last Name" class="form-control" name="lastname" id="lastname" th:value="${lastname}"th:field="*{lastName}"/>
+                                    <input type="text"  placeholder="Last Name" class="form-control" name="lastname" id="lastname" th:value="${lastname}" th:field="*{lastName}"/>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-9">
                                 <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-                                class="validation-message"style="color: red;"></label>
+                                class="validation-message" style="color: red;"></label>
                                 <label for="currentpassword" class="col-sm-4 control-label">Current Password</label>
                                 <div class="col-sm-8">
                                     <input type="password"  placeholder="Current Password" class="form-control"  name="currentpassword" id="currentpassword"/>
@@ -301,13 +302,13 @@
                                 <!--class="validation-message"></label>-->
                             <label for="newpassword" class="col-sm-4 control-label">New Password</label>
                             <div class="col-sm-8">
-                                <input type="password"  placeholder="New Password" class="form-control" th:field="*{password}" name="newpassword"id="newpassword"/>
+                                <input type="password"  placeholder="New Password" class="form-control" th:field="*{password}" name="newpassword" id="newpassword"/>
                             </div>
                             </div>
                         </div>
 
 
-                        <div class="form-group"style="margin-left: 400px;">
+                        <div class="form-group" style="margin-left: 400px;">
                             <div class="col-sm-4">
                                 <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
                             </div>
@@ -346,7 +347,7 @@
 <!--</div>-->
 <footer>
     <div class="copyright">
-        <p>&copy 2013 - Organisation</p>
+        <p>Copy right E-solutions</p>
     </div>
     <div class="social">
         <a href="#" class="support">Contact Us</a>

@@ -16,4 +16,5 @@ public interface FileService {
     public List<File> findFileByuser_idAndtype(String type);
     public void saveFile(MultipartFile file,String extention) throws TikaException, SAXException, IOException;
     public void editFile(String originalName,String newName, String author, String keywords);
+    public void deleteFile(String name);
 }

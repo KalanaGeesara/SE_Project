@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository("fileRepository")
@@ -28,5 +29,7 @@ public interface FileRepository extends JpaRepository<File,Integer> {
 
     List<File> findByUserIdAndAndType(int a,String b);
 //    List<File> findByFileId(int id);
+    @Transactional
+    List<File> removeFileByFileName(String name);
 
 }

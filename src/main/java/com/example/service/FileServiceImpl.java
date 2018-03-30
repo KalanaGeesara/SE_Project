@@ -28,8 +28,8 @@ import java.util.List;
 @Service("fileServices")
 public class FileServiceImpl implements FileService {
 
-    @Autowired
-    private UserRepository userRepository;
+//    @Autowired
+//    private UserRepository userRepository;
 
    @Autowired
    private FileRepository fileRepository;
@@ -37,11 +37,17 @@ public class FileServiceImpl implements FileService {
    @Autowired
    private ProductRepository productRepository;
 
+   @Autowired
+   private UserService userService;
+
+   @Autowired
+   private SolrService solrService;
+
+
 //    private SolrService solrService;
     @Override
     public List<File> findFileByfile_name(String file_name) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userRepository.findByEmail(auth.getName());
+        User user = userService.getCurrentUser();
         String file_name2 = ( user.getId()) + file_name.toString();
         System.out.println(file_name.toString());
         System.out.println(file_name2);
@@ -56,8 +62,7 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public List<File> findFileByuser_id(){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userRepository.findByEmail(auth.getName());
+        User user = userService.getCurrentUser();
         int users_id = user.getId();
         return (fileRepository.findByUserId(users_id));
 //        return null;
@@ -65,15 +70,16 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public List<File> findFileByuser_idAndtype(String type){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userRepository.findByEmail(auth.getName());
+        User user = userService.getCurrentUser();
         int users_id = user.getId();
         return (fileRepository.findByUserIdAndAndType(users_id,type));
     }
     @Override
     public void saveFile(MultipartFile file,String extention) throws TikaException, SAXException, IOException {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userRepository.findByEmail(auth.getName());
+        User user = userService.getCurrentUser();
+        System.out.println("llfl,,l,lddddddddddddddddddddddddddddd");
+        System.out.println(file.getSize());
+        System.out.println(file.getBytes());
         File newFile = new File();
         MetadataImpl metadataImpl = new MetadataImpl();
         newFile.setUserId(user.getId());
@@ -96,11 +102,7 @@ public class FileServiceImpl implements FileService {
         String fileAuthor = file2.get(0).getAuthor();
         meta += fileName+" "+fileAuthor+" ";
         System.out.println(file2.get(0).getFile_id());
-        SolrSearch newProduct = new SolrSearch();
-        newProduct.setId(file_id);
-        newProduct.setName(meta);
-        newProduct.setOriginalName(fileUploadName);
-        productRepository.save(newProduct);
+        solrService.saveToSolr(file_id,meta,fileUploadName);
         System.out.println("dddddddddddddddddd");
 //        solrService.saveToSolr(meta, file_id);
 
@@ -121,11 +123,11 @@ public class FileServiceImpl implements FileService {
         fileRepository.save(file);
         String meta = originalFile.get(0).getMetadata();
         meta+= newName+" "+author+" "+keywords+" ";
-        SolrSearch newProduct = new SolrSearch();
-        newProduct.setId(originalFile.get(0).getFile_id());
-        newProduct.setName(meta);
-        newProduct.setOriginalName(originalFile.get(0).getFileName());
-        productRepository.save(newProduct);
+        solrService.saveToSolr(originalFile.get(0).getFile_id(),meta,originalFile.get(0).getFileName());
     }
 
+    @Override
+    public void deleteFile(String name){
+        List<File> result = fileRepository.removeFileByFileName(name);
+    }
 }

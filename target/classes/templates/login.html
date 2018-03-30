@@ -3,11 +3,34 @@
 	xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<meta charset="UTF-8"/>
 	<title>MyTube Media Library</title>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		.alert {
+			padding: 20px;
+			background-color: #8D0D19;
+			color: white;
+		}
+
+		.closebtn {
+			margin-left: 15px;
+			color: white;
+			font-weight: bold;
+			float: right;
+			font-size: 22px;
+			line-height: 20px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		.closebtn:hover {
+			color: black;
+		}
+	</style>
 </head>
 
 <body>
@@ -35,7 +58,7 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<form th:action="@{/search}" action="#" method="post" class="navbar-form navbar-left" th:action="@{/search}" method="post">
+				<form  action="#" class="navbar-form navbar-left" th:action="@{/search}" method="post">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Search" name="searchBox" />
 					</div>
@@ -63,8 +86,14 @@
 			<div align="center" th:if="${param.error}">
 				<p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
+			<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" id="submit" type="Submit" th:text="Login"></button>
 		</form>
 	</div>
+<div th:if="${authenticatedMessage}">
+	<div class="alert">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+		<span th:utext="${authenticatedMessage}"></span>
+	</div>
+</div>
 </body>
 </html>

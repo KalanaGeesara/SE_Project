@@ -1,5 +1,6 @@
 package com.example.configuration;
 
+import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +20,8 @@ public class CustomSolrConfiguration {
     @Bean
     public SolrClientFactory solrServerFactory() {
         return new MulticoreSolrClientFactory(new HttpSolrClient(solrHost));
+//        SolrServer server = new CommonsHttpSolrServer("http://index.websolr.com/solr/0a1b2c3d4e5f");
+//        return server;
     }
 
     @Bean

@@ -5,6 +5,7 @@ import com.example.model.User;
 //import com.example.service.FileService;
 import com.example.repository.FileRepository;
 import com.example.service.FileService;
+import com.example.service.SolrService;
 import com.example.service.UserService;
 import com.example.storage.StorageFileNotFoundException;
 import com.example.service.StorageService;
@@ -47,6 +48,9 @@ public class FileUploadController {
     private UserService userService;
 
     @Autowired
+    private SolrService solrService;
+
+    @Autowired
     public FileUploadController(StorageService storageService) {
         this.storageService = storageService;
     }
@@ -78,8 +82,12 @@ public class FileUploadController {
             String [] part = s.split("/");
             String filePart = "files/"+part[1];
             String editPart = "edit/"+part[1];
+            String infoPart = "info/"+part[1];
+            String deletePart = "delete/"+part[1];
             aObject.get(j).add(filePart);
             aObject.get(j).add(editPart);
+            aObject.get(j).add(infoPart);
+            aObject.get(j).add(deletePart);
         }
         List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
         List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
@@ -98,8 +106,7 @@ public class FileUploadController {
                 path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
                         "serveFile", path.getFileName().toString()).build().toString())
                 .collect(Collectors.toList()));
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
+        User user = userService.getCurrentUser();
         modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ") " + user.getRoles() + " ");
         List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
         List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
@@ -137,26 +144,71 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
     public ModelAndView editFile(@PathVariable String filename){
 
         ModelAndView modelAndView = new ModelAndView();
+
         List<File> file = fileService.fildFileByfile_name_metadata(filename);
-        String currentAuthor = file.get(0).getAuthor();
-        String originalFileName = file.get(0).getFileName();
-        String currentFileName = file.get(0).getName();
-        String keywords = file.get(0).getKeywords();
-        modelAndView.addObject("file",new File());
-        modelAndView.addObject("filename",originalFileName);
-        modelAndView.addObject("newfilename",currentFileName);
-        modelAndView.addObject("fileauthor",currentAuthor);
-        modelAndView.addObject("keywords",keywords);
-        List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-        List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-        List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-        modelAndView.addObject("numberImage",imageFile.size());
-        modelAndView.addObject("numberAudio",audioFile.size());
-        modelAndView.addObject("numberVideo",videoFile.size());
-        modelAndView.setViewName("editFile");
+        int user_id = file.get(0).getUserId();
+        User currentUser = userService.getCurrentUser();
+        if(user_id==currentUser.getId()){
+            String currentAuthor = file.get(0).getAuthor();
+            String originalFileName = file.get(0).getFileName();
+            String currentFileName = file.get(0).getName();
+            String keywords = file.get(0).getKeywords();
+            modelAndView.addObject("file",new File());
+            modelAndView.addObject("filename",originalFileName);
+            modelAndView.addObject("newfilename",currentFileName);
+            modelAndView.addObject("fileauthor",currentAuthor);
+            modelAndView.addObject("keywords",keywords);
+            List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
+            List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
+            List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
+            modelAndView.addObject("numberImage",imageFile.size());
+            modelAndView.addObject("numberAudio",audioFile.size());
+            modelAndView.addObject("numberVideo",videoFile.size());
+            modelAndView.setViewName("editFile");
+        }else {
+            modelAndView.addObject("authenticatedMessage","You performed an unautherized action! Please Login AGAIN ");
+            modelAndView.setViewName("login");
+        }
+
+        return modelAndView;
+    }
+    @RequestMapping(value = {"/delete/{filename:.+}"} , method = RequestMethod.GET)
+    public ModelAndView deleteFile(@PathVariable String filename){
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        List<File> file = fileService.fildFileByfile_name_metadata(filename);
+        int user_id = file.get(0).getUserId();
+        User currentUser = userService.getCurrentUser();
+        if(user_id==currentUser.getId()){
+            fileService.deleteFile(filename);
+            solrService.deleteFromSolr(file.get(0).getFile_id());
+            modelAndView.setViewName("redirect:/imageView");
+        }else {
+            modelAndView.addObject("authenticatedMessage","You performed an unautherized action! Please Login AGAIN ");
+            modelAndView.setViewName("login");
+        }
+
         return modelAndView;
     }
 
+    @RequestMapping(value = {"/info/{filename:.+}"} , method = RequestMethod.GET)
+    public ModelAndView infoFile(@PathVariable String filename){
+        ModelAndView modelAndView = new ModelAndView();
+
+        List<File> fileList = fileService.fildFileByfile_name_metadata(filename);
+        System.out.println(filename);
+        System.out.println(fileList);
+System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        File file = fileList.get(0);
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        modelAndView.addObject("firstname",file.getFileName());
+        modelAndView.addObject("lastname",file.getName());
+        modelAndView.addObject("email",file.getAuthor());
+        modelAndView.addObject("filenumber",file.getKeywords());
+        modelAndView.setViewName("fileInfo");
+        return modelAndView;
+    }
     @RequestMapping(value = {"/saveEditFileChanges"},method = RequestMethod.POST)
     public ModelAndView saveEditChanges(@RequestParam String originalname, String name, String author,String keywords, @Valid File file, BindingResult bindingResult){
         ModelAndView modelAndView = new ModelAndView();
@@ -205,7 +257,7 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
         }
         extension.toLowerCase();
         System.out.println(extension);
-        if(extension.equals("jpg") || extension.equals("JPG") || extension.equals("mp3")) {
+        if(extension.equals("jpg") || extension.equals("mp3")) {
             String filename = file.getOriginalFilename();
             List<File> fileExist = fileService.findFileByfile_name(filename);
             System.out.println(fileExist);
@@ -226,8 +278,8 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
             }
             else {
                 System.out.println("2");
-                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-                User user = userService.findUserByEmail(auth.getName());
+
+                User user = userService.getCurrentUser();
 
                 int users_id = user.getId();
                 storageService.store(file , users_id);

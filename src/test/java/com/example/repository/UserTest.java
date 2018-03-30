@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.repository;
 
 import com.example.model.User;
 import com.example.repository.UserRepository;
@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.*;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
-public class UserServiceImplTest {
+public class UserTest {
 
         @Autowired
         private TestEntityManager entityManager;

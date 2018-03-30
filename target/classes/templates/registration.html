@@ -2,9 +2,10 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
+	<meta charset="UTF-8"/>
 	<title>MyTube Media Library</title>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
@@ -131,6 +132,7 @@
 
 		.closebtn:hover {
 			color: black;
+		}
 	</style>
 
 </head>
@@ -159,7 +161,7 @@
 				<li><a href="/login">Login</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<form th:action="@{/search}" action="#" method="post"class="navbar-form navbar-left">
+				<form th:action="@{/search}" action="#" method="post" class="navbar-form navbar-left">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Search" name="searchBox"/>
 					</div>
@@ -236,7 +238,7 @@
 <div class="background"></div>
 <footer>
 	<div class="copyright">
-		<p>&copy 2013 - Organisation</p>
+		<p>copy 2013 - Organisation</p>
 	</div>
 	<div class="social">
 		<a href="#" class="support">Contact Us</a>

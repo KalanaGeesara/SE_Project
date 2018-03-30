@@ -3,10 +3,11 @@
 	xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<meta charset="UTF-8"/>
 <title>User Page</title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
@@ -79,8 +80,8 @@
 					</div>
 					<button type="submit" class="btn btn-default">Submit</button>
 				</form>
-				<li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
-				<li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout"class="glyphicon glyphicon-off"></a></li>
+				<li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
+				<li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout" class="glyphicon glyphicon-off"></a></li>
 				<!--<li><a href="#">Link</a></li>-->
 				<!--<li class="dropdown">-->
 				<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
@@ -117,14 +118,14 @@
 			</div>
 			<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="#" class="navbar-brand">MyDrive</span></a></li>
+					<li><a href="#" class="navbar-brand">MyDrive</a></li>
 					<li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
 					<!--<li ><a href="imageView">Uploaded Images<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>-->
 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
 						<ul class="dropdown-menu forAnimate" role="menu">
-							<li><a href="imageView">Uploaded Images<span class="badge"th:text="${numberImage}"></span></a></li>
-							<li><a href="#">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
-							<li><a href="#">Uploaded Videos<span class="badge"th:text="${numberVideo}"></span></a></li>
+							<li><a href="imageView">Uploaded Images<span class="badge" th:text="${numberImage}"></span></a></li>
+							<li><a href="#">Uploaded Audios<span class="badge" th:text="${numberAudio}"></span></a></li>
+							<li><a href="#">Uploaded Videos<span class="badge" th:text="${numberVideo}"></span></a></li>
 						</ul>
 					</li>
 					<li ><a href="uploadForm">Upload Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
@@ -133,7 +134,7 @@
 			</div>
 		</div>
 	</nav>
-	<ol class="breadcrumb"style="margin: -20px 0px 0px 0px;">
+	<ol class="breadcrumb" style="margin: -20px 0px 0px 0px;">
 		<li class="active"><a href="#">Home</a></li>
 		<!--<li><a href="#">Library</a></li>-->
 		<!--<li class="active">Data</li>-->
@@ -141,7 +142,7 @@
 	<div class="container" style="background: linear-gradient(to bottom right, lightgrey, lightyellow);width: 84%;margin-left: 280px;">
 		<div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px">
 			<div class="panel-group" style="margin-top:40px;margin-left: 30px;">
-				<div class="panel panel-primary"style="height: fit-content;">
+				<div class="panel panel-primary" style="height: fit-content;">
 					<div th:if="${userMessage}">
 						<!--<h2 th:text="${adminmessage}"/>-->
 						<p class="admin-message-text text-center" th:utext="${userMessage}"></p>
@@ -189,7 +190,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="#" class="navbar-brand">MyDrive</span></a></li>
+					<li><a href="#" class="navbar-brand">MyDrive</a></li>
 					<li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
 					<li ><a href="#">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
 					<li ><a href="#">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
