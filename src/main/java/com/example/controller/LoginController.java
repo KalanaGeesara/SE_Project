@@ -122,12 +122,9 @@ public class LoginController {
 //		System.out.println(bCryptPasswordEncoder.matches("1234562",user.getPassword()));
 //		System.out.println(bCryptPasswordEncoder.equals(user.getPassword()));
 		modelAndView.addObject("user",new User());
-		List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-		List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-		List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-		modelAndView.addObject("numberImage",imageFile.size());
-		modelAndView.addObject("numberAudio",audioFile.size());
-		modelAndView.addObject("numberVideo",videoFile.size());
+		modelAndView.addObject("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));
+		modelAndView.addObject("numberAudio",fileService.findFileNumberByuser_idAndtype(".mp3"));
+		modelAndView.addObject("numberVideo",fileService.findFileNumberByuser_idAndtype(".mp4"));
 		modelAndView.setViewName("editProfile");
 		return modelAndView;
 	}
@@ -158,17 +155,7 @@ public class LoginController {
 
 		return modelAndView;
 	}
-	@PreAuthorize("hasAnyRole('ADMIN')")
-	@RequestMapping(value="/admin/home", method = RequestMethod.GET)
-	public ModelAndView adminHome(){
-		ModelAndView modelAndView = new ModelAndView();
-		User user = userService.getCurrentUser();
-		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-		modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
 
-		modelAndView.setViewName("admin/home");
-		return modelAndView;
-	}
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView userHome(){
 		ModelAndView modelAndView = new ModelAndView();
@@ -180,12 +167,9 @@ public class LoginController {
 		else {
 			modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
 			modelAndView.addObject("userMessage", "Content Available Only for Users with User Role");
-			List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-			List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-			List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-			modelAndView.addObject("numberImage",imageFile.size());
-			modelAndView.addObject("numberAudio",audioFile.size());
-			modelAndView.addObject("numberVideo",videoFile.size());
+			modelAndView.addObject("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));
+			modelAndView.addObject("numberAudio",fileService.findFileNumberByuser_idAndtype(".mp3"));
+			modelAndView.addObject("numberVideo",fileService.findFileNumberByuser_idAndtype(".mp4"));
 		}
 		modelAndView.setViewName("home");
 		return modelAndView;

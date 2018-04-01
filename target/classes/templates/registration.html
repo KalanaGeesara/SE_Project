@@ -5,6 +5,7 @@
 	<meta charset="UTF-8"/>
 	<title>MyTube Media Library</title>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -139,8 +140,12 @@
 
 <body>
 
-
-<nav class="navbar navbar-default" style="background-color: darkgray">
+<div class="page-logo">
+	<a th:href="@{/}">
+		<img th:src="@{/images/careydevlogosm.png}" alt="logo" style="margin-top:5px"/>
+	</a>
+</div>
+<nav class="navbar navbar-inverse" >
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">

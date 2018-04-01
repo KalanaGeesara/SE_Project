@@ -56,47 +56,34 @@ public class FileUploadController {
     }
 
     @GetMapping("/imageView")
-    public String listUploadedFiles(Model model) throws IOException {
-        List<String> fileNames = new ArrayList<String>();
-        for(File i:fileService.findFileByuser_id()){                    //get all the files uploaded by logged in user
+    public String viewImageFiles(Model model) throws IOException {
+        List<String> fileNames = fileService.findFilesByType(".jpg");
 
-            // add only image files to a list
-            if(i.getType().equals(".jpg")){
-                fileNames.add(i.getFileName());
-            }
-        }
         //get the file locations of image files to another list
         List<String> fileLocation = storageService.loadAll2(fileNames).map(path -> "files/"+path.getFileName().toString()).collect(Collectors.toList());
         ArrayList<ArrayList<String>> aObject;
 // Create the 2D array list
         aObject = new ArrayList<ArrayList<String>>();
-
-// Add an element to the first dimension
-
-        for(int i=0;i<fileLocation.size();i++){
-            aObject.add(new ArrayList<String>());
-        }
-        for(int j=0;j<fileLocation.size();j++){
-//            aObject.get(j).add(new String("Quarks"));
-            String s = fileLocation.get(j);
-            String [] part = s.split("/");
-            String filePart = "files/"+part[1];
-            String editPart = "edit/"+part[1];
-            String infoPart = "info/"+part[1];
-            String deletePart = "delete/"+part[1];
-            aObject.get(j).add(filePart);
-            aObject.get(j).add(editPart);
-            aObject.get(j).add(infoPart);
-            aObject.get(j).add(deletePart);
-        }
-        List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-        List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-        List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-        model.addAttribute("numberImage",imageFile.size());
-        model.addAttribute("numberAudio",audioFile.size());
-        model.addAttribute("numberVideo",videoFile.size());
+        aObject = fileService.getFilePaths(fileLocation);
+        model.addAttribute("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));
+        model.addAttribute("numberAudio",fileService.findFileNumberByuser_idAndtype(".mp3"));
+        model.addAttribute("numberVideo",fileService.findFileNumberByuser_idAndtype(".mp4"));
         model.addAttribute("files",aObject);
         return "imageView";
+    }
+
+    @GetMapping("/audioView")
+    public String viewAudioFiles(Model model) throws IOException {
+        List<String> fileNames = fileService.findFilesByType(".mp3");
+        //get the file locations of image files to another list
+        List<String> fileLocation = storageService.loadAll2(fileNames).map(path -> "files/"+path.getFileName().toString()).collect(Collectors.toList());
+        ArrayList<ArrayList<String>> aObject;
+        aObject = fileService.getFilePaths(fileLocation);
+        model.addAttribute("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));
+        model.addAttribute("numberAudio",fileService.findFileNumberByuser_idAndtype(".mp3"));
+        model.addAttribute("numberVideo",fileService.findFileNumberByuser_idAndtype(".mp4"));
+        model.addAttribute("files",aObject);
+        return "audioView";
     }
 
     @RequestMapping(value = "**/uploadForm", method = RequestMethod.GET)
@@ -108,12 +95,9 @@ public class FileUploadController {
                 .collect(Collectors.toList()));
         User user = userService.getCurrentUser();
         modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ") " + user.getRoles() + " ");
-        List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-        List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-        List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-        modelAndView.addObject("numberImage",imageFile.size());
-        modelAndView.addObject("numberAudio",audioFile.size());
-        modelAndView.addObject("numberVideo",videoFile.size());
+        modelAndView.addObject("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));
+        modelAndView.addObject("numberAudio",fileService.findFileNumberByuser_idAndtype(".mp3"));
+        modelAndView.addObject("numberVideo",fileService.findFileNumberByuser_idAndtype(".mp4"));
         modelAndView.setViewName("uploadForm");
         return modelAndView;
     }
@@ -153,17 +137,28 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
             String originalFileName = file.get(0).getFileName();
             String currentFileName = file.get(0).getName();
             String keywords = file.get(0).getKeywords();
+            String fileType = file.get(0).getType();
+            if(fileType.equals(".jpg")){
+                modelAndView.addObject("fileType","images");
+                modelAndView.addObject("fileTypeLink","/imageView");
+            }
+            else if(fileType.equals(".mp3")){
+                modelAndView.addObject("fileType","audio");
+                modelAndView.addObject("fileTypeLink","/audioView");
+            }
+            else if(fileType.equals(".mp4")){
+                modelAndView.addObject("fileType","video");
+                modelAndView.addObject("fileTypeLink","/videoView");
+            }
             modelAndView.addObject("file",new File());
             modelAndView.addObject("filename",originalFileName);
             modelAndView.addObject("newfilename",currentFileName);
             modelAndView.addObject("fileauthor",currentAuthor);
             modelAndView.addObject("keywords",keywords);
-            List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-            List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-            List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-            modelAndView.addObject("numberImage",imageFile.size());
-            modelAndView.addObject("numberAudio",audioFile.size());
-            modelAndView.addObject("numberVideo",videoFile.size());
+
+            modelAndView.addObject("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));
+            modelAndView.addObject("numberAudio",fileService.findFileNumberByuser_idAndtype(".mp3"));
+            modelAndView.addObject("numberVideo",fileService.findFileNumberByuser_idAndtype(".mp4"));
             modelAndView.setViewName("editFile");
         }else {
             modelAndView.addObject("authenticatedMessage","You performed an unautherized action! Please Login AGAIN ");
@@ -183,7 +178,15 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
         if(user_id==currentUser.getId()){
             fileService.deleteFile(filename);
             solrService.deleteFromSolr(file.get(0).getFile_id());
-            modelAndView.setViewName("redirect:/imageView");
+            if (file.get(0).getType().equals(".jpg")){
+                modelAndView.setViewName("redirect:/imageView");
+            }
+            else if (file.get(0).getType().equals(".mp3")){
+                modelAndView.setViewName("redirect:/audioView");
+            }
+            else if (file.get(0).getType().equals(".mp4")){
+                modelAndView.setViewName("redirect:/videoView");
+            }
         }else {
             modelAndView.addObject("authenticatedMessage","You performed an unautherized action! Please Login AGAIN ");
             modelAndView.setViewName("login");
@@ -194,14 +197,13 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
 
     @RequestMapping(value = {"/info/{filename:.+}"} , method = RequestMethod.GET)
     public ModelAndView infoFile(@PathVariable String filename){
-        ModelAndView modelAndView = new ModelAndView();
-
-        List<File> fileList = fileService.fildFileByfile_name_metadata(filename);
+        System.out.println("################################################");
         System.out.println(filename);
-        System.out.println(fileList);
-System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println("################################################");
+        ModelAndView modelAndView = new ModelAndView();
+        List<File> fileList = fileService.findFileBySpaceFreename(filename);
         File file = fileList.get(0);
-        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        System.out.println(file);
         modelAndView.addObject("firstname",file.getFileName());
         modelAndView.addObject("lastname",file.getName());
         modelAndView.addObject("email",file.getAuthor());
@@ -212,9 +214,6 @@ System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
     @RequestMapping(value = {"/saveEditFileChanges"},method = RequestMethod.POST)
     public ModelAndView saveEditChanges(@RequestParam String originalname, String name, String author,String keywords, @Valid File file, BindingResult bindingResult){
         ModelAndView modelAndView = new ModelAndView();
-        System.out.println(originalname);
-        System.out.println(name);
-        System.out.println(author);
         if (name == "") {
             bindingResult
                     .rejectValue("name", "error.file",
@@ -256,48 +255,23 @@ System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
             extension = file.getOriginalFilename().substring(i+1);
         }
         extension.toLowerCase();
-        System.out.println(extension);
         if(extension.equals("jpg") || extension.equals("mp3")) {
             String filename = file.getOriginalFilename();
             List<File> fileExist = fileService.findFileByfile_name(filename);
-            System.out.println(fileExist);
             extension = "."+extension;
-//            System.out.println(fileExist.get(0).getFileName());
-//            System.out.println(fileExist.get(0).getFile_path());
-//            System.out.println(fileExist.get(0).getFile_id());
-//            System.out.println(fileExist.get(0).getName());
-//            System.out.println("msddfknsdfkfkfkdfkdndkdndkgdnkdngdknd");
-//            System.out.println(fileExist.get(1).getFileName());
-//            System.out.println(fileExist.get(1).getFile_path());
-//            System.out.println(fileExist.get(1).getFile_id());
-//            System.out.println(fileExist.get(1).getName());
-            System.out.println("0");
             if(!fileExist.isEmpty()){
-                System.out.println("1");
                 redirectAttributes.addFlashAttribute("message","You have already uploaded " + filename);
             }
             else {
-                System.out.println("2");
-
                 User user = userService.getCurrentUser();
-
                 int users_id = user.getId();
                 storageService.store(file , users_id);
-
                 fileService.saveFile(file,extension);
                 redirectAttributes.addFlashAttribute("message",
                         "You successfully uploaded " + file.getOriginalFilename() + "!");
             }
         }
-// else if(extension.equals("mp3")){
-//            String filename = file.getOriginalFilename();
-//            List<File> fileExist = fileService.findFileByfile_name(filename);
-//            System.out.println(fileExist);
-//            extension = "."+extension;
-//            System.out.println("Fuuuuuuuuuuuuuuuuuuuuuuuuuuck");
-//        }
         else {
-            System.out.println("3");
             redirectAttributes.addFlashAttribute("message",
                     "Could not upload " + file.getOriginalFilename() + "!... Please upload a file of type jpg,mp3");
         }

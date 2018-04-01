@@ -128,7 +128,7 @@
         .closebtn:hover {
             color: black;
         }
-        img {
+        .image {
             border: 1px solid #ddd; /* Gray border */
             border-radius: 4px;  /* Rounded border */
             padding: 5px; /* Some padding */
@@ -137,7 +137,7 @@
         }
 
         /* Add a hover effect (blue shadow) */
-        img:hover {
+        .image:hover {
             box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
         }
         .detail{
@@ -183,10 +183,15 @@
 
     </style>
 </head>
+<div class="page-logo">
+    <a th:href="@{/}">
+        <img th:src="@{/images/careydevlogosm.png}" alt="logo" style="margin-top:5px"/>
+    </a>
+</div>
 <div>
 
 
-    <nav class="navbar navbar-default" style="background-color: darkgray">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -224,7 +229,7 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-default sidebar" role="navigation" style="background-color: darkgray;">
+    <nav class="navbar navbar-inverse sidebar" role="navigation" >
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -241,7 +246,7 @@
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
                         <ul class="dropdown-menu forAnimate" role="menu">
                             <li><a href="/imageView">Uploaded Images<span class="badge"th:text="${numberImage}"></span></a></li>
-                            <li><a href="#">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
+                            <li><a href="/audioView">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
                             <li><a href="#">Uploaded Videos<span class="badge"th:text="${numberVideo}"></span></a></li>
                         </ul>
                     </li>
@@ -254,7 +259,7 @@
     </nav>
     <ol class="breadcrumb"style="margin-top: -20px;">
         <li ><a href="/home">Home</a></li>
-        <li><a href="/imageView">Images</a></li>
+        <li><a th:href="${fileTypeLink}" th:text="${fileType}"></a></li>
         <li class="active" th:text="${filename}"></li>
         <!--<li class="active">Data</li>-->
     </ol>

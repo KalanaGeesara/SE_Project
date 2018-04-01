@@ -132,7 +132,7 @@
         .closebtn:hover {
             color: black;
         }
-        img {
+        .image {
             border: 1px solid #ddd; /* Gray border */
             border-radius: 4px;  /* Rounded border */
             padding: 5px; /* Some padding */
@@ -141,7 +141,7 @@
         }
 
         /* Add a hover effect (blue shadow) */
-        img:hover {
+        .image:hover {
             box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
         }
         .detail{
@@ -187,8 +187,12 @@
 </head>
 <body>
 
-
-<nav class="navbar navbar-default" style="background-color: darkgray">
+<div class="page-logo">
+    <a th:href="@{/}">
+        <img th:src="@{/images/careydevlogosm.png}" alt="logo" style="margin-top:5px"/>
+    </a>
+</div>
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -226,7 +230,7 @@
         </div>
     </div>
 </div>
-<nav class="navbar navbar-default sidebar" role="navigation" style="background-color: darkgray">
+<nav class="navbar navbar-inverse sidebar" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -243,7 +247,7 @@
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
                         <li><a href="imageView">Uploaded Images<span class="badge" th:text="${numberImage}"></span></a></li>
-                        <li><a href="#">Uploaded Audios<span class="badge" th:text="${numberAudio}"></span></a></li>
+                        <li><a href="audioView">Uploaded Audios<span class="badge" th:text="${numberAudio}"></span></a></li>
                         <li><a href="#">Uploaded Videos<span class="badge" th:text="${numberVideo}"></span></a></li>
                     </ul>
                 </li>
@@ -283,7 +287,7 @@
 
                         <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;">
                             <a th:href="${file}">
-                                <img th:src="@{'images/'+${#strings.arraySplit(file, '/')[1]}+'/raw'}" alt="..." style="width: 150px;"/>
+                                <img class="image" th:src="@{'images/'+${#strings.arraySplit(file, '/')[1]}+'/raw'}" alt="..." style="width: 150px;"/>
                             </a>
 
                             <!--<a th:href="${file}" th:text="${file[10]}" ></a><br><br>-->
@@ -303,12 +307,12 @@
 
         <!--</div>-->
 
-            <p>###################################################################################################################</p>
+            <p>##################################################################################################################################</p>
             <div class="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                 <strong>Metadata of Audio Files</strong>
             </div>
-            <p>###################################################################################################################</p>
+            <p>##################################################################################################################################</p>
     <div class="row">
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
             Button with data-target
@@ -318,7 +322,7 @@
                 <div th:each="file : ${audiofiles}">
                     <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;">
                         <a th:href="${file}">
-                            <img th:src="@{/images/mp3_image.jpg}" alt="..."/>
+                            <img class="image" th:src="@{/images/mp3_image.jpg}" alt="..."/>
                         </a>
                         <a href="#" th:href="${file}" th:text="${#strings.arraySplit(file, '/')[1]}">
                         </a>

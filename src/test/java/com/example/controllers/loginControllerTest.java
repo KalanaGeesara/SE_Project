@@ -120,7 +120,7 @@ public void testEditProfile() throws Exception{
 
 //
     when(userServiceMock.getCurrentUser()).thenReturn(user);
-    when(fileServiceMock.findFileByuser_idAndtype(".jpg")).thenReturn(fileArray);
+    when(fileServiceMock.findFileNumberByuser_idAndtype(".jpg")).thenReturn(fileArray.size());
     mockMvc.perform(MockMvcRequestBuilders.get("/editProfile"))
             .andExpect(status().isOk())
             .andExpect(content().contentType("text/html;charset=UTF-8"))

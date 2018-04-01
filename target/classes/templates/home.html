@@ -54,8 +54,12 @@
 </head>
 
 <body>
-
-<nav class="navbar navbar-default" style="background-color: darkgray">
+<div class="page-logo">
+	<a th:href="@{/}">
+		<img th:src="@{/images/careydevlogosm.png}" alt="logo" style="margin-top:5px"/>
+	</a>
+</div>
+<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -106,7 +110,7 @@
 </div>
 
 <div th:if="${userMessage}">
-	<nav class="navbar navbar-default sidebar" role="navigation" style="background-color: darkgray;height: 1000px;margin-top: auto;">
+	<nav class="navbar navbar-inverse sidebar" role="navigation" style="height: 1000px;margin-top: auto;">
 		<div class="container-fluid">
 			<div  class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -124,7 +128,7 @@
 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
 						<ul class="dropdown-menu forAnimate" role="menu">
 							<li><a href="imageView">Uploaded Images<span class="badge" th:text="${numberImage}"></span></a></li>
-							<li><a href="#">Uploaded Audios<span class="badge" th:text="${numberAudio}"></span></a></li>
+							<li><a href="audioView">Uploaded Audios<span class="badge" th:text="${numberAudio}"></span></a></li>
 							<li><a href="#">Uploaded Videos<span class="badge" th:text="${numberVideo}"></span></a></li>
 						</ul>
 					</li>
@@ -142,7 +146,7 @@
 	<div class="container" style="background: linear-gradient(to bottom right, lightgrey, lightyellow);width: 84%;margin-left: 280px;">
 		<div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px">
 			<div class="panel-group" style="margin-top:40px;margin-left: 30px;">
-				<div class="panel panel-primary" style="height: fit-content;">
+				<div class="panel panel-primary" style="height: -webkit-fill-available;">
 					<div th:if="${userMessage}">
 						<!--<h2 th:text="${adminmessage}"/>-->
 						<p class="admin-message-text text-center" th:utext="${userMessage}"></p>
@@ -156,7 +160,7 @@
 					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-top: -1250px;">
 						What is Metadata?
 					</button>
-					<div class="collapse" id="collapseExample" style="margin-top: -600px;">
+					<div class="collapse" id="collapseExample" style="margin-top: -600px;"aria-expanded="true">
 						<div class="well">
 							<div>Metadata is data about file</div>
 							<div>It Contains data of a file such as </div>
@@ -178,7 +182,7 @@
 
 
 <div th:if="${adminMessage}">
-	<nav class="navbar navbar-default sidebar" role="navigation">
+	<nav class="navbar navbar-inverse sidebar" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -192,8 +196,8 @@
 				<ul class="nav navbar-nav">
 					<li><a href="#" class="navbar-brand">MyDrive</a></li>
 					<li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-					<li ><a href="#">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-					<li ><a href="#">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
+					<li ><a href="/admin/users">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+					<li ><a href="/admin/files">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
 					<!--</li><li ><a href="editAccount.php">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
 				</li>
 				</ul>

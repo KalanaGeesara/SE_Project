@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>User Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default" style="background-color: darkgray">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand brand_pic" href="#"></a>
+            <a class="navbar-brand" href="#"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <form th:action="@{/search}" action="#" method="post" class="navbar-form navbar-left">
+                    <div  class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" name="searchBox"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
+                <li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout" class="glyphicon glyphicon-off"></a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default sidebar" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#" class="navbar-brand">MyDrive</a></li>
+                <li><a href="/adminHome">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                <li ><a href="/admin/users">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                <li ><a href="#">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
+                    <!--</li><li ><a href="editAccount.php">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<!--<div th:include="fragments/topmenuheader :: header"></div>-->
+<div class="page-container">
+    <div class="page-content-wrapper">
+        <div class="page-head" style="background-color:#eff3f8;padding-top:40px">
+            <div class="container">
+                <div class="row" style="margin-bottom:30px">
+                    <div class="col-md-6">
+                        <h1>Sales: May - July</h1>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:30px">
+                    <div class="col-md-6" style="margin-top:20px">
+                        <div id="salesByType" style="width:100%; height:400px;"></div>
+                    </div>
+                    <div class="col-md-6" style="margin-top:20px">
+                        <div id="salesByRegion" style="width:100%; height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div th:include="fragments/homefooter :: footer"></div>-->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $(function () {
+        Highcharts.setOptions({
+            lang: {
+                decimalPoint: '.',
+                thousandsSep: ','
+            }
+        });
+        drawSalesByTypeChart();
+        drawSalesByRegionChart();
+    });
+
+
+    function drawSalesByRegionChart() {
+        var salesByRegionChart = Highcharts.chart('salesByRegion', {
+            chart: {
+                type: 'pie',
+                margin: 40,
+                options3d: {
+                    enabled: true,
+                    alpha: 45,
+                    beta: 0
+                }
+            },
+            title: {
+                text: 'Sales by Region'
+            },
+            tooltip: {
+                pointFormat: "${point.y:,.0f}"
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    depth: 35
+                }
+            },
+            series: [{
+                name: 'Regions',
+                colorByPoint:true,
+                data: [{
+                    name: 'Northeast',
+                    y: /*[[${northeastSales}]]*/ 0
+                },{
+                    name: 'South',
+                    y: /*[[${southSales}]]*/ 0
+                },{
+                    name: 'Midwest',
+                    y: /*[[${midwestSales}]]*/ 0
+                },{
+                    name: 'West',
+                    y: /*[[${westSales}]]*/ 0
+                }]
+            }]
+        });
+    }
+
+    function drawSalesByTypeChart() {
+        var salesByTypeChart = Highcharts.chart('salesByType', {
+            chart: {
+                type: 'column',
+                margin: 75,
+                options3d: {
+                    enabled: true,
+                    alpha: 15,
+                    beta: 15,
+                    depth: 110
+                }
+            },
+            title: {
+                text: 'Sales by Lure Type'
+            },
+            xAxis: {
+                categories: ['May', 'June', 'July']
+            },
+            yAxis: {
+                title: {
+                    text: 'Sales (US $)'
+                }
+            },
+            tooltip: {
+                pointFormat: "${point.y:,.0f}"
+            },
+            plotOptions: {
+                column: {
+                    depth: 60,
+                    stacking: true,
+                    grouping: false,
+                    groupZPadding: 10
+                }
+            },
+            series: [{
+                name: 'Inshore',
+                data: /*[[${inshoreSales}]]*/ []
+            }, {
+                name: 'Nearshore',
+                data: /*[[${nearshoreSales}]]*/ []
+            }, {
+                name: 'Offshore',
+                data: /*[[${offshoreSales}]]*/ []
+            }]
+        });
+    }
+    /*]]>*/
+</script>
+</body>
+</html>

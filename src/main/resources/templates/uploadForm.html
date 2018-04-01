@@ -170,7 +170,12 @@
 </style>
 </head>
 <body>
-<nav class="navbar navbar-default" style="background-color: darkgray">
+<div class="page-logo">
+    <a th:href="@{/}">
+        <img th:src="@{/images/careydevlogosm.png}" alt="logo" style="margin-top:5px"/>
+    </a>
+</div>
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -244,7 +249,7 @@
 </div>
 </div>
 
-<nav class="navbar navbar-default sidebar" role="navigation" style="background-color: darkgray;height: 100%;">
+<nav class="navbar navbar-inverse sidebar" role="navigation" style="height: 100%;">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -261,7 +266,7 @@
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
                         <li><a href="/imageView">Uploaded Images<span class="badge"th:text="${numberImage}"></span></a></li>
-                        <li><a href="#">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
+                        <li><a href="/audioView">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
                         <li><a href="#">Uploaded Videos<span class="badge"th:text="${numberVideo}"></span></a></li>
                     </ul>
                 </li>
@@ -273,8 +278,8 @@
     </div>
 </nav>
 <ol class="breadcrumb"style="margin-top: -20px;">
-    <li ><a href="/home">Home</a></li>
-    <li class="active">Upload Form</li>
+    <li ><a href="/home" >Home </a><span class="glyphicon glyphicon-home"></span></li>
+    <li class="active">Upload Form </li><span class="glyphicon glyphicon-upload"></span>
     <!--<li class="active">Data</li>-->
 </ol>
 
@@ -314,9 +319,9 @@
 
 <!--<div class="content">-->
 
-    <div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px;width: 84%;margin-left: 280px;height: 100%;">
+    <div style="background-color: #eff3f8; margin-top: -20px;width: 84%;margin-left: 280px;height: 100%;">
 
-            <img src="https://media.giphy.com/media/LQ7rWiHvys2bK/giphy.gif" alt="..." style="width: 100%;height: 200px;margin-top: -1240px;"/>
+            <!--<img src="https://media.giphy.com/media/LQ7rWiHvys2bK/giphy.gif" alt="..." style="width: 100%;height: 200px;margin-top: -1240px;"/>-->
 
         <h3 style="align-content: center;margin-top: -520px;"> <span class="label label-default">Users can Upload</span><span class="label label-primary">JPG</span>
             <span class="label label-primary">MP3</span>

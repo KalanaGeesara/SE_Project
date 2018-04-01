@@ -17,6 +17,8 @@ public class File {
     @Column(name = "fileName")
     private String fileName;
 
+    @Column(name = "original")
+    private String spaceFreeFileName;
     @Column(name = "metadata")
     private String metadata;
 
@@ -57,6 +59,14 @@ public class File {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public String getSpaceFreeFileName() {
+        return spaceFreeFileName;
+    }
+
+    public void setSpaceFreeFileName(String spaceFreeFileName) {
+        this.spaceFreeFileName = spaceFreeFileName;
     }
 
     public String getMetadata() {

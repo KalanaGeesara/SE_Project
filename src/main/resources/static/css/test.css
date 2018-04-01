@@ -47,13 +47,13 @@ nav.sidebar, .main{
         padding-right: 13px;
     }
 
-    nav.sidebar .navbar-nav > li:first-child{
-        border-top: 1px #e5e5e5 solid;
-    }
+    /*nav.sidebar .navbar-nav > li:first-child{*/
+        /*border-top: 1px #e5e5e5 solid;*/
+    /*}*/
 
-    nav.sidebar .navbar-nav > li{
-        border-bottom: 1px #e5e5e5 solid;
-    }
+    /*nav.sidebar .navbar-nav > li{*/
+        /*border-bottom: 1px #e5e5e5 solid;*/
+    /*}*/
 
     nav.sidebar .navbar-nav .open .dropdown-menu {
         position: static;
@@ -70,9 +70,9 @@ nav.sidebar, .main{
         padding: 0 0px 0 0px;
     }
 
-    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
-        color: #777;
-    }
+    /*.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {*/
+        /*color: #777;*/
+    /*}*/
 
     nav.sidebar{
         width: 300px;
@@ -115,13 +115,14 @@ nav.sidebar, .main{
     }
 }
 
-nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
-    color: #CCC;
-    background-color: transparent;
-}
+/*nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {*/
+    /*color: #CCC;*/
+    /*background-color: transparent;*/
+/*}*/
 
 nav:hover .forAnimate{
     opacity: 1;
+    background-color: #8D0D19;
 }
 section{
     padding-left: 15px;
@@ -131,14 +132,14 @@ section{
     /*background-image: url('');*/
     background-repeat: no-repeat;
     background-size: cover;
-    position: fixed;
+    /*position: fixed;*/
     display: block;
     width: 100%;
     top: 0;
     z-index: 5;
     padding-bottom: 0;
     margin-bottom: 0px;
-    background-color: darkgray;
+    /*background-color: darkgray;*/
 
 }
 
@@ -233,13 +234,13 @@ section{
 
 .container-fluid li:hover{
     background-position: bottom;
+    color: #eeeeee;
+    font-weight: bold;
     border-bottom: 2px solid blue;
 
 }
 
-.container-fluid li{
-    border-right: 1px solid #990000;
-}
+
 
 
 

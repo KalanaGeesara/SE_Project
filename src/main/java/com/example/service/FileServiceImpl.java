@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.xml.sax.SAXException;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("fileServices")
@@ -69,10 +70,63 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public List<File> findFileByuser_idAndtype(String type){
+    public int findFileNumberByUserId(int id){
+        List<File> files = fileRepository.findByUserId(id);
+        return files.size();
+    }
+
+    @Override
+    public int findFileNumberByuser_idAndtype(String type){
         User user = userService.getCurrentUser();
         int users_id = user.getId();
-        return (fileRepository.findByUserIdAndAndType(users_id,type));
+        List<File> file = (fileRepository.findByUserIdAndAndType(users_id,type));
+        return file.size();
+    }
+    @Override
+    public List<String> findFilesByType(String type){
+        List<String> fileNames = new ArrayList<String>();
+        for(File i:findFileByuser_id()){                    //get all the files uploaded by logged in user
+
+            // add only image files to a list
+            if(i.getType().equals(type)){
+                fileNames.add(i.getFileName());
+            }
+        }
+        return fileNames;
+    }
+
+    @Override
+    public List<File> findFileBySpaceFreename(String name){
+        List<File> files = fileRepository.findBySpaceFreeFileName(name);
+        return files;
+    }
+    @Override
+    public ArrayList<ArrayList<String>> getFilePaths(List<String> fileLocation){
+        ArrayList<ArrayList<String>> aObject;
+// Create the 2D array list
+        aObject = new ArrayList<ArrayList<String>>();
+
+// Add an element to the first dimension
+
+        for(int i=0;i<fileLocation.size();i++){
+            aObject.add(new ArrayList<String>());
+        }
+        for(int j=0;j<fileLocation.size();j++){
+//            aObject.get(j).add(new String("Quarks"));
+            String s = fileLocation.get(j);
+            String [] part = s.split("/");
+            List<File> files = findFileBySpaceFreename(part[1].replaceAll("\\s+",""));
+            System.out.println(files);
+            String filePart = "files/"+part[1];
+            String editPart = "edit/"+part[1];
+            String infoPart = "info/"+part[1].replaceAll("\\s+","");
+            String deletePart = "delete/"+part[1];
+            aObject.get(j).add(filePart);
+            aObject.get(j).add(editPart);
+            aObject.get(j).add(infoPart);
+            aObject.get(j).add(deletePart);
+        }
+        return aObject;
     }
     @Override
     public void saveFile(MultipartFile file,String extention) throws TikaException, SAXException, IOException {
@@ -86,7 +140,9 @@ public class FileServiceImpl implements FileService {
 //        System.out.println(file.getName());
 //        System.out.println(file.getOriginalFilename());
         String fileUploadName = user.getId() + file.getOriginalFilename();
+        String spaceFreeName = fileUploadName.replaceAll("\\s+","");
         newFile.setFileName(fileUploadName);
+        newFile.setSpaceFreeFileName(spaceFreeName);
         newFile.setType(extention);
         newFile.setFile_path("http://localhost:8080/files/"+file.getOriginalFilename());
         String meta = metadataImpl.getMatadata(file, user.getId());

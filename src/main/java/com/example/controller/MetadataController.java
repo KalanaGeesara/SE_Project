@@ -40,12 +40,9 @@ public class MetadataController {
         List<String> audiofileNames = new ArrayList<String>();
         List<String> videofileNames = new ArrayList<String>();
 
-        List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-        List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-        List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-        modelAndView.addObject("numberImage",imageFile.size());
-        modelAndView.addObject("numberAudio",audioFile.size());
-        modelAndView.addObject("numberVideo",videoFile.size());
+        modelAndView.addObject("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));
+        modelAndView.addObject("numberAudio",fileService.findFileNumberByuser_idAndtype(".mp3"));
+        modelAndView.addObject("numberVideo",fileService.findFileNumberByuser_idAndtype(".mp4"));
         modelAndView.setViewName("viewMetadata");
         return modelAndView;
     }
@@ -84,12 +81,9 @@ public ModelAndView viewM(){
         modelAndView.addObject("vidoefiles", storageService.loadAll2(videofileNames).map(
                 path -> "metadata/"+path.getFileName().toString())
                 .collect(Collectors.toList()));
-        List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-        List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-        List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-        modelAndView.addObject("numberImage",imageFile.size());
-        modelAndView.addObject("numberAudio",audioFile.size());
-        modelAndView.addObject("numberVideo",videoFile.size());
+    modelAndView.addObject("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));
+    modelAndView.addObject("numberAudio",fileService.findFileNumberByuser_idAndtype(".mp3"));
+    modelAndView.addObject("numberVideo",fileService.findFileNumberByuser_idAndtype(".mp4"));
         modelAndView.setViewName("viewMetadata");
         return modelAndView;
 }
@@ -118,12 +112,9 @@ public ModelAndView serveFile2(@PathVariable String filename){
     List<String> metas= Arrays.asList(file.get(0).getMetadata().split(","));
     System.out.println(metas);
     modelAndView.addObject("metadatas",metas);
-    List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-    List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-    List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-    modelAndView.addObject("numberImage",imageFile.size());
-    modelAndView.addObject("numberAudio",audioFile.size());
-    modelAndView.addObject("numberVideo",videoFile.size());
+    modelAndView.addObject("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));
+    modelAndView.addObject("numberAudio",fileService.findFileNumberByuser_idAndtype(".mp3"));
+    modelAndView.addObject("numberVideo",fileService.findFileNumberByuser_idAndtype(".mp4"));
     modelAndView.setViewName("displayMetadata");
     return modelAndView;
     }

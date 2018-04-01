@@ -94,12 +94,9 @@ public class SolrController {
         User user = userService.findUserByEmail(auth.getName());
         if(user!= null) {
             model.addAttribute("message", "logged_in");
-            List<File> imageFile = fileService.findFileByuser_idAndtype(".jpg");
-            List<File> audioFile = fileService.findFileByuser_idAndtype(".mp3");
-            List<File> videoFile = fileService.findFileByuser_idAndtype(".mp4");
-            model.addAttribute("numberImage",imageFile.size());
-            model.addAttribute("numberAudio",audioFile.size());
-            model.addAttribute("numberVideo",videoFile.size());
+            model.addAttribute("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));
+            model.addAttribute("numberAudio",fileService.findFileNumberByuser_idAndtype(".mp3"));
+            model.addAttribute("numberVideo",fileService.findFileNumberByuser_idAndtype(".mp4"));
         }
 System.out.println("bhbhbhjbhjbhjbhjbhjbhbhjbh");
 System.out.println(myString);

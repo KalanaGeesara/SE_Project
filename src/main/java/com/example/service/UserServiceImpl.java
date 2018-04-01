@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -58,10 +59,19 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	public void deleteUser(String email){
+		userRepository.removeUserByEmail(email);
+	}
+	@Override
 	public User getCurrentUser(){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userRepository.findByEmail(auth.getName());
 		return user;
+	}
+
+	@Override
+	public List<User> findAllUser(){
+		return userRepository.findAll();
 	}
 
 }
