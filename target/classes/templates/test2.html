@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <style>
+        .element {
+            display: inline-flex;
+            align-items: center;
+        }
+        i.fa-camera {
+            margin: 10px;
+            cursor: pointer;
+            font-size: 30px;
+        }
+        i:hover {
+            opacity: 0.6;
+        }
+        .aa {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<form method="POST" enctype="multipart/form-data" action="/upload" style="margin-left: 450px;">
+    <div class="element">
+        <i class="fa fa-camera"></i><span class="name">No file selected</span>
+        <input type="file" name="file" id="file" class="aa">
+    </div>
+    <input type="submit" value="Upload" class="btn btn-primary" />
+</form>
+<script>
+    $("i").click(function () {
+        $("input[type='file']").trigger('click');
+    });
+
+    $('input[type="file"]').on('change', function() {
+        var val = $(this).val();
+        var a = val.split("\\");
+        $(this).siblings('span').text(a[a.length-1]);
+    })
+</script>
+</body>
+</html>

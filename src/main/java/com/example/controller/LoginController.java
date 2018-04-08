@@ -183,4 +183,12 @@ public class LoginController {
 		modelAndView.setViewName("test");
 		return modelAndView;
 }
+@RequestMapping(value = "/aa",method = RequestMethod.POST)
+	public ModelAndView test(@RequestParam String country){
+		ModelAndView modelAndView = new ModelAndView();
+		System.out.println(country);
+		modelAndView.setViewName("test");
+		return modelAndView;
+}
+
 }

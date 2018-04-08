@@ -4,53 +4,20 @@
 
 <head>
 	<meta charset="UTF-8"/>
-<title>User Page</title>
-<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
-<link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style>
-		.detail{
-
-			/*width: 800px;*/
-			border-radius: 5px;
-			background-color: #ffffff;
-
-			opacity: 0.8;
-			filter: alpha(opacity=60);
-			/* background-color: #2be3c5;*/
-
-			height: auto ;
-			-webkit-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
-			-moz-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
-			box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
-
-			margin-left: 80px
-
-		}
-		.detail li{
-			margin: 0;
-			font-weight: bold;
-			/*font-size: large;*/
-			padding: 10px 0px 10px 0px;
-		}
-		.detail input{
-			font-size: 1rem;
-			color: red;
-
-		}
-		.form-text{
-			font-style: oblique;
-			font-weight: bold;
-
-		}
-		.detail button{
-			/* background-color: #ffd740;*/
-			float: right;
-			padding-right: 15px;
-		}
-	</style>
+	<title>User Page</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .badge{
+            background-color: red;
+            margin-left: 30px;
+        }
+        .dropdown-menu>li>a{
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
@@ -146,7 +113,7 @@
 	<div class="container" style="background: linear-gradient(to bottom right, lightgrey, lightyellow);width: 84%;margin-left: 280px;">
 		<div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px">
 			<div class="panel-group" style="margin-top:40px;margin-left: 30px;">
-				<div class="panel panel-primary" style="height: -webkit-fill-available;">
+				<div class="panel panel-primary" style="height: -webkit-fill-available;background-color: #f5f8fb">
 					<div th:if="${userMessage}">
 						<!--<h2 th:text="${adminmessage}"/>-->
 						<p class="admin-message-text text-center" th:utext="${userMessage}"></p>
@@ -155,6 +122,21 @@
 						<span th:utext="${userName}"></span>
 					</div>
 					<div class="panel-body">
+						<h1 style="text-align: center; font-weight: bold; font-size: 70px;font-family: fantasy">
+							<span style="margin-left: -35px;color: red">M</span>
+							&nbsp;
+							<span style="margin-left: -35px;color: yellow">y</span>
+							&nbsp;
+							<span style="margin-left: -35px;color: blue">D</span>
+							&nbsp;
+							<span style="margin-left: -35px;color: green">r</span>
+							&nbsp;
+							<span style="margin-left: -35px;color: orangered">i</span>
+							&nbsp;
+							<span style="margin-left: -35px;color: purple">v</span>
+							&nbsp;
+							<span style="margin-left: -35px;color: #0d1217">e</span>
+						</h1>
 						<img th:src="@{/images/welcone.jpg}" class="img-responsive center-block" width="400" height="400" alt="Beer" />
 					</div>
 					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-top: -1250px;">
@@ -197,8 +179,15 @@
 					<li><a href="#" class="navbar-brand">MyDrive</a></li>
 					<li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
 					<li ><a href="/admin/users">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-					<li ><a href="/admin/files">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
-					<!--</li><li ><a href="editAccount.php">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
+					<!--<li ><a href="/admin/files">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+							<li><a href="/admin/files">Overview<span class="badge" th:text="${numberImage}"></span></a></li>
+							<li><a href="audioView">Details<span class="badge" th:text="${numberAudio}"></span></a></li>
+							<!--<li><a href="#">Uploaded Videos<span class="badge" th:text="${numberVideo}"></span></a></li>-->
+						</ul>
+					</li>
+						<!--</li><li ><a href="editAccount.php">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
 				</li>
 				</ul>
 			</div>
@@ -230,7 +219,17 @@
 
 	</div>
 </div>
-
+<footer>
+	<div class="copyright">
+		<p> Copyright E-Solutions</p>
+	</div>
+	<div class="social">
+		<a href="#" class="support">Contact Us</a>
+		<a th:href="@{http://www.facebook.com}"  class="face">f</a>
+		<a th:href="@{http://www.twitter.com}"  class="tweet">t</a>
+		<a th:href="@{http://www.linkedin.com}" class="linked">in</a>
+	</div>
+</footer>
 
 </body>
 </html>

@@ -46,6 +46,11 @@ public class FileServiceImpl implements FileService {
 
 
 //    private SolrService solrService;
+
+    @Override
+    public List<File> findAllFiles(){
+        return(fileRepository.findAll());
+    }
     @Override
     public List<File> findFileByfile_name(String file_name) {
         User user = userService.getCurrentUser();
@@ -70,6 +75,10 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
+    public List<File> findFileByUserIdGiven(int id){
+        return (fileRepository.findByUserId(id));
+    }
+    @Override
     public int findFileNumberByUserId(int id){
         List<File> files = fileRepository.findByUserId(id);
         return files.size();
@@ -93,6 +102,11 @@ public class FileServiceImpl implements FileService {
             }
         }
         return fileNames;
+    }
+
+    @Override
+    public List<File> findAllFilesByType(String type){
+        return fileRepository.findByType(type);
     }
 
     @Override
@@ -129,7 +143,7 @@ public class FileServiceImpl implements FileService {
         return aObject;
     }
     @Override
-    public void saveFile(MultipartFile file,String extention) throws TikaException, SAXException, IOException {
+    public void saveFile(MultipartFile file,String extention, String privacy) throws TikaException, SAXException, IOException {
         User user = userService.getCurrentUser();
         System.out.println("llfl,,l,lddddddddddddddddddddddddddddd");
         System.out.println(file.getSize());
@@ -144,6 +158,7 @@ public class FileServiceImpl implements FileService {
         newFile.setFileName(fileUploadName);
         newFile.setSpaceFreeFileName(spaceFreeName);
         newFile.setType(extention);
+        newFile.setPrivacy(privacy);
         newFile.setFile_path("http://localhost:8080/files/"+file.getOriginalFilename());
         String meta = metadataImpl.getMatadata(file, user.getId());
         System.out.println(metadataImpl.getMatadata(file, user.getId()));
@@ -164,7 +179,7 @@ public class FileServiceImpl implements FileService {
 
     }
     @Override
-    public void editFile(String OriginalName,String newName, String author, String keywords){
+    public void editFile(String OriginalName,String newName, String author, String keywords,String privacy){
         List<File> originalFile = fileRepository.findByFileName(OriginalName);
         File file = new File();
         file.setFile_id(originalFile.get(0).getFile_id());
@@ -173,9 +188,11 @@ public class FileServiceImpl implements FileService {
         file.setUserId(originalFile.get(0).getUserId());
         file.setFileName(originalFile.get(0).getFileName());
         file.setType(originalFile.get(0).getType());
+        file.setSpaceFreeFileName(originalFile.get(0).getSpaceFreeFileName());
         file.setName(newName);
         file.setAuthor(author);
         file.setKeywords(keywords);
+        file.setPrivacy(privacy);
         fileRepository.save(file);
         String meta = originalFile.get(0).getMetadata();
         meta+= newName+" "+author+" "+keywords+" ";

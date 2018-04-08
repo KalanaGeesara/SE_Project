@@ -11,7 +11,112 @@
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
+        a {
+            color: #2A679F;
+        }
+        /*========*/
 
+        .form-wrapper {
+            background-color: #f6f6f6;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eae8e8));
+            background-image: -webkit-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -moz-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -ms-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -o-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+            border-color: #dedede #bababa #aaa #bababa;
+            border-style: solid;
+            border-width: 1px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            -moz-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            margin: 100px auto;
+            overflow: hidden;
+            padding: 8px;
+            width: 450px;
+        }
+
+        .form-wrapper #search {
+            border: 1px solid #CCC;
+            -webkit-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            -moz-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            color: #999;
+            float: left;
+            font: 16px Lucida Sans, Trebuchet MS, Tahoma, sans-serif;
+            /*height: 20px;*/
+            padding: 10px;
+            width: 320px;
+        }
+
+        .form-wrapper #search:focus {
+            border-color: #aaa;
+            -webkit-box-shadow: 0 1px 1px #bbb inset;
+            -moz-box-shadow: 0 1px 1px #bbb inset;
+            box-shadow: 0 1px 1px #bbb inset;
+            outline: 0;
+        }
+
+        .form-wrapper #search:-moz-placeholder,
+        .form-wrapper #search:-ms-input-placeholder,
+        .form-wrapper #search::-webkit-input-placeholder {
+            color: #999;
+            font-weight: normal;
+        }
+
+        .form-wrapper #submit {
+            background-color: #0483a0;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#31b2c3), to(#0483a0));
+            background-image: -webkit-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -moz-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -ms-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -o-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: linear-gradient(top, #31b2c3, #0483a0);
+            border: 1px solid #00748f;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            color: #fafafa;
+            cursor: pointer;
+            height: 42px;
+            float: right;
+            font: 15px Arial, Helvetica;
+            padding: 0;
+            text-transform: uppercase;
+            text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
+            width: 100px;
+        }
+
+        .form-wrapper #submit:hover,
+        .form-wrapper #submit:focus {
+            background-color: #31b2c3;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#0483a0), to(#31b2c3));
+            background-image: -webkit-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -moz-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -ms-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -o-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: linear-gradient(top, #0483a0, #31b2c3);
+        }
+
+        .form-wrapper #submit:active {
+            -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            outline: 0;
+        }
+
+        .form-wrapper #submit::-moz-focus-inner {
+            border: 0;
+        }
         h1{
             font-size: 30px;
             color: #fff;
@@ -47,7 +152,7 @@
             vertical-align:middle;
             font-weight: 300;
             font-size: 12px;
-            color: #fff;
+            color: #2b3134;
             border-bottom: solid 1px rgba(255,255,255,0.1);
         }
 
@@ -144,7 +249,7 @@
     </style>
 </head>
 
-<body>
+<body class="content">
 <div class="page-logo">
     <a th:href="@{/}">
         <img th:src="@{/images/careydevlogosm.png}" alt="logo" style="margin-top:5px"/>
@@ -214,7 +319,14 @@
                     <li><a href="#" class="navbar-brand">MyDrive</a></li>
                     <li><a href="/adminHome">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                     <li ><a href="/admin/users">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-                    <li ><a href="/admin/files">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
+                    <!--<li ><a href="/admin/files">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
+                        <ul class="dropdown-menu forAnimate" role="menu">
+                            <li><a href="/admin/filesOverview">Overview<span class="badge" th:text="${numberImage}"></span></a></li>
+                            <li><a href="/admin/files">Details<span class="badge" th:text="${numberAudio}"></span></a></li>
+                            <!--<li><a href="#">Uploaded Videos<span class="badge" th:text="${numberVideo}"></span></a></li>-->
+                        </ul>
+                    </li>
                         <!--</li><li ><a href="editAccount.php">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
                     </li>
                 </ul>
@@ -222,7 +334,7 @@
         </div>
     </nav>
 
-<div class="content" style="margin-top: -20px;">
+<div class="content" style="margin-top: -20px;height: fit-content;">
     <section>
         <!--for demo wrap-->
         <h1 >USER INFORMATION</h1>
@@ -249,15 +361,60 @@
                     <td th:text="${file[2]}"></td>
                     <td th:text="${file[3]}"></td>
                     <td th:text="${file[4]}"></td>
-                    <td> <a href="#" th:href="${file[5]}" class="glyphicon glyphicon-trash"  >
+                    <td> <a href="#" th:href="${file[5]}" class="glyphicon glyphicon-trash"  onclick="return confirm_click();">
 
                     </a></td>
+
                 </tr>
                 </tbody>
             </table>
         </div>
-    </section>
+        <form class="form-wrapper" action="#" th:action="@{/admin/user/search}"
+              method="post">
+            <input type="text" id="search" name="search" placeholder="Search for..." required>
+            <input type="submit" value="go" id="submit">
+        </form>
+        <div th:if="${searchUser}">
+            <h1 >USER INFORMATION</h1>
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Number of Files Uploaded</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tbl-content" style="height: fit-content;">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody th:each="file : ${searchUser}">
+                    <tr>
+                        <td th:text="${file[0]}"></td>
+                        <td th:text="${file[1]}"></td>
+                        <td th:text="${file[2]}"></td>
+                        <td th:text="${file[3]}"></td>
+                        <td th:text="${file[4]}"></td>
+                        <td> <a href="#" th:href="${file[5]}" class="glyphicon glyphicon-trash"  onclick="return confirm_click();">
+                        </a></td>
 
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        function confirm_click()
+        {
+            return confirm("Are you sure ?");
+        }
+
+    </script>
 
     <!-- follow me template -->
     <div class="made-with-love">

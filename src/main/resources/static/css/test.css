@@ -129,146 +129,16 @@ section{
 }
 
 .navbar{
-    /*background-image: url('');*/
-    background-repeat: no-repeat;
-    background-size: cover;
-    /*position: fixed;*/
     display: block;
     width: 100%;
     top: 0;
     z-index: 5;
     padding-bottom: 0;
     margin-bottom: 0px;
-    /*background-color: darkgray;*/
-
 }
-
-
-
-
-
-
-
-.topImage{
-    /*background-image: url("../img/navbarback.PNG");*/
-    height: 78px;
-    margin-top: -55px;
-    position: absolute;
-}
-
-.jumbotron1{
-    margin-top: 20px;
-    margin-left: 20px;
-    width: 370px;
-    height: 241px;
-    /*background-image: url("../img/profile.jpg");*/
-    /*background-repeat: no-repeat;*/
-    border: 1px solid black;
-    background-color: yellow;
-
-}
-
-
-.jumbotron2 h3{
-
-    padding-left: -20px;
-    padding-right: 10px;
-    padding-top: -30px;
-    padding-bottom: 50px;
-    color: black;
-}
-
-.jumbotron3{
-    margin-top: 20px;
-    margin-left: 20px;
-    width: 370px;
-    height: 241px;
-    background-image: url("../img/payment.jpg");
-    background-repeat: no-repeat;
-    border: 1px solid black;
-
-}
-
-.jumbotron3 h3{
-
-    padding-left: -20px;
-    padding-right: 10px;
-    padding-top: -30px;
-    padding-bottom: 50px;
-    color: black;
-}
-
-
-
-
-#map {
-    height: 300px;
-    width: 400px;
-
-    margin-left: 400px;
-    border: 1px solid grey;
-}
-
-#contentback{
-    margin-left: 150px;
-    margin-right: 150px;
-
-}
-
-
-.gradContent {
-    background: #BBBBBB; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left top, #BBBBBB, white); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, #BBBBBB, white); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right,#BBBBBB, white); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, #BBBBBB, white); /* Standard syntax */
-}
-.grad1 {
-
-    background:#BBBBBB; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#BBBBBB, white); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#BBBBBB, white); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#BBBBBB, white); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#BBBBBB, white); /* Standard syntax (must be last) */
-}
-
 .container-fluid li:hover{
     background-position: bottom;
     color: #eeeeee;
     font-weight: bold;
     border-bottom: 2px solid blue;
-
 }
-
-
-
-
-
-.navbar:hover{
-    /*border-bottom: 2px solid yellow;*/
-}
-
-.navbarpic{
-    /*background-image: url("img/navbarback.png");*/
-    background-repeat: no-repeat;
-    padding-bottom: 0;
-    background-size: 1180px,50px;
-    border-bottom: 0;
-}
-.message{
-    border: 2px solid #8D0D19;
-    color: #8D0D19;
-    font-weight: bold;
-    text-align: center;
-    margin: 1em 0;
-    padding: 1em;
-}
-.error{
-    border: 2px solid #8D0D19;
-    color: #8D0D19;
-    font-weight: bold;
-    text-align: center;
-    margin: 1em 0;
-    padding: 1em;
-}
-     

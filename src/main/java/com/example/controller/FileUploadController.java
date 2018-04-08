@@ -58,7 +58,6 @@ public class FileUploadController {
     @GetMapping("/imageView")
     public String viewImageFiles(Model model) throws IOException {
         List<String> fileNames = fileService.findFilesByType(".jpg");
-
         //get the file locations of image files to another list
         List<String> fileLocation = storageService.loadAll2(fileNames).map(path -> "files/"+path.getFileName().toString()).collect(Collectors.toList());
         ArrayList<ArrayList<String>> aObject;
@@ -168,7 +167,7 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
         return modelAndView;
     }
     @RequestMapping(value = {"/delete/{filename:.+}"} , method = RequestMethod.GET)
-    public ModelAndView deleteFile(@PathVariable String filename){
+    public ModelAndView deleteFile(@PathVariable String filename) throws IOException {
 
         ModelAndView modelAndView = new ModelAndView();
 
@@ -178,6 +177,7 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
         if(user_id==currentUser.getId()){
             fileService.deleteFile(filename);
             solrService.deleteFromSolr(file.get(0).getFile_id());
+            storageService.deleteFile(filename);
             if (file.get(0).getType().equals(".jpg")){
                 modelAndView.setViewName("redirect:/imageView");
             }
@@ -212,8 +212,27 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
         return modelAndView;
     }
     @RequestMapping(value = {"/saveEditFileChanges"},method = RequestMethod.POST)
-    public ModelAndView saveEditChanges(@RequestParam String originalname, String name, String author,String keywords, @Valid File file, BindingResult bindingResult){
+    public ModelAndView saveEditChanges(@RequestParam String originalname, String name, String author,String keywords,String privacy, @Valid File file, BindingResult bindingResult){
         ModelAndView modelAndView = new ModelAndView();
+        String extension = "";
+
+        int i = originalname.lastIndexOf('.');
+        if (i > 0) {
+            extension = originalname.substring(i+1);
+        }
+
+        if(extension.equals("jpg")){
+            modelAndView.addObject("fileType","images");
+            modelAndView.addObject("fileTypeLink","/imageView");
+        }
+        else if(extension.equals("mp3")){
+            modelAndView.addObject("fileType","audio");
+            modelAndView.addObject("fileTypeLink","/audioView");
+        }
+        else if(extension.equals("mp4")){
+            modelAndView.addObject("fileType","video");
+            modelAndView.addObject("fileTypeLink","/videoView");
+        }
         if (name == "") {
             bindingResult
                     .rejectValue("name", "error.file",
@@ -232,7 +251,7 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
             modelAndView.setViewName("editFile");
         }
         else {
-            fileService.editFile(originalname, name, author, keywords);
+            fileService.editFile(originalname, name, author, keywords,privacy);
             modelAndView.addObject("file", new File());
             modelAndView.addObject("filename",originalname);
             modelAndView.addObject("newfilename",name);
@@ -246,10 +265,10 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
     }
 
     @PostMapping("/upload")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, String privacy,
                                    RedirectAttributes redirectAttributes) throws IOException, TikaException, SAXException{
         String extension = "";
-
+System.out.println(privacy);
         int i = file.getOriginalFilename().lastIndexOf('.');
         if (i > 0) {
             extension = file.getOriginalFilename().substring(i+1);
@@ -266,7 +285,7 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
                 User user = userService.getCurrentUser();
                 int users_id = user.getId();
                 storageService.store(file , users_id);
-                fileService.saveFile(file,extension);
+                fileService.saveFile(file,extension,privacy);
                 redirectAttributes.addFlashAttribute("message",
                         "You successfully uploaded " + file.getOriginalFilename() + "!");
             }

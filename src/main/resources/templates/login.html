@@ -6,32 +6,9 @@
 	<meta charset="UTF-8"/>
 	<title>MyTube Media Library</title>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style>
-		.alert {
-			padding: 20px;
-			background-color: #8D0D19;
-			color: white;
-		}
-
-		.closebtn {
-			margin-left: 15px;
-			color: white;
-			font-weight: bold;
-			float: right;
-			font-size: 22px;
-			line-height: 20px;
-			cursor: pointer;
-			transition: 0.3s;
-		}
-
-		.closebtn:hover {
-			color: black;
-		}
-	</style>
 </head>
 
 <body>
@@ -40,7 +17,7 @@
 		<img th:src="@{/images/careydevlogosm.png}" alt="logo" style="margin-top:5px"/>
 	</a>
 </div>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" style="margin-bottom: 0px">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -76,7 +53,7 @@
 	<!--<form th:action="@{/registration}" method="get">-->
 		<!--<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Registration Page</button>-->
 	<!--</form>	-->
-	
+<div style="background-color: #f5f8fb">
 	<div class="container">
 		<img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" />
 		<form th:action="@{/login}" method="POST" class="form-signin">
@@ -100,5 +77,18 @@
 		<span th:utext="${authenticatedMessage}"></span>
 	</div>
 </div>
+</div>
+<footer>
+	<div class="copyright">
+		<p> Copyright E-Solutions</p>
+	</div>
+	<div class="social">
+		<a href="#" class="support">Contact Us</a>
+		<a th:href="@{http://www.facebook.com}"  class="face">f</a>
+		<a th:href="@{http://www.twitter.com}"  class="tweet">t</a>
+		<a th:href="@{http://www.linkedin.com}" class="linked">in</a>
+	</div>
+</footer>
+
 </body>
 </html>

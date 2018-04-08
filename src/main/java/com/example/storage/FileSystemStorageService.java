@@ -118,6 +118,11 @@ public Resource findOne(String filename){
     }
 
     @Override
+    public void deleteFile(String filename) throws IOException {
+        Files.deleteIfExists(this.rootLocation.resolve(filename));
+    }
+
+    @Override
     public void init() {
         try {
             Files.createDirectories(rootLocation);

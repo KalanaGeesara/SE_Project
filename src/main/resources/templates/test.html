@@ -231,11 +231,16 @@
                     <i class="fa fa-cloud-upload"></i>
                     <img src="https://media.giphy.com/media/Weq8u4s3Ymsww/giphy.gif"style="width: 200px;height: 200px;opacity: 0.5;"/>
                     <form method="POST" enctype="multipart/form-data" action="/aa" style="margin-left: 450px;">
-                        <table>
-                            <tr><td>File to upload:</td><td><input type="file" name="file" class="btn btn-primary" /></td></tr>
-                            <tr><td></td></tr>
-                            <tr><td></td><td><input type="submit" value="Upload" class="btn btn-primary" /></td></tr>
-                        </table>
+                        <select id="country" name="country" th:value="Select">ssssss
+
+                            <option value="US">United Stated</option>
+                            <option value="CHINA">China</option>
+                            <option value="SG">Singapore</option>
+                            <option value="MY">Malaysia</option>
+                        </select>
+
+                            <input type="submit" value="Upload" class="btn btn-primary" />
+
                     </form>
                 </div>
 

@@ -4,184 +4,17 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Uploaded Files</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <!--<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
-    <!--<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        @import url(https://fonts.googleapis.com/css?family=Raleway);
-        /* Colors */
-        * {
-            margin: 0;
-            padding: 0;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+        .badge{
+            background-color: red;
+            margin-left: 30px;
         }
-
-        html, body {
-            font-family: Raleway, sans-serif;
-            background-color: #fff;
-        }
-
-        footer {
-            width: 100%;
-            display: inline-block;
-            /*margin: 2em 0;*/
-            height: 70px;
-            background-color: #999;
-        }
-        footer .copyright {
-            width: 50%;
-            float: left;
-        }
-        @media (max-width: 600px) {
-            footer .copyright {
-                width: 100%;
-            }
-        }
-        footer .copyright p {
-            padding-left: 10%;
-            color: white;
-            font-size: 0.7em;
-            line-height: 70px;
-            text-transform: capitalize;
-            letter-spacing: 1px;
-        }
-        @media (max-width: 600px) {
-            footer .copyright p {
-                text-align: center;
-                padding: 0;
-            }
-        }
-        footer .social {
-            width: 50%;
-            float: right;
-        }
-        @media (max-width: 600px) {
-            footer .social {
-                width: 100%;
-            }
-        }
-        footer .social a {
-            float: left;
-            line-height: 70px;
-            text-decoration: none;
-            color: white;
-            text-align: center;
-            font-weight: bold;
-            -moz-transition: all, 0.3s;
-            -o-transition: all, 0.3s;
-            -webkit-transition: all, 0.3s;
-            transition: all, 0.3s;
-        }
-        footer .social a:hover {
-            background-color: #222;
-            -moz-transition: all, 0.3s;
-            -o-transition: all, 0.3s;
-            -webkit-transition: all, 0.3s;
-            transition: all, 0.3s;
-        }
-
-        .linked {
-            background-color: #1E83AE;
-            font-size: 1.2em;
-            width: 20%;
-        }
-
-        .face {
-            background-color: #3D5B94;
-            font-size: 1.2em;
-            width: 20%;
-        }
-
-        .tweet {
-            background-color: #3DACDD;
-            font-size: 1.2em;
-            width: 20%;
-        }
-
-        .support {
-            background-color: #6dcd9a;
-            font-size: 0.8em;
-            width: 40%;
-        }
-        .alert {
-            padding: 20px;
-            background-color: aqua;
-            color: #222222;
-            margin-left: 40px;
-            width: 60%;
-        }
-
-        .closebtn {
-            margin-left: 15px;
-            color: white;
-            font-weight: bold;
-            float: right;
-            font-size: 22px;
-            line-height: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .closebtn:hover {
-            color: black;
-        }
-        .image {
-            border: 1px solid #ddd; /* Gray border */
-            border-radius: 4px;  /* Rounded border */
-            padding: 5px; /* Some padding */
-            width: 150px; /* Set a small width */
-            height: 100px;
-        }
-
-        /* Add a hover effect (blue shadow) */
-        .image:hover {
-            box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-        }
-        .detail{
-
-            /*width: 800px;*/
-            border-radius: 5px;
-            background-color: #ffffff;
-
-            opacity: 0.8;
-            filter: alpha(opacity=60);
-            /* background-color: #2be3c5;*/
-
-            height: auto ;
-            -webkit-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
-            -moz-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
-            box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
-
-            margin-left: 80px
-
-        }
-        .detail li{
-            margin: 0;
-            font-weight: bold;
-            /*font-size: large;*/
-            padding: 10px 0px 10px 0px;
-        }
-        .detail input{
-            font-size: 1rem;
-            color: red;
-
-        }
-        .form-text{
-            font-style: oblique;
-            font-weight: bold;
-
-        }
-        .detail button{
-            /* background-color: #ffd740;*/
-            float: right;
-            padding-right: 15px;
+        .dropdown-menu>li>a{
+            color: blue;
         }
     </style>
 </head>
@@ -264,10 +97,6 @@
     <!--<li class="active">Data</li>-->
 </ol>
 <div style="background: linear-gradient(to bottom right, lightgrey, lightyellow); margin-top: -20px;margin-left: 280px;">
-        <!--<div class="js-img"><img src="//placehold.it/500x300" width="50" height="300" alt="" /></div>-->
-    <!--<span class="label label-default">Default</span>-->
-    <!--<span class="label label-primary">Primary</span>-->
-    <!--<span class="label label-success">Success</span>-->
     <br/>
     <div class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -285,9 +114,9 @@
                     <!--<span class="label label-info" style="padding-top: 50px;margin-left: 300px;">Info</span>-->
                     <div th:each="file : ${imagefiles}">
 
-                        <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;">
+                        <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;width: min-content;">
                             <a th:href="${file}">
-                                <img class="image" th:src="@{'images/'+${#strings.arraySplit(file, '/')[1]}+'/raw'}" alt="..." style="width: 150px;"/>
+                                <img class="image" th:src="@{'images/'+${#strings.arraySplit(file, '/')[1]}+'/raw'}" alt="..." style="width: 200px;height: 100px;"/>
                             </a>
 
                             <!--<a th:href="${file}" th:text="${file[10]}" ></a><br><br>-->
@@ -320,9 +149,9 @@
         <div class="collapse" id="collapseExample1">
             <div class="well" style="margin-right: 30px;">
                 <div th:each="file : ${audiofiles}">
-                    <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;">
+                    <div class="col-xs-1 col-md-1  col-sm-1  col-lg-1" style="margin: 20px 60px 20px 20px;width: min-content;">
                         <a th:href="${file}">
-                            <img class="image" th:src="@{/images/mp3_image.jpg}" alt="..."/>
+                            <img class="image" th:src="@{/images/mp3_image.jpg}" alt="..." style="width: 200px;height: 100px;"/>
                         </a>
                         <a href="#" th:href="${file}" th:text="${#strings.arraySplit(file, '/')[1]}">
                         </a>
@@ -331,25 +160,7 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-        <!--<div class="panel-group" style="margin-top:40px">-->
-            <!--<div class="panel panel-primary">-->
-                <!--<div class="panel-heading">-->
-                    <!--<span th:utext="${userName}"></span>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--</div>-->
 </div>
-<!--<div class="content">-->
-    <!--<div layout:fragment="page_content"></div>-->
-<!--</div>-->
     <footer>
         <div class="copyright">
             <p>copy 2013 - Organisation</p>
@@ -361,9 +172,6 @@
             <a href="#" class="linked">in</a>
         </div>
     </footer>
-<!-- /.container -->
-
-
 </body>
 
 </html>

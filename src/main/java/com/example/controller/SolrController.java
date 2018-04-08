@@ -55,24 +55,54 @@ public class SolrController {
         List<String> productVideoNames = new ArrayList<String>();
         System.out.println("Products found by findAll():");
         System.out.println("----------------------------");
+        User user = userService.getCurrentUser();
         for (SolrSearch solrSearch : this.productRepository.findByName( myString)){
 //            List<File> file = fileRepository.findByFileName(product);
 //            productNames.add(file.get(0).getFileName().toString());
             String extension = "";
-
+System.out.println(solrSearch.getOriginalName());
             int i = solrSearch.getOriginalName().lastIndexOf('.');
             if (i > 0) {
                 extension = solrSearch.getOriginalName().substring(i+1);
             }
+
             extension.toLowerCase();
-            if(extension.equals("jpg")){
-                productImageNames.add(solrSearch.getOriginalName());
-            }else if(extension.equals("mp3")){
-                productAudioNames.add(solrSearch.getOriginalName());
-            }else if(extension.equals("mp4")){
-                productVideoNames.add(solrSearch.getOriginalName());
+System.out.println(user);
+            if(user!=null){
+                List<File> file = fileService.fildFileByfile_name_metadata(solrSearch.getOriginalName());
+                if(!file.isEmpty()){
+                    if((file.get(0).getUserId()==user.getId()) || (file.get(0).getPrivacy().equals("public"))){
+                        if(extension.equals("jpg")){
+                            productImageNames.add(solrSearch.getOriginalName());
+                        }else if(extension.equals("mp3")){
+                            productAudioNames.add(solrSearch.getOriginalName());
+                        }else if(extension.equals("mp4")){
+                            productVideoNames.add(solrSearch.getOriginalName());
+                        }
+                    }
+                }
             }
 
+            else {
+                List<File> file = fileService.fildFileByfile_name_metadata(solrSearch.getOriginalName());
+                System.out.println(file);
+                if(!file.isEmpty()){
+                    System.out.println("0000000000000000000000000000000000000");
+                    System.out.println(file.get(0).getPrivacy());
+                    if(file.get(0).getPrivacy().equals("public")){
+                        if(extension.equals("jpg")){
+                            productImageNames.add(solrSearch.getOriginalName());
+                            System.out.println("1111111111111111111111111111");
+                        }else if(extension.equals("mp3")){
+                            productAudioNames.add(solrSearch.getOriginalName());
+                            System.out.println("22222222222222222222222222222");
+                        }else if(extension.equals("mp4")){
+                            productVideoNames.add(solrSearch.getOriginalName());
+                        }
+                    }
+                }
+            }
+System.out.println("5555555555555555555555555555555555555");
             System.out.println(solrSearch.getOriginalName());
             System.out.println(solrSearch);
         }
@@ -90,8 +120,7 @@ public class SolrController {
                 path -> "files/"+path.getFileName().toString())
                 .collect(Collectors.toList()));
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
+
         if(user!= null) {
             model.addAttribute("message", "logged_in");
             model.addAttribute("numberImage",fileService.findFileNumberByuser_idAndtype(".jpg"));

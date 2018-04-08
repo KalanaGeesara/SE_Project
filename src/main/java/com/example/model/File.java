@@ -37,6 +37,9 @@ public class File {
     @Column(name = "userId")
     private int userId;
 
+    @Column(name = "privacy")
+    private String privacy;
+
     public int getFile_id() {
         return file_id;
     }
@@ -114,5 +117,13 @@ public class File {
 
     public void setKeywords(String keywords) {
         this.keywords = keywords;
+    }
+
+    public String getPrivacy() {
+        return privacy;
+    }
+
+    public void setPrivacy(String privacy) {
+        this.privacy = privacy;
     }
 }

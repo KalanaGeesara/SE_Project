@@ -5,170 +5,233 @@
 <head>
     <title>Test</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/test2.css}" />
-    <link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
-    <link rel="stylesheet" type="text/css" th:href="@{/css/uploadform.css}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}" />
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/uploadform.css}">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-    @import url(https://fonts.googleapis.com/css?family=Raleway);
-    /* Colors */
-    * {
-        margin: 0;
-        padding: 0;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-
-    html, body {
-        font-family: Raleway, sans-serif;
-        background-color: #fff;
-    }
-
-    footer {
-        width: 100%;
-        display: inline-block;
-        /*margin: 2em 0;*/
-        height: 70px;
-        background-color: #999;
-    }
-    footer .copyright {
-        width: 50%;
-        float: left;
-    }
-    @media (max-width: 600px) {
-        footer .copyright {
-            width: 100%;
-        }
-    }
-    footer .copyright p {
-        padding-left: 10%;
-        color: white;
-        font-size: 0.7em;
-        line-height: 70px;
-        text-transform: capitalize;
-        letter-spacing: 1px;
-    }
-    @media (max-width: 600px) {
-        footer .copyright p {
-            text-align: center;
-            padding: 0;
-        }
-    }
-    footer .social {
-        width: 50%;
-        float: right;
-    }
-    @media (max-width: 600px) {
-        footer .social {
-            width: 100%;
-        }
-    }
-    footer .social a {
-        float: left;
-        line-height: 70px;
-        text-decoration: none;
-        color: white;
-        text-align: center;
-        font-weight: bold;
-        -moz-transition: all, 0.3s;
-        -o-transition: all, 0.3s;
-        -webkit-transition: all, 0.3s;
-        transition: all, 0.3s;
-    }
-    footer .social a:hover {
-        background-color: #222;
-        -moz-transition: all, 0.3s;
-        -o-transition: all, 0.3s;
-        -webkit-transition: all, 0.3s;
-        transition: all, 0.3s;
-    }
-
-    .linked {
-        background-color: #1E83AE;
-        font-size: 1.2em;
-        width: 20%;
-    }
-
-    .face {
-        background-color: #3D5B94;
-        font-size: 1.2em;
-        width: 20%;
-    }
-
-    .tweet {
-        background-color: #3DACDD;
-        font-size: 1.2em;
-        width: 20%;
-    }
-
-    .support {
-        background-color: #6dcd9a;
-        font-size: 0.8em;
-        width: 40%;
-    }
-    .alert {
-        padding: 20px;
-        background-color: #f44336;
-        color: white;
-    }
-
-    .closebtn {
-        margin-left: 15px;
-        color: white;
-        font-weight: bold;
-        float: right;
-        font-size: 22px;
-        line-height: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .closebtn:hover {
-        color: black;
-    }
-
-    .detail{
-
-        /*width: 800px;*/
-        border-radius: 5px;
-        background-color: #ffffff;
-
-        opacity: 0.8;
-        filter: alpha(opacity=60);
-        /* background-color: #2be3c5;*/
-
-        height: auto ;
-        -webkit-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
-        -moz-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
-        box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
-
-        margin-left: 80px
-
-    }
-    .detail li{
-        margin: 0;
-        font-weight: bold;
-        /*font-size: large;*/
-    }
-    .detail input{
-        font-size: 1rem;
-        color: red;
-
-    }
-    .form-text{
-        font-style: oblique;
-        font-weight: bold;
-
-    }
-    .detail button{
-        /* background-color: #ffd740;*/
-        float: right;
-        padding-right: 15px;
-    }
-</style>
 </head>
+<style>
+    .badge{
+        background-color: red;
+        margin-left: 30px;
+    }
+    .dropdown-menu>li>a{
+        color: blue;
+    }
+    .element {
+        display: inline-flex;
+        align-items: center;
+    }
+    i.fa-camera {
+        margin: 10px;
+        cursor: pointer;
+        font-size: 30px;
+    }
+    i:hover {
+        opacity: 0.6;
+    }
+    .aa {
+        display: none;
+    }
+
+    .pulse:hover,
+    .pulse:focus {
+         -webkit-animation: pulse 1s;
+        animation: pulse 1s;
+        box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+    }
+
+    @-webkit-keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 var(--hover);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 var(--hover);
+        }
+    }
+
+    .raise:hover,
+    .raise:focus {
+        box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+         -webkit-transform: translateY(-0.25em);
+        transform: translateY(-0.25em);
+    }
+
+
+    .pulse {
+        --color: #ef6eae;
+        --hover: #ef8f6e;
+    }
+
+    button {
+        color: var(--color);
+        transition: 0.25s;
+    }
+    button:hover, button:focus {
+        border-color: var(--hover);
+        color: #fff;
+    }
+
+    button {
+        background: none;
+        border: 2px solid;
+        font: inherit;
+        line-height: 1;
+        margin: 0.5em;
+        padding: 1em 2em;
+    }
+
+
+    .container {
+        margin: 80px auto;
+        width: 400px;
+        text-align: center;
+    }
+
+    .container > .dropdown {
+        margin: 0 20px;
+        vertical-align: top;
+    }
+
+    .dropdown2 {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        height: 28px;
+        width: 150px;
+        background: #f2f2f2;
+        border: 1px solid;
+        border-color: white #f7f7f7 whitesmoke;
+        border-radius: 3px;
+        background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+        background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+        background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+        background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    }
+
+    .dropdown2:before, .dropdown2:after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 9px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 4px dashed;
+        border-color: #888888 transparent;
+        pointer-events: none;
+    }
+
+    .dropdown2:before {
+        border-bottom-style: solid;
+        border-top: none;
+    }
+
+    .dropdown2:after {
+        margin-top: 7px;
+        border-top-style: solid;
+        border-bottom: none;
+    }
+
+    .dropdown-select {
+        position: relative;
+        width: 130%;
+        margin: 0;
+        padding: 6px 8px 6px 10px;
+        height: 28px;
+        line-height: 14px;
+        font-size: 12px;
+        color: #62717a;
+        text-shadow: 0 1px white;
+        background: #f2f2f2; /* Fallback for IE 8 */
+        background: rgba(0, 0, 0, 0) !important; /* "transparent" doesn't work with Opera */
+        border: 0;
+        border-radius: 0;
+        -webkit-appearance: none;
+    }
+
+    .dropdown-select:focus {
+        z-index: 3;
+        width: 100%;
+        color: #394349;
+        outline: 2px solid #49aff2;
+        outline: 2px solid -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+
+    .dropdown-select > option {
+        margin: 3px;
+        padding: 6px 8px;
+        text-shadow: none;
+        background: #f2f2f2;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    /* Fix for IE 8 putting the arrows behind the select element. */
+
+    .lt-ie9 .dropdown {
+        z-index: 1;
+    }
+
+    .lt-ie9 .dropdown-select {
+        z-index: -1;
+    }
+
+    .lt-ie9 .dropdown-select:focus {
+        z-index: 3;
+    }
+
+    /* Dirty fix for Firefox adding padding where it shouldn't. */
+
+    @-moz-document url-prefix() {
+        .dropdown-select {
+            padding-left: 6px;
+        }
+    }
+
+    .dropdown-dark {
+        background: #444;
+        border-color: #111111 #0a0a0a black;
+        background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+        background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+        background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+        background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+        -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-dark:before {
+        border-bottom-color: #aaa;
+    }
+
+    .dropdown-dark:after {
+        border-top-color: #aaa;
+    }
+
+    .dropdown-dark .dropdown-select {
+        color: #aaa;
+        text-shadow: 0 1px black;
+        background: #444;  /* Fallback for IE 8 */
+    }
+
+    .dropdown-dark .dropdown-select:focus {
+        color: #ccc;
+    }
+
+    .dropdown-dark .dropdown-select > option {
+        background: #444;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+    }
+
+</style>
 <body>
 <div class="page-logo">
     <a th:href="@{/}">
@@ -319,51 +382,73 @@
 
 <!--<div class="content">-->
 
-    <div style="background-color: #eff3f8; margin-top: -20px;width: 84%;margin-left: 280px;height: 100%;">
+    <div style="background-color: lightgrey; margin-top: -20px;width: 84%;margin-left: 280px;height: -webkit-fill-available;">
 
             <!--<img src="https://media.giphy.com/media/LQ7rWiHvys2bK/giphy.gif" alt="..." style="width: 100%;height: 200px;margin-top: -1240px;"/>-->
-
-        <h3 style="align-content: center;margin-top: -520px;"> <span class="label label-default">Users can Upload</span><span class="label label-primary">JPG</span>
+<hr>
+        <h3 style="text-align: center;padding-top: 20px"> <span class="label label-default">Users can Upload</span><span class="label label-primary">JPG</span>
             <span class="label label-primary">MP3</span>
-            <span class="label label-primary">MP4</span></h3>
-
-
-
+            <span class="label label-primary">MP4</span>
+        </h3>
+        <hr>
         <br><br><br><br><br><br>
 
-        <div class="zone"style="margin: 380px 0px 0px 300px;">
+        <div class="col-xs-12 col-md-12  col-sm-12  col-lg-12" style="position: relative;">
 
-            <div id="dropZ">
-                <i class="fa fa-cloud-upload"></i>
-                <img src="https://media.giphy.com/media/Weq8u4s3Ymsww/giphy.gif"style="width: 200px;height: 200px;opacity: 0.5;"/>
-                <form method="POST" enctype="multipart/form-data" action="/upload" style="margin-left: 450px;">
-                    <table>
-                        <tr><td>File to upload:</td><td><input type="file" name="file" class="btn btn-primary" /></td></tr>
-                        <tr><td></td></tr>
-                        <tr><td></td><td><input type="submit" value="Upload" class="btn btn-primary" /></td></tr>
+            <!--<div id="dropZ">-->
+                <!--<i class="fa fa-cloud-upload"></i>-->
+                <!--<img src="https://media.giphy.com/media/Weq8u4s3Ymsww/giphy.gif"style="width: 200px;height: 200px;opacity: 0.5;"/>-->
+                <form method="POST" enctype="multipart/form-data" action="/upload" id="fileUploadForm" style="text-align: center;margin-top: -900px;margin-bottom: 325px;">
+                    <table style="margin-left: 500px;">
+                        <!--<tr><td>File to upload:</td><td><input type="file" name="file" class="btn btn-primary" /></td></tr>-->
+                        <!--<tr><td></td></tr>-->
+                        <!--<tr><td></td><td><input type="submit" value="Upload" class="btn btn-primary" /></td></tr>-->
+
+                        <td><td><div class="element" style="margin-top: 400px;">
+                            <i class="fa fa-upload" style="cursor: pointer;font-size: 30px;"></i><span class="name">No file selected</span>
+                            <input type="file" name="file" id="file" class="aa" style="display: none;"/>
+                        </div></td></tr>
                     </table>
+                    <section>
+                    <div class="dropdown2 dropdown-dark">
+                        <select name="privacy" class="dropdown-select" required>
+                            <option value="">Privacy</option>
+                            <option value="public">Public</option>
+                            <option value="private">Private</option>
+                        </select>
+                    </div>
+                    </section>
+                    <hr>
+                    <div class="buttons">
+                        <button class="pulse" type="submit" id="btnSubmit">UPLOAD</button>
+                    </div>
+                    <hr>
+                    <script>
+                        $("i").click(function () {
+                            $("input[type='file']").trigger('click');
+                        });
+
+                        $('input[type="file"]').on('change', function() {
+                            var val = $(this).val();
+                            var a = val.split("\\");
+                            $(this).siblings('span').text(a[a.length-1]);
+                        })
+                    </script>
                 </form>
-            </div>
-            <div th:if="${message}">
-                <div class="alert">
+            <!--</div>-->
+            <div th:if="${message}" style="margin-top: -200px">
+                <div class="alert" >
                     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                     <strong>Success!</strong> <span th:text="${message}"></span>
                 </div>
             </div>
         </div>
-        <!--<div class="panel-group" style="margin-top:275px;margin-left: 30px;">-->
-        <!--<div class="panel panel-primary">-->
-        <!--<div class="panel-heading">-->
-        <!--<span th:utext="${userName}"></span>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
     </div>
 <!--</div>-->
 
 <!-- /.container -->
-<footer>
-    <div class="copyright">
+<footer style="margin-top: -36px;">
+    <div class="copyright" style="width: 20%;">
         <p>&copy 2013 - Organisation</p>
     </div>
     <div class="social">

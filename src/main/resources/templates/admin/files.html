@@ -10,11 +10,259 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            /*background: #eee;*/
+            /*font: 12px Lucida sans, Arial, Helvetica, sans-serif;*/
+            /*color: #333;*/
+            /*text-align: center;*/
+        }
+
+        a {
+            color: #2A679F;
+        }
+        /*========*/
+
+        .form-wrapper {
+            background-color: #f6f6f6;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eae8e8));
+            background-image: -webkit-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -moz-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -ms-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -o-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+            border-color: #dedede #bababa #aaa #bababa;
+            border-style: solid;
+            border-width: 1px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            -moz-box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            margin: 100px auto;
+            overflow: hidden;
+            padding: 8px;
+            width: 450px;
+        }
+
+        .form-wrapper #search {
+            border: 1px solid #CCC;
+            -webkit-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            -moz-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            color: #999;
+            float: left;
+            font: 16px Lucida Sans, Trebuchet MS, Tahoma, sans-serif;
+            /*height: 20px;*/
+            padding: 10px;
+            width: 320px;
+        }
+
+        .form-wrapper #search:focus {
+            border-color: #aaa;
+            -webkit-box-shadow: 0 1px 1px #bbb inset;
+            -moz-box-shadow: 0 1px 1px #bbb inset;
+            box-shadow: 0 1px 1px #bbb inset;
+            outline: 0;
+        }
+
+        .form-wrapper #search:-moz-placeholder,
+        .form-wrapper #search:-ms-input-placeholder,
+        .form-wrapper #search::-webkit-input-placeholder {
+            color: #999;
+            font-weight: normal;
+        }
+
+        .form-wrapper #submit {
+            background-color: #0483a0;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#31b2c3), to(#0483a0));
+            background-image: -webkit-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -moz-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -ms-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -o-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: linear-gradient(top, #31b2c3, #0483a0);
+            border: 1px solid #00748f;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            color: #fafafa;
+            cursor: pointer;
+            height: 42px;
+            float: right;
+            font: 15px Arial, Helvetica;
+            padding: 0;
+            text-transform: uppercase;
+            text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
+            width: 100px;
+        }
+
+        .form-wrapper #submit:hover,
+        .form-wrapper #submit:focus {
+            background-color: #31b2c3;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#0483a0), to(#31b2c3));
+            background-image: -webkit-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -moz-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -ms-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -o-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: linear-gradient(top, #0483a0, #31b2c3);
+        }
+
+        .form-wrapper #submit:active {
+            -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            outline: 0;
+        }
+
+        .form-wrapper #submit::-moz-focus-inner {
+            border: 0;
+        }
+        h1{
+            font-size: 30px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        table{
+            width:100%;
+            table-layout: fixed;
+        }
+        .tbl-header{
+            background-color: rgba(255,255,255,0.3);
+        }
+        .tbl-content{
+            height:300px;
+            overflow-x:auto;
+            margin-top: 0px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        th{
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 12px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        td{
+            padding: 15px;
+            text-align: left;
+            vertical-align:middle;
+            font-weight: 300;
+            font-size: 12px;
+            color: #2b3134;
+            border-bottom: solid 1px rgba(255,255,255,0.1);
+        }
+
+
+        /* demo styles */
+
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+        .content{
+            background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+            background: linear-gradient(to right, #25c481, #25b7c4);
+            font-family: 'Roboto', sans-serif;
+        }
+        section{
+            margin-left: 350px;
+        }
+
+
+        /* follow me template */
+        .made-with-love {
+            margin-top: 40px;
+            padding: 10px;
+            clear: left;
+            text-align: center;
+            font-size: 10px;
+            font-family: arial;
+            color: #fff;
+        }
+        .made-with-love i {
+            font-style: normal;
+            color: #F50057;
+            font-size: 14px;
+            position: relative;
+            top: 2px;
+        }
+        .made-with-love a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .made-with-love a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* for custom scrollbar for webkit browser*/
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        }
+        ::-webkit-scrollbar-thumb {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        }
+        .detail{
+
+            /*width: 800px;*/
+            border-radius: 5px;
+            background-color: #ffffff;
+
+            opacity: 0.8;
+            filter: alpha(opacity=60);
+            /* background-color: #2be3c5;*/
+
+            height: auto ;
+            -webkit-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+            -moz-box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+            box-shadow: -1px 4px 27px 12px rgba(0,0,0,0.75);
+
+            margin-left: 80px
+
+        }
+        .detail li{
+            margin: 0;
+            font-weight: bold;
+            /*font-size: large;*/
+            padding: 10px 0px 10px 0px;
+        }
+        .detail input{
+            font-size: 1rem;
+            color: red;
+
+        }
+        .form-text{
+            font-style: oblique;
+            font-weight: bold;
+
+        }
+        .detail button{
+            /* background-color: #ffd740;*/
+            float: right;
+            padding-right: 15px;
+        }
+    </style>
 </head>
 
-<body>
-
-<nav class="navbar navbar-default" style="background-color: darkgray">
+<body class="content">
+<div class="page-logo">
+    <a th:href="@{/}">
+        <img th:src="@{/images/careydevlogosm.png}" alt="logo" style="margin-top:5px"/>
+    </a>
+</div>
+<nav class="navbar navbar-inverse" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -41,6 +289,17 @@
                 </form>
                 <li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
                 <li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout" class="glyphicon glyphicon-off"></a></li>
+                <!--<li><a href="#">Link</a></li>-->
+                <!--<li class="dropdown">-->
+                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">Action</a></li>-->
+                <!--<li><a href="#">Another action</a></li>-->
+                <!--<li><a href="#">Something else here</a></li>-->
+                <!--<li role="separator" class="divider"></li>-->
+                <!--<li><a href="#">Separated link</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -52,7 +311,7 @@
         </div>
     </div>
 </div>
-<nav class="navbar navbar-default sidebar" role="navigation">
+<nav class="navbar navbar-inverse sidebar" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -67,143 +326,143 @@
                 <li><a href="#" class="navbar-brand">MyDrive</a></li>
                 <li><a href="/adminHome">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                 <li ><a href="/admin/users">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-                <li ><a href="#">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
-                    <!--</li><li ><a href="editAccount.php">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
+                <!--<li ><a href="/admin/files">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="/admin/filesOverview">Overview<span class="badge" th:text="${numberImage}"></span></a></li>
+                        <li><a href="/admin/files">Details<span class="badge" th:text="${numberAudio}"></span></a></li>
+                        <!--<li><a href="#">Uploaded Videos<span class="badge" th:text="${numberVideo}"></span></a></li>-->
+                    </ul>
+                </li>
+                <!--</li><li ><a href="editAccount.php">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
+<div class="content" style="margin-top: -20px;height: fit-content">
+    <section>
+        <!--for demo wrap-->
+        <h1 >USER INFORMATION</h1>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                <tr>
+                    <th>File ID</th>
+                    <th>User ID</th>
+                    <th>Original Name</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Type</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody th:each="file : ${files}">
+                <tr>
+                    <td th:text="${file[0]}"></td>
+                    <td th:text="${file[1]}"></td>
+                    <td th:text="${file[2]}"></td>
+                    <td th:text="${file[3]}"></td>
+                    <td th:text="${file[4]}"></td>
+                    <td th:text="${file[5]}"></td>
+                    <td> <a href="#" th:href="${file[6]}" class="glyphicon glyphicon-trash"  onclick="return confirm_click();">
 
+                    </a></td>
 
-<!--<div th:include="fragments/topmenuheader :: header"></div>-->
-<div class="page-container">
-    <div class="page-content-wrapper">
-        <div class="page-head" style="background-color:#eff3f8;padding-top:40px">
-            <div class="container">
-                <div class="row" style="margin-bottom:30px">
-                    <div class="col-md-6">
-                        <h1>Sales: May - July</h1>
-                    </div>
-                </div>
-                <div class="row" style="margin-bottom:30px">
-                    <div class="col-md-6" style="margin-top:20px">
-                        <div id="salesByType" style="width:100%; height:400px;"></div>
-                    </div>
-                    <div class="col-md-6" style="margin-top:20px">
-                        <div id="salesByRegion" style="width:100%; height:400px;"></div>
-                    </div>
-                </div>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <form class="form-wrapper" action="#" th:action="@{/admin/file/search}"
+              method="post">
+            <input type="number" id="search" name="search" placeholder="Search for..." required>
+            <input type="submit" value="go" id="submit">
+        </form>
+        <div th:if="${filesByUser}">
+            <h1 >USER INFORMATION</h1>
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                    <tr>
+                        <th>File ID</th>
+                        <th>User ID</th>
+                        <th>Original Name</th>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>Type</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody th:each="file : ${filesByUser}">
+                    <tr>
+                        <td th:text="${file[0]}"></td>
+                        <td th:text="${file[1]}"></td>
+                        <td th:text="${file[2]}"></td>
+                        <td th:text="${file[3]}"></td>
+                        <td th:text="${file[4]}"></td>
+                        <td th:text="${file[5]}"></td>
+                        <td> <a href="#" th:href="${file[6]}" class="glyphicon glyphicon-trash"  onclick="return confirm_click();">
+
+                        </a></td>
+
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+    </section>
+    <script type="text/javascript">
+        function confirm_click()
+        {
+            return confirm("Are you sure ?");
+        }
+
+    </script>
+    <div>
+        <!--<form class="form-wrapper" action="#" th:action="@{/admin/file/search}"-->
+               <!--method="post">-->
+            <!--<input type="text" id="search" name="search" placeholder="Search for..." required>-->
+            <!--<input type="submit" value="go" id="submit">-->
+        <!--</form>-->
+        <!--<div th:if="${dd}">-->
+            <!--<h1 >USER INFORMATION</h1>-->
+            <!--<div class="tbl-header">-->
+                <!--<table cellpadding="0" cellspacing="0" border="0">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th>File ID</th>-->
+                        <!--<th>User ID</th>-->
+                        <!--<th>Original Name</th>-->
+                        <!--<th>Name</th>-->
+                        <!--<th>Author</th>-->
+                        <!--<th>Type</th>-->
+                        <!--<th>Delete</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                <!--</table>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
+    <!-- follow me template -->
 </div>
-<!--<div th:include="fragments/homefooter :: footer"></div>-->
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    $(function () {
-        Highcharts.setOptions({
-            lang: {
-                decimalPoint: '.',
-                thousandsSep: ','
-            }
-        });
-        drawSalesByTypeChart();
-        drawSalesByRegionChart();
-    });
 
-
-    function drawSalesByRegionChart() {
-        var salesByRegionChart = Highcharts.chart('salesByRegion', {
-            chart: {
-                type: 'pie',
-                margin: 40,
-                options3d: {
-                    enabled: true,
-                    alpha: 45,
-                    beta: 0
-                }
-            },
-            title: {
-                text: 'Sales by Region'
-            },
-            tooltip: {
-                pointFormat: "${point.y:,.0f}"
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    depth: 35
-                }
-            },
-            series: [{
-                name: 'Regions',
-                colorByPoint:true,
-                data: [{
-                    name: 'Northeast',
-                    y: /*[[${northeastSales}]]*/ 0
-                },{
-                    name: 'South',
-                    y: /*[[${southSales}]]*/ 0
-                },{
-                    name: 'Midwest',
-                    y: /*[[${midwestSales}]]*/ 0
-                },{
-                    name: 'West',
-                    y: /*[[${westSales}]]*/ 0
-                }]
-            }]
-        });
-    }
-
-    function drawSalesByTypeChart() {
-        var salesByTypeChart = Highcharts.chart('salesByType', {
-            chart: {
-                type: 'column',
-                margin: 75,
-                options3d: {
-                    enabled: true,
-                    alpha: 15,
-                    beta: 15,
-                    depth: 110
-                }
-            },
-            title: {
-                text: 'Sales by Lure Type'
-            },
-            xAxis: {
-                categories: ['May', 'June', 'July']
-            },
-            yAxis: {
-                title: {
-                    text: 'Sales (US $)'
-                }
-            },
-            tooltip: {
-                pointFormat: "${point.y:,.0f}"
-            },
-            plotOptions: {
-                column: {
-                    depth: 60,
-                    stacking: true,
-                    grouping: false,
-                    groupZPadding: 10
-                }
-            },
-            series: [{
-                name: 'Inshore',
-                data: /*[[${inshoreSales}]]*/ []
-            }, {
-                name: 'Nearshore',
-                data: /*[[${nearshoreSales}]]*/ []
-            }, {
-                name: 'Offshore',
-                data: /*[[${offshoreSales}]]*/ []
-            }]
-        });
-    }
-    /*]]>*/
+<script>
+    // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+    $(window).on("load resize ", function() {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({'padding-right':scrollWidth});
+    }).resize();
 </script>
+
+
 </body>
 </html>

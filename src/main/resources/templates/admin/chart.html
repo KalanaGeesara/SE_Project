@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Test</title>
-        <meta content="This demo shows how to use HighCharts with Spring Boot" name="description" />
-        <object th:include="fragments/head :: head" th:remove="tag"></object>
+        <!--<meta content="This demo shows how to use HighCharts with Spring Boot" name="description" />-->
+        <object th:include="fragments/head :: head" ></object>
         
         <link th:href="@{/assets/pages/css/profile.min.css}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -215,7 +215,19 @@
                         <li><a href="#" class="navbar-brand">MyDrive</a></li>
                         <li><a href="/adminHome">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
                         <li ><a href="/admin/users">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-                        <li ><a href="/admin/files">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>
+                        <!--<li ><a href="/admin/files">Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
+                            <ul class="dropdown-menu forAnimate" role="menu">
+                                <li><a href="/admin/filesOverview">Overview<span class="badge" th:text="${numberImage}"></span></a></li>
+                                <li><a href="/admin/files">Details<span class="badge" th:text="${numberAudio}"></span></a></li>
+                                <!--<li><a href="#">Uploaded Videos<span class="badge" th:text="${numberVideo}"></span></a></li>-->
+                            </ul>
+                        </li>
+                        <script>
+                            $(document).ready(function() {
+                                $(".dropdown-toggle").dropdown();
+                            });
+                        </script>
                             <!--</li><li ><a href="editAccount.php">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a>-->
                         </li>
                     </ul>
@@ -283,10 +295,10 @@
                         }
                     },
                     title: {
-                        text: 'Sales by Region'
+                        text: 'Types of files'
                     },
                     tooltip: {
-                      	pointFormat: "${point.y:,.0f}"
+                      	pointFormat: "{point.y:,.0f}"
                     },
                     plotOptions: {
                     	pie: {
@@ -298,17 +310,14 @@
                         name: 'Regions',
                         colorByPoint:true,
                         data: [{
-                            name: 'Northeast',
+                            name: 'Jpg',
                             y: /*[[${northeastSales}]]*/ 0
                         },{
-                            name: 'South',
-                            y: /*[[${southSales}]]*/ 0
-                        },{
-                            name: 'Midwest',
-                            y: /*[[${midwestSales}]]*/ 0
-                        },{
-                            name: 'West',
+                            name: 'mp3',
                             y: /*[[${westSales}]]*/ 0
+                        },{
+                            name: 'mp4',
+                            y: /*[[${midwestSales}]]*/ 0
                         }]
                 	}]
                 });

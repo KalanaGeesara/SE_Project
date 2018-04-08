@@ -30,6 +30,8 @@ public interface FileRepository extends JpaRepository<File,Integer> {
     List<File> findByUserIdAndAndType(int a,String b);
 
     List<File> findBySpaceFreeFileName(String name);
+
+    List<File> findByType(String type);
 //    List<File> findByFileId(int id);
     @Transactional
     List<File> removeFileByFileName(String name);

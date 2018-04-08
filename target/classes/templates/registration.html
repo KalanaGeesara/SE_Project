@@ -5,136 +5,9 @@
 	<meta charset="UTF-8"/>
 	<title>MyTube Media Library</title>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/test.css}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style>
-
-		@import url(https://fonts.googleapis.com/css?family=Raleway);
-		/* Colors */
-		* {
-			margin: 0;
-			padding: 0;
-			-moz-box-sizing: border-box;
-			-webkit-box-sizing: border-box;
-			box-sizing: border-box;
-		}
-
-		html, body {
-			font-family: Raleway, sans-serif;
-			background-color: #fff;
-		}
-		.background{
-			background-image: url('../resources/static/images/beer.jpg');
-			/*background-color: #1E83AE;*/
-			height: 185px;
-		}
-		footer {
-			width: 100%;
-			display: inline-block;
-			/*margin: 2em 0;*/
-			height: 70px;
-			background-color: #999;
-		}
-		footer .copyright {
-			width: 50%;
-			float: left;
-		}
-		@media (max-width: 600px) {
-			footer .copyright {
-				width: 100%;
-			}
-		}
-		footer .copyright p {
-			padding-left: 10%;
-			color: white;
-			font-size: 0.7em;
-			line-height: 70px;
-			text-transform: capitalize;
-			letter-spacing: 1px;
-		}
-		@media (max-width: 600px) {
-			footer .copyright p {
-				text-align: center;
-				padding: 0;
-			}
-		}
-		footer .social {
-			width: 50%;
-			float: right;
-		}
-		@media (max-width: 600px) {
-			footer .social {
-				width: 100%;
-			}
-		}
-		footer .social a {
-			float: left;
-			line-height: 70px;
-			text-decoration: none;
-			color: white;
-			text-align: center;
-			font-weight: bold;
-			-moz-transition: all, 0.3s;
-			-o-transition: all, 0.3s;
-			-webkit-transition: all, 0.3s;
-			transition: all, 0.3s;
-		}
-		footer .social a:hover {
-			background-color: #222;
-			-moz-transition: all, 0.3s;
-			-o-transition: all, 0.3s;
-			-webkit-transition: all, 0.3s;
-			transition: all, 0.3s;
-		}
-
-		.linked {
-			background-color: #1E83AE;
-			font-size: 1.2em;
-			width: 20%;
-		}
-
-		.face {
-			background-color: #3D5B94;
-			font-size: 1.2em;
-			width: 20%;
-		}
-
-		.tweet {
-			background-color: #3DACDD;
-			font-size: 1.2em;
-			width: 20%;
-		}
-
-		.support {
-			background-color: #6dcd9a;
-			font-size: 0.8em;
-			width: 40%;
-		}
-		.alert {
-			padding: 20px;
-			background-color: aqua;
-			color: #222222;
-			margin-left: 40px;
-			width: 60%;
-		}
-
-		.closebtn {
-			margin-left: 15px;
-			color: white;
-			font-weight: bold;
-			float: right;
-			font-size: 22px;
-			line-height: 20px;
-			cursor: pointer;
-			transition: 0.3s;
-		}
-
-		.closebtn:hover {
-			color: black;
-		}
-	</style>
 
 </head>
 
@@ -145,7 +18,7 @@
 		<img th:src="@{/images/careydevlogosm.png}" alt="logo" style="margin-top:5px"/>
 	</a>
 </div>
-<nav class="navbar navbar-inverse" >
+<nav class="navbar navbar-inverse" style="margin-bottom: 0px;">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -177,14 +50,7 @@
 	</div><!-- /.container-fluid -->
 </nav>
 
-<!--<div th:if!="${message}">-->
-	<!--<form th:action="@{/}" method="get">-->
-		<!--<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>-->
-	<!--</form>-->
-	<!--<h2 th:text="${message}"/>-->
-<!--</div>-->
-
-<div style="background-image: url('../static/images/index2.jpg')">
+<div style="background-color: #f5f8fb;">
 	<div class="container" style="background: linear-gradient(to bottom right, lightgrey, lightyellow);">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
@@ -211,18 +77,18 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-9">
-							<input type="text" th:field="*{email}" placeholder="Email"
-								class="form-control" /> <label
-								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+							<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
 								class="validation-message"></label>
+							<input type="text" th:field="*{email}" placeholder="Email"
+								   class="form-control" />
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-9">
-							<input type="password" th:field="*{password}"
-								placeholder="Password" class="form-control" /> <label
-								th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+							 <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
 								class="validation-message"></label>
+							<input type="password" th:field="*{password}"
+								   placeholder="Password" class="form-control" />
 						</div>
 					</div>
 
