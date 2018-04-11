@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/test2.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/view.css}" />
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/uploadform.css}">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .badge{
+        background-color: red;
+        margin-left: 30px;
+    }
+    .dropdown-menu>li>a{
+        color: blue;
+    }
+    .element {
+        display: inline-flex;
+        align-items: center;
+    }
+    i.fa-camera {
+        margin: 10px;
+        cursor: pointer;
+        font-size: 30px;
+    }
+    i:hover {
+        opacity: 0.6;
+    }
+    .aa {
+        display: none;
+    }
+
+    .pulse:hover,
+    .pulse:focus {
+        -webkit-animation: pulse 1s;
+        animation: pulse 1s;
+        box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+    }
+
+    @-webkit-keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 var(--hover);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 var(--hover);
+        }
+    }
+
+    .raise:hover,
+    .raise:focus {
+        box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+        -webkit-transform: translateY(-0.25em);
+        transform: translateY(-0.25em);
+    }
+
+
+    .pulse {
+        --color: #ef6eae;
+        --hover: #ef8f6e;
+    }
+
+    button {
+        color: var(--color);
+        transition: 0.25s;
+    }
+    button:hover, button:focus {
+        border-color: var(--hover);
+        color: #fff;
+    }
+
+    button {
+        background: none;
+        border: 2px solid;
+        font: inherit;
+        line-height: 1;
+        margin: 0.5em;
+        padding: 1em 2em;
+    }
+
+
+    .container {
+        margin: 80px auto;
+        width: 400px;
+        text-align: center;
+    }
+
+    .container > .dropdown {
+        margin: 0 20px;
+        vertical-align: top;
+    }
+
+    .dropdown2 {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        height: 28px;
+        width: 150px;
+        background: #f2f2f2;
+        border: 1px solid;
+        border-color: white #f7f7f7 whitesmoke;
+        border-radius: 3px;
+        background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+        background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+        background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+        background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    }
+
+    .dropdown2:before, .dropdown2:after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 9px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 4px dashed;
+        border-color: #888888 transparent;
+        pointer-events: none;
+    }
+
+    .dropdown2:before {
+        border-bottom-style: solid;
+        border-top: none;
+    }
+
+    .dropdown2:after {
+        margin-top: 7px;
+        border-top-style: solid;
+        border-bottom: none;
+    }
+
+    .dropdown-select {
+        position: relative;
+        width: 130%;
+        margin: 0;
+        padding: 6px 8px 6px 10px;
+        height: 28px;
+        line-height: 14px;
+        font-size: 12px;
+        color: #62717a;
+        text-shadow: 0 1px white;
+        background: #f2f2f2; /* Fallback for IE 8 */
+        background: rgba(0, 0, 0, 0) !important; /* "transparent" doesn't work with Opera */
+        border: 0;
+        border-radius: 0;
+        -webkit-appearance: none;
+    }
+
+    .dropdown-select:focus {
+        z-index: 3;
+        width: 100%;
+        color: #394349;
+        outline: 2px solid #49aff2;
+        outline: 2px solid -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+
+    .dropdown-select > option {
+        margin: 3px;
+        padding: 6px 8px;
+        text-shadow: none;
+        background: #f2f2f2;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    /* Fix for IE 8 putting the arrows behind the select element. */
+
+    .lt-ie9 .dropdown {
+        z-index: 1;
+    }
+
+    .lt-ie9 .dropdown-select {
+        z-index: -1;
+    }
+
+    .lt-ie9 .dropdown-select:focus {
+        z-index: 3;
+    }
+
+    /* Dirty fix for Firefox adding padding where it shouldn't. */
+
+    @-moz-document url-prefix() {
+        .dropdown-select {
+            padding-left: 6px;
+        }
+    }
+
+    .dropdown-dark {
+        background: #444;
+        border-color: #111111 #0a0a0a black;
+        background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+        background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+        background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+        background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+        -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-dark:before {
+        border-bottom-color: #aaa;
+    }
+
+    .dropdown-dark:after {
+        border-top-color: #aaa;
+    }
+
+    .dropdown-dark .dropdown-select {
+        color: #aaa;
+        text-shadow: 0 1px black;
+        background: #444;  /* Fallback for IE 8 */
+    }
+
+    .dropdown-dark .dropdown-select:focus {
+        color: #ccc;
+    }
+
+    .dropdown-dark .dropdown-select > option {
+        background: #444;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+    }
+
+</style>
+<body>
+<div class="page-logo">
+    <a th:href="@{/}">
+        <img th:src="@{/images/careydevlogosm.png}" alt="logo" style="margin-top:5px"/>
+    </a>
+</div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">MyDrive</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <form th:action="@{/search}" action="#" method="post" class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" name="searchBox"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <li data-toggle="tooltip" data-placement="bottom" title="Profile Info"><a href="/profileInfo"class="glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></a></li>
+                <li  data-toggle="tooltip" data-placement="bottom" title="Logout"><a href="/logout"class="glyphicon glyphicon-off"></a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!--<div class="modal-header">-->
+            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+            <!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
+            <!--</div>-->
+            <!--<div class="modal-body ">-->
+
+            <!--<form >-->
+            <!--<li>-->
+            <!--<label for="first_name">First Name : </label>-->
+            <!--<input type="text"  placeholder="First Name" class="form-control" name="firstname" id="first_name"/>-->
+            <!--&lt;!&ndash;<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>&ndash;&gt;-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<label for="last_name"> Last Name : </label>-->
+            <!--<input type="text"  placeholder="Last Name" class="form-control" name="lastname" id="last_name"/>-->
+            <!--&lt;!&ndash;<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>&ndash;&gt;-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<label for="email"> Email : </label>-->
+            <!--<input type="text"  placeholder="Email" class="form-control" name="email" id="email"/>-->
+            <!--&lt;!&ndash;<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>&ndash;&gt;-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<label for="file_number"> Number of Files Uploaded : </label>-->
+            <!--<input type="text"  placeholder="No: of files Uploaded" class="form-control" name="filenumber" id="file_number"/>-->
+            <!--&lt;!&ndash;<input type ="text" id="meter_id" name="meter_id" readonly required ><br/>&ndash;&gt;-->
+            <!--</li>-->
+            <!--</form>-->
+
+
+
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-inverse sidebar" role="navigation" style="height: 100%;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#" class="navbar-brand">MyDrive</span></a></li>
+                <li><a href="/home.html">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Uploaded Files <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
+                    <ul class="dropdown-menu forAnimate" role="menu">
+                        <li><a href="/imageView">Uploaded Images<span class="badge"th:text="${numberImage}"></span></a></li>
+                        <li><a href="/audioView">Uploaded Audios<span class="badge"th:text="${numberAudio}"></span></a></li>
+                        <li><a href="#">Uploaded Videos<span class="badge"th:text="${numberVideo}"></span></a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="#">Upload Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                <li ><a href="/viewMetadata.html">Metadata if Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                </li><li ><a href="/editProfile">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                <li ><a href="/folderManagement">Folder Management<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<ol class="breadcrumb"style="margin-top: -20px;">
+    <li ><a href="/home" >Home </a><span class="glyphicon glyphicon-home"></span></li>
+    <li class="active">Folder Management </li><span class="glyphicon glyphicon-upload"></span>
+    <!--<li class="active">Data</li>-->
+</ol>
+
+<form method="POST" enctype="multipart/form-data" action="/aa" style="margin-left: 450px;">
+    <!--<select name="abc">-->
+    <!--<option th:each="type : ${allTypes}"-->
+    <!--th:value="${type}"-->
+    <!--th:text="${type}"></option>-->
+    <!--</select>-->
+
+    <input name="folderName"/>
+    <input type="submit" value="Upload" class="btn btn-primary" />
+
+</form>
+<div th:if="${message}">
+    <span th:text="${message}"></span>
+</div>
+<div class="row">
+    <div  th:each="folder : ${folders}">
+        <div class="col-xs-2 col-md-2  col-sm-2  col-lg-2" style="margin: 20px 20px 20px 20px;width: min-content;">
+            <a th:href="${folder[0]}" class="fa fa-folder" style="font-size: 150px;"></a>
+            <a th:href="${folder[0]}"  th:text="${folder[1]}"></a>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

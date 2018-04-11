@@ -132,7 +132,7 @@ public class FileServiceImpl implements FileService {
             List<File> files = findFileBySpaceFreename(part[1].replaceAll("\\s+",""));
             System.out.println(files);
             String filePart = "files/"+part[1];
-            String editPart = "edit/"+part[1];
+            String editPart = "edit/"+part[1]+"/view";
             String infoPart = "info/"+part[1].replaceAll("\\s+","");
             String deletePart = "delete/"+part[1];
             aObject.get(j).add(filePart);

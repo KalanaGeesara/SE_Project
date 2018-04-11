@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.model.User;
 import com.example.service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -175,20 +176,5 @@ public class LoginController {
 		return modelAndView;
 	}
 
-@GetMapping("test")
-	public ModelAndView test(){
-		ModelAndView modelAndView = new ModelAndView();
-		User user = userService.getCurrentUser();
-		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-		modelAndView.setViewName("test");
-		return modelAndView;
-}
-@RequestMapping(value = "/aa",method = RequestMethod.POST)
-	public ModelAndView test(@RequestParam String country){
-		ModelAndView modelAndView = new ModelAndView();
-		System.out.println(country);
-		modelAndView.setViewName("test");
-		return modelAndView;
-}
 
 }

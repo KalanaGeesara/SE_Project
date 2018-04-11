@@ -5,75 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="287645fc-68a6-4c9c-865f-043ada86babd" name="Default" comment="second">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/AdminService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/AdminServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/css/admin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/css/view.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/FolderController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Folder.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/Folderinfo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/FolderRepository.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/FolderinfoRepository.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/FolderService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/FolderServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/FolderinfoService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/FolderinfoServiceImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/folder.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/folderManagement.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app.log" afterPath="$PROJECT_DIR$/app.log" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/AdminController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/FileUploadController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/FileUploadController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/LoginController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/SolrController.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/SolrController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/model/File.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/model/File.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/repository/FileRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/repository/FileRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/FileService.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/FileService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/FileServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/FileServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/StorageService.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/StorageService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/storage/FileSystemStorageService.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/storage/FileSystemStorageService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/home.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/home.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/login.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/login.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/registration.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/registration.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/test.css" afterPath="$PROJECT_DIR$/src/main/resources/static/css/test.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/chart.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/chart.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/files.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/files.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/audioView.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/audioView.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/displayMetadata.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/displayMetadata.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editFile.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/editFile.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editProfile.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/editProfile.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fileInfo.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/fileInfo.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/imageView.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/imageView.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registration.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/registration.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/searchResult.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/searchResult.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/test.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/test2.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/test2.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/uploadForm.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/uploadForm.html" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewMetadata.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewMetadata.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/controller/AdminController.class" afterPath="$PROJECT_DIR$/target/classes/com/example/controller/AdminController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/controller/FileUploadController.class" afterPath="$PROJECT_DIR$/target/classes/com/example/controller/FileUploadController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/controller/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/com/example/controller/LoginController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/controller/SolrController.class" afterPath="$PROJECT_DIR$/target/classes/com/example/controller/SolrController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/model/File.class" afterPath="$PROJECT_DIR$/target/classes/com/example/model/File.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/repository/FileRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/example/repository/FileRepository.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/service/FileService.class" afterPath="$PROJECT_DIR$/target/classes/com/example/service/FileService.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/service/FileServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/example/service/FileServiceImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/service/StorageService.class" afterPath="$PROJECT_DIR$/target/classes/com/example/service/StorageService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/storage/FileSystemStorageService.class" afterPath="$PROJECT_DIR$/target/classes/com/example/storage/FileSystemStorageService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/home.css" afterPath="$PROJECT_DIR$/target/classes/static/css/home.css" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/login.css" afterPath="$PROJECT_DIR$/target/classes/static/css/login.css" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/registration.css" afterPath="$PROJECT_DIR$/target/classes/static/css/registration.css" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/test.css" afterPath="$PROJECT_DIR$/target/classes/static/css/test.css" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/chart.html" afterPath="$PROJECT_DIR$/target/classes/templates/admin/chart.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/files.html" afterPath="$PROJECT_DIR$/target/classes/templates/admin/files.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/admin/users.html" afterPath="$PROJECT_DIR$/target/classes/templates/admin/users.html" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/audioView.html" afterPath="$PROJECT_DIR$/target/classes/templates/audioView.html" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/displayMetadata.html" afterPath="$PROJECT_DIR$/target/classes/templates/displayMetadata.html" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/editFile.html" afterPath="$PROJECT_DIR$/target/classes/templates/editFile.html" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/editProfile.html" afterPath="$PROJECT_DIR$/target/classes/templates/editProfile.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/fileInfo.html" afterPath="$PROJECT_DIR$/target/classes/templates/fileInfo.html" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" afterPath="$PROJECT_DIR$/target/classes/templates/home.html" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/imageView.html" afterPath="$PROJECT_DIR$/target/classes/templates/imageView.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/registration.html" afterPath="$PROJECT_DIR$/target/classes/templates/registration.html" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/searchResult.html" afterPath="$PROJECT_DIR$/target/classes/templates/searchResult.html" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/test.html" afterPath="$PROJECT_DIR$/target/classes/templates/test.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/test2.html" afterPath="$PROJECT_DIR$/target/classes/templates/test2.html" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/uploadForm.html" afterPath="$PROJECT_DIR$/target/classes/templates/uploadForm.html" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/viewMetadata.html" afterPath="$PROJECT_DIR$/target/classes/templates/viewMetadata.html" />
-      <change beforePath="$PROJECT_DIR$/upload-dir/3headlineimage.jpg" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -103,24 +75,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="searchResult.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/searchResult.html">
+      <file leaf-file-name="FolderController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/FolderController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="1323">
+              <caret line="76" column="108" lean-forward="false" selection-start-line="76" selection-start-column="108" selection-end-line="76" selection-end-column="108" />
               <folding />
             </state>
           </provider>
@@ -129,8 +88,28 @@
       <file leaf-file-name="imageView.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/imageView.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+            <state relative-caret-position="3318">
+              <caret line="158" column="25" lean-forward="false" selection-start-line="152" selection-start-column="16" selection-end-line="158" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FileServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2142">
+              <caret line="134" column="52" lean-forward="false" selection-start-line="134" selection-start-column="52" selection-end-line="134" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewMetadata.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/viewMetadata.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1869">
+              <caret line="89" column="178" lean-forward="false" selection-start-line="89" selection-start-column="178" selection-end-line="89" selection-end-column="178" />
               <folding />
             </state>
           </provider>
@@ -139,47 +118,12 @@
       <file leaf-file-name="uploadForm.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/uploadForm.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            <state relative-caret-position="591">
+              <caret line="460" column="9" lean-forward="false" selection-start-line="460" selection-start-column="9" selection-end-line="460" selection-end-column="9" />
               <folding>
-                <element signature="n#style#0;n#h3#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#form#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#form#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#17384#17391#1" expanded="true" />
+                <element signature="e#17563#17570#1" expanded="true" />
                 <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1523185583239" expanded="true" signature="15181:15222" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewMetadata.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/viewMetadata.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="108" column="9" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="108" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="audioView.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/audioView.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="9" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="17" selection-end-column="9" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -187,28 +131,66 @@
       <file leaf-file-name="displayMetadata.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/displayMetadata.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+            <state relative-caret-position="3528">
+              <caret line="168" column="36" lean-forward="false" selection-start-line="168" selection-start-column="36" selection-end-line="168" selection-end-column="36" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FolderinfoService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FolderinfoService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editFile.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/editFile.html">
+      <file leaf-file-name="FileUploadController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/FileUploadController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="-1269">
+              <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+              <folding>
+                <marker date="1523379208043" expanded="true" signature="13524:14531" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editProfile.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/editProfile.html">
+      <file leaf-file-name="folder.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/folder.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="12642">
+              <caret line="602" column="91" lean-forward="false" selection-start-line="602" selection-start-column="91" selection-end-line="602" selection-end-column="91" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#li#6;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ol#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#section#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#section#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FolderinfoServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FolderinfoServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1155">
+              <caret line="63" column="82" lean-forward="false" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -220,9 +202,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Class" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -352,17 +334,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/example/RandomPortWebTestClientExampleTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/service/SolrService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/service/SolrServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/repository/ProductRepository.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/example/repository/SolrTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/controller/MetadataController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/example/controllers/loginControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/fragments/homefooter.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/chart.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/repository/RoleRepository.java" />
@@ -377,7 +348,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/registration.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/home.css" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/fileInfo.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/test2.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/service/AdminService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/service/AdminServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/repository/FileRepository.java" />
@@ -386,23 +356,35 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/admin/files.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/admin.css" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/test.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/model/File.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/controller/SolrController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/controller/FileUploadController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/service/FileService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/service/FileServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/view.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/audioView.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/displayMetadata.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/editFile.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/editProfile.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/model/Folder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/service/FolderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/repository/FolderRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/service/FolderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/test.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/test2.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/home.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/imageView.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/audioView.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/editProfile.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/searchResult.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/uploadForm.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/viewMetadata.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/imageView.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/model/Folderinfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/service/FileServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/folderManagement.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/editFile.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/controller/FileUploadController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/repository/FolderinfoRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/service/FolderinfoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/service/FolderinfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/controller/FolderController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/folder.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/displayMetadata.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/uploadForm.html" />
       </list>
     </option>
   </component>
@@ -449,7 +431,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -642,9 +626,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1034,7 +1016,10 @@
       <workItem from="1523078341176" duration="10971000" />
       <workItem from="1523117717386" duration="3317000" />
       <workItem from="1523162886508" duration="12847000" />
-      <workItem from="1523181014888" duration="2029000" />
+      <workItem from="1523181014888" duration="14257000" />
+      <workItem from="1523268681864" duration="10363000" />
+      <workItem from="1523360581425" duration="16169000" />
+      <workItem from="1523435512300" duration="404000" />
     </task>
     <task id="LOCAL-00001" summary="second">
       <created>1520782930257</created>
@@ -1079,7 +1064,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="603887000" />
+    <option name="totallyTimeSpent" value="643051000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
@@ -1102,10 +1087,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38198403" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38198403" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23630504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24650913" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1141,11 +1126,11 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24743444" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38198403" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22341569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24274974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1172,268 +1157,57 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fragments/topmenuheader.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="470">
+          <caret line="108" column="9" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="108" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/home.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/model/SolrSearch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
+        <state relative-caret-position="572">
           <caret line="47" column="16" lean-forward="false" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/model/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/repository/RoleRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="45" lean-forward="false" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fragments/homefooter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/StorageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/4.3.4.RELEASE/spring-core-4.3.4.RELEASE.jar!/org/springframework/util/FileSystemUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/nio/file/Paths.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="82" column="23" lean-forward="false" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/storage/FileSystemStorageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2121">
-          <caret line="121" column="64" lean-forward="false" selection-start-line="121" selection-start-column="64" selection-end-line="121" selection-end-column="64" />
-          <folding>
-            <element signature="e#4054#4055#0" expanded="false" />
-            <element signature="e#4126#4127#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/registration.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="178" column="26" lean-forward="false" selection-start-line="178" selection-start-column="26" selection-end-line="178" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/test2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/test.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="131" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1606">
-          <caret line="85" column="1" lean-forward="true" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fileInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="37" column="6" lean-forward="false" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/registration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="50" column="6" lean-forward="false" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/uploadform.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="55" column="12" lean-forward="false" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/test2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="111" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="62" column="48" lean-forward="false" selection-start-line="62" selection-start-column="48" selection-end-line="62" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/AdminServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="65" column="53" lean-forward="false" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/AdminService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="84">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/users.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3234">
-          <caret line="154" column="27" lean-forward="false" selection-start-line="154" selection-start-column="27" selection-end-line="154" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.log.1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-211486">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/home.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="156" column="0" lean-forward="false" selection-start-line="155" selection-start-column="4" selection-end-line="156" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/files.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="161" column="12" lean-forward="false" selection-start-line="161" selection-start-column="12" selection-end-line="161" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/chart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="11" column="109" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="121" column="41" lean-forward="false" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="695">
-          <caret line="190" column="28" lean-forward="false" selection-start-line="190" selection-start-column="28" selection-end-line="190" selection-end-column="28" />
-          <folding>
-            <marker date="1523169236991" expanded="true" signature="1848:1977" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="239" column="33" lean-forward="false" selection-start-line="233" selection-start-column="24" selection-end-line="239" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/model/File.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1701">
-          <caret line="121" column="32" lean-forward="false" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
-          <folding>
-            <element signature="e#1308#1309#0" expanded="false" />
-            <element signature="e#1348#1349#0" expanded="false" />
-            <element signature="e#2381#2382#0" expanded="false" />
-            <element signature="e#2427#2428#0" expanded="false" />
-            <element signature="e#2465#2466#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="298">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/repository/FileRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/Metadata.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+        <state relative-caret-position="84">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/MetadataImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1446,136 +1220,382 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/SolrController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/SolrServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="903">
-          <caret line="66" column="13" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="66" selection-end-column="13" />
+        <state relative-caret-position="84">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/FileUploadController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/AdminServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4557">
-          <caret line="253" column="77" lean-forward="false" selection-start-line="253" selection-start-column="77" selection-end-line="253" selection-end-column="77" />
+        <state relative-caret-position="470">
+          <caret line="65" column="53" lean-forward="false" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="62" column="48" lean-forward="false" selection-start-line="62" selection-start-column="48" selection-end-line="62" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/1.4.2.RELEASE/spring-boot-autoconfigure-1.4.2.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="370" column="44" lean-forward="false" selection-start-line="370" selection-start-column="44" selection-end-line="370" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/configuration/SecurityConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/configuration/CustomSolrConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/repository/RoleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/DemoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/repository/ProductRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/MetadataController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
-            <marker date="1523178169190" expanded="true" signature="12890:13897" ph="..." />
+            <marker date="1523205287430" expanded="true" signature="1876:2005" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FileService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="25" column="106" lean-forward="false" selection-start-line="25" selection-start-column="106" selection-end-line="25" selection-end-column="106" />
+        <state relative-caret-position="21">
+          <caret line="100" column="53" lean-forward="false" selection-start-line="98" selection-start-column="8" selection-end-line="100" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FileServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3402">
-          <caret line="194" column="31" lean-forward="false" selection-start-line="194" selection-start-column="31" selection-end-line="194" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/view.css">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/test2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="266">
+          <caret line="150" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="162" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="104" column="182" lean-forward="true" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="182" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/audioView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="17" selection-end-column="9" />
+        <state relative-caret-position="777">
+          <caret line="53" column="178" lean-forward="false" selection-start-line="53" selection-start-column="178" selection-end-line="53" selection-end-column="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7770">
+          <caret line="370" column="14" lean-forward="false" selection-start-line="336" selection-start-column="0" selection-end-line="370" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/editProfile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="90" column="178" lean-forward="false" selection-start-line="90" selection-start-column="178" selection-end-line="90" selection-end-column="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/profileInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/searchResult.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="91" column="182" lean-forward="false" selection-start-line="91" selection-start-column="182" selection-end-line="91" selection-end-column="182" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/model/Folder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="11" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/displayMetadata.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/model/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2518#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/model/Folderinfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding>
+            <element signature="e#548#549#0" expanded="false" />
+            <element signature="e#601#602#0" expanded="false" />
+            <element signature="e#649#650#0" expanded="false" />
+            <element signature="e#679#680#0" expanded="false" />
+            <element signature="e#708#709#0" expanded="false" />
+            <element signature="e#749#750#0" expanded="false" />
+            <element signature="e#785#786#0" expanded="false" />
+            <element signature="e#815#816#0" expanded="false" />
+            <element signature="e#844#845#0" expanded="false" />
+            <element signature="e#885#886#0" expanded="false" />
+            <element signature="e#921#922#0" expanded="false" />
+            <element signature="e#958#959#0" expanded="false" />
+            <element signature="e#991#992#0" expanded="false" />
+            <element signature="e#1043#1044#0" expanded="false" />
+            <element signature="e#1087#1088#0" expanded="false" />
+            <element signature="e#1122#1123#0" expanded="false" />
+            <element signature="e#1153#1154#0" expanded="false" />
+            <element signature="e#1201#1202#0" expanded="false" />
+            <element signature="e#1241#1242#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/repository/FolderRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FolderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="32" column="73" lean-forward="false" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FolderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.4.RELEASE/spring-web-4.3.4.RELEASE.jar!/org/springframework/web/bind/annotation/PathVariable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/folderManagement.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="345" column="40" lean-forward="false" selection-start-line="345" selection-start-column="40" selection-end-line="345" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/editFile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        <state relative-caret-position="443">
+          <caret line="247" column="60" lean-forward="false" selection-start-line="247" selection-start-column="60" selection-end-line="247" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/repository/FileRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/editProfile.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/repository/FolderinfoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        <state relative-caret-position="210">
+          <caret line="15" column="51" lean-forward="false" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FileService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        <state relative-caret-position="315">
+          <caret line="23" column="80" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FolderinfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FileServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="134" column="52" lean-forward="false" selection-start-line="134" selection-start-column="52" selection-end-line="134" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/service/FolderinfoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="63" column="82" lean-forward="false" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/FolderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1323">
+          <caret line="76" column="108" lean-forward="false" selection-start-line="76" selection-start-column="108" selection-end-line="76" selection-end-column="108" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/imageView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        <state relative-caret-position="3318">
+          <caret line="158" column="25" lean-forward="false" selection-start-line="152" selection-start-column="16" selection-end-line="158" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/folder.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="108" column="9" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="108" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/searchResult.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        <state relative-caret-position="12642">
+          <caret line="602" column="91" lean-forward="false" selection-start-line="602" selection-start-column="91" selection-end-line="602" selection-end-column="91" />
           <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#li#6;n#ul#0;n#div#1;n#div#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ol#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#section#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#section#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/uploadForm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="n#style#0;n#h3#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#form#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#17384#17391#1" expanded="true" />
-            <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1523185583239" expanded="true" signature="15181:15222" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/viewMetadata.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        <state relative-caret-position="1869">
+          <caret line="89" column="178" lean-forward="false" selection-start-line="89" selection-start-column="178" selection-end-line="89" selection-end-column="178" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/displayMetadata.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3528">
+          <caret line="168" column="36" lean-forward="false" selection-start-line="168" selection-start-column="36" selection-end-line="168" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/uploadForm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="460" column="9" lean-forward="false" selection-start-line="460" selection-start-column="9" selection-end-line="460" selection-end-column="9" />
+          <folding>
+            <element signature="e#17563#17570#1" expanded="true" />
+            <element signature="n#style#0;n#footer#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/controller/FileUploadController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1269">
+          <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+          <folding>
+            <marker date="1523379208043" expanded="true" signature="13524:14531" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

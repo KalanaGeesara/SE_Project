@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,42 +8,156 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <style>
-        .element {
-            display: inline-flex;
-            align-items: center;
+        .container > .dropdown {
+            margin: 0 20px;
+            vertical-align: top;
         }
-        i.fa-camera {
-            margin: 10px;
+
+        .dropdown2 {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            height: 28px;
+            width: 150px;
+            background: #f2f2f2;
+            border: 1px solid;
+            border-color: white #f7f7f7 whitesmoke;
+            border-radius: 3px;
+            background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+            background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+            background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+            background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+        }
+
+        .dropdown2:before, .dropdown2:after {
+            content: '';
+            position: absolute;
+            z-index: 2;
+            top: 9px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 4px dashed;
+            border-color: #888888 transparent;
+            pointer-events: none;
+        }
+
+        .dropdown2:before {
+            border-bottom-style: solid;
+            border-top: none;
+        }
+
+        .dropdown2:after {
+            margin-top: 7px;
+            border-top-style: solid;
+            border-bottom: none;
+        }
+
+        .dropdown-select {
+            position: relative;
+            width: 130%;
+            margin: 0;
+            padding: 6px 8px 6px 10px;
+            height: 28px;
+            line-height: 14px;
+            font-size: 12px;
+            color: #62717a;
+            text-shadow: 0 1px white;
+            background: #f2f2f2; /* Fallback for IE 8 */
+            background: rgba(0, 0, 0, 0) !important; /* "transparent" doesn't work with Opera */
+            border: 0;
+            border-radius: 0;
+            -webkit-appearance: none;
+        }
+
+        .dropdown-select:focus {
+            z-index: 3;
+            width: 100%;
+            color: #394349;
+            outline: 2px solid #49aff2;
+            outline: 2px solid -webkit-focus-ring-color;
+            outline-offset: -2px;
+        }
+
+        .dropdown-select > option {
+            margin: 3px;
+            padding: 6px 8px;
+            text-shadow: none;
+            background: #f2f2f2;
+            border-radius: 3px;
             cursor: pointer;
-            font-size: 30px;
         }
-        i:hover {
-            opacity: 0.6;
+
+        /* Fix for IE 8 putting the arrows behind the select element. */
+
+        .lt-ie9 .dropdown {
+            z-index: 1;
         }
-        .aa {
-            display: none;
+
+        .lt-ie9 .dropdown-select {
+            z-index: -1;
+        }
+
+        .lt-ie9 .dropdown-select:focus {
+            z-index: 3;
+        }
+
+        /* Dirty fix for Firefox adding padding where it shouldn't. */
+
+        @-moz-document url-prefix() {
+            .dropdown-select {
+                padding-left: 6px;
+            }
+        }
+
+        .dropdown-dark {
+            background: #444;
+            border-color: #111111 #0a0a0a black;
+            background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+            background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+            background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+            background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+            -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-dark:before {
+            border-bottom-color: #aaa;
+        }
+
+        .dropdown-dark:after {
+            border-top-color: #aaa;
+        }
+
+        .dropdown-dark .dropdown-select {
+            color: #aaa;
+            text-shadow: 0 1px black;
+            background: #444;  /* Fallback for IE 8 */
+        }
+
+        .dropdown-dark .dropdown-select:focus {
+            color: #ccc;
+        }
+
+        .dropdown-dark .dropdown-select > option {
+            background: #444;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
 <body>
 
-<form method="POST" enctype="multipart/form-data" action="/upload" style="margin-left: 450px;">
-    <div class="element">
-        <i class="fa fa-camera"></i><span class="name">No file selected</span>
-        <input type="file" name="file" id="file" class="aa">
+<section>
+    <div class="dropdown2 dropdown-dark">
+        <select name="privacy" class="dropdown-select" required style="overflow: auto;">
+            <option value="">Select File</option>
+            <option th:each="file : ${Files}"
+            th:value="${file}"
+            th:text="${file}"></option>
+        </select>
     </div>
-    <input type="submit" value="Upload" class="btn btn-primary" />
-</form>
-<script>
-    $("i").click(function () {
-        $("input[type='file']").trigger('click');
-    });
-
-    $('input[type="file"]').on('change', function() {
-        var val = $(this).val();
-        var a = val.split("\\");
-        $(this).siblings('span').text(a[a.length-1]);
-    })
-</script>
+</section>
 </body>
 </html>

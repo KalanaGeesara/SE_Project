@@ -123,11 +123,12 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @RequestMapping(value = {"/edit/{filename:.+}"} , method = RequestMethod.GET)
-    public ModelAndView editFile(@PathVariable String filename){
+    @RequestMapping(value = {"/edit/{filename:.+}/{location}"} , method = RequestMethod.GET)
+    public ModelAndView editFile(@PathVariable String filename,@PathVariable String location){
 
         ModelAndView modelAndView = new ModelAndView();
-
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+System.out.println(location);
         List<File> file = fileService.fildFileByfile_name_metadata(filename);
         int user_id = file.get(0).getUserId();
         User currentUser = userService.getCurrentUser();
@@ -137,17 +138,28 @@ public ResponseEntity<?> oneRawImage(@PathVariable String filename){
             String currentFileName = file.get(0).getName();
             String keywords = file.get(0).getKeywords();
             String fileType = file.get(0).getType();
-            if(fileType.equals(".jpg")){
-                modelAndView.addObject("fileType","images");
-                modelAndView.addObject("fileTypeLink","/imageView");
+            if(location.equals("view")){
+                if(fileType.equals(".jpg")){
+                    modelAndView.addObject("fileType","images");
+                    modelAndView.addObject("fileTypeLink","/imageView");
+                }
+                else if(fileType.equals(".mp3")){
+                    modelAndView.addObject("fileType","audio");
+                    modelAndView.addObject("fileTypeLink","/audioView");
+                }
+                else if(fileType.equals(".mp4")){
+                    modelAndView.addObject("fileType","video");
+                    modelAndView.addObject("fileTypeLink","/videoView");
+                }
+                modelAndView.addObject("view","set");
             }
-            else if(fileType.equals(".mp3")){
-                modelAndView.addObject("fileType","audio");
-                modelAndView.addObject("fileTypeLink","/audioView");
-            }
-            else if(fileType.equals(".mp4")){
-                modelAndView.addObject("fileType","video");
-                modelAndView.addObject("fileTypeLink","/videoView");
+            else {
+                String folderName = location;
+                String folderLink = "/folder/"+location;
+                modelAndView.addObject("folderName",folderName);
+                modelAndView.addObject("folderLink",folderLink);
+                modelAndView.addObject("folder","set");
+
             }
             modelAndView.addObject("file",new File());
             modelAndView.addObject("filename",originalFileName);

@@ -88,6 +88,7 @@
                 <li ><a href="uploadForm">Upload Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
                 <li ><a href="viewMetadata.html">Metadata of Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
                 <li class="active"><a href="/editProfile">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                <li ><a href="/folderManagement">Folder Management<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
             </ul>
         </div>
     </div>
@@ -106,6 +107,7 @@
                     th:object="${user}" method="post" class="form-horizontal"
                     role="form" style="opacity: 0.9;">
                     <h2>Edit Profile</h2>
+                    <hr style="width: 128%;background-color: violet;">
                         <div class="form-group">
                             <div class="col-sm-9">
                                 <!--<label	th:if="${#fields.hasErrors('email')}" th:errors="*{email}"-->

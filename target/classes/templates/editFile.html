@@ -231,19 +231,29 @@
                     <li ><a href="/uploadForm">Upload Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
                     <li ><a href="/viewMetadata">Metadata of Files<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
                     <li ><a href="/editProfile">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                    <li ><a href="/folderManagement">Folder Management<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <ol class="breadcrumb"style="margin-top: -20px;">
+    <ol th:if="${view}" class="breadcrumb"style="margin-top: -20px;">
         <li ><a href="/home">Home</a></li>
         <li><a th:href="${fileTypeLink}" th:text="${fileType}"></a></li>
         <li class="active" th:text="${filename}"></li>
         <!--<li class="active">Data</li>-->
     </ol>
+    <ol th:if="${folder}" class="breadcrumb"style="margin-top: -20px;">
+        <li ><a href="/home">Home</a></li>
+        <li ><a href="/folderManagement">Folder Management</a></li>
+        <li><a th:href="${folderLink}" th:text="${folderName}"></a></li>
+        <li class="active" th:text="${filename}"></li>
+        <!--<li class="active">Data</li>-->
+    </ol>
     <div class="container" style="background: linear-gradient(to bottom right, lightgrey, lightyellow);width: 100%;margin-top: -20px;">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3"style="width: 800px;margin-left: -10px;">
+            <h1>Edit Metadata of a File</h1>
+            <hr>
+            <div class="col-xs-12 col-md-12 col-ms-12 col-lg-12 "style="width: 800px;margin-left: -10px;">
         <div class="detail"style="margin: 50px 50px 50px 50px;">
 
             <form autocomplete="off" action="#" th:action="@{/saveEditFileChanges}"
